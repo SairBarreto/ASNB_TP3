@@ -3,7 +3,7 @@
 
 #include <iostream>
 using namespace std;
-#include "Lista.h"
+//#include "Lista.h"
 #include "Animal.h"
 
 enum{

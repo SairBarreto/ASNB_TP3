@@ -1,6 +1,6 @@
 #include <iostream>
 #include "menu.h"
-#include "animal_handler.h" //Agregue esto para probar la primera opcion
+//#include "animal_handler.h" //Agregue esto para probar la primera opcion
 
 using namespace std;
 
@@ -53,27 +53,16 @@ void procesar_opcion(int opcion, Lista<Animal>* lista_animales)
 {
     switch(opcion){
         case LISTAR_ANIMALES:
-            listar_animales(lista_animales);
-            animales_paso_del_tiempo(lista_animales);
             break;
         case RESCATAR_ANIMAL:
-            rescatar_animales(lista_animales);
-            animales_paso_del_tiempo(lista_animales);
             break;
         case BUSCAR_ANIMAL:
-            buscar_animales(lista_animales);
-            animales_paso_del_tiempo(lista_animales);
             break;
         case CUIDAR_ANIMAL:
-            opcion_4(lista_animales);
-            animales_paso_del_tiempo(lista_animales);
             break;
         case ADOPTAR_ANIMAL:
-            adoptar_animal(lista_animales);
-            animales_paso_del_tiempo(lista_animales);
             break;
         case SALIR:
-            guardar_y_salir(lista_animales);
             break;
     }
 }
@@ -158,10 +147,8 @@ void procesar_opcion_individual(int &opcion, Lista<Animal>* lista_animales)
 {
     switch (opcion){
         case 1:
-            banio_individual(lista_animales);
             break;
         case 2:
-            comida_individual(lista_animales);
             break;
         case 3:
             break;
