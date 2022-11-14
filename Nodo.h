@@ -17,25 +17,25 @@ class Nodo
 {
     //Atributos
     private:
-        Dato claves_usadas;   // Claves usadas en el nodo
+        int claves_usadas;   // Claves usadas en el nodo
         Clave* clave;           // Array de claves del nodo
-        Nodo<Dato>** puntero;    // Array de punteros a bnodo
+        Nodo<Dato>** puntero;    // Array de punteros a nodo
         Nodo<Dato>* padre;       // Puntero a nodo padre
 
         //friend class btree;
 
     //Metodos
     public:
-        Nodo(Dato n_claves); // Constructor
+        Nodo(int n_claves); // Constructor
         ~Nodo();           // Destructor
 };
 
 
 //Contructor
 template <typename Dato>
-Nodo<Dato>::Nodo(Dato n_claves)
+Nodo<Dato>::Nodo(int n_claves)
 {
-   clavesUsadas = 0;
+   claves_usadas = 0;
    clave = new Clave[n_claves];
    puntero = new Nodo<Dato>[n_claves + 1];
    padre = NULL;

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "menu.h"
+#include "Menu.h"
 //#include "animal_handler.h" //Agregue esto para probar la primera opcion
 
 using namespace std;
@@ -49,7 +49,7 @@ void menu_validar_opcion(int &opcion)
     }
 }
 
-void procesar_opcion(int opcion, Lista<Animal>* lista_animales)
+void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales)
 {
     switch(opcion){
         case LISTAR_ANIMALES:
@@ -62,12 +62,14 @@ void procesar_opcion(int opcion, Lista<Animal>* lista_animales)
             break;
         case ADOPTAR_ANIMAL:
             break;
+        case CARGAR_COMBUSTIBLE:
+            break;
         case SALIR:
             break;
     }
 }
 
-void opcion_4(Lista<Animal>* lista_animales)
+void opcion_4(Arbol<Animal>* Arbol_animales)
 {
     int opcion_2;
 
@@ -75,7 +77,7 @@ void opcion_4(Lista<Animal>* lista_animales)
         mostrar_menu_2();
         opcion_2 = menu_pedir_opcion();
         menu_validar_opcion_2(opcion_2);
-        procesar_opcion_2(opcion_2, lista_animales);
+        procesar_opcion_2(opcion_2, Arbol_animales);
     }while(opcion_2 != REGRESAR_INICIO);
 }
 
@@ -85,9 +87,7 @@ void mostrar_menu_2()
     cout << "---------------------------------------------------------" << endl << endl;
     cout << "Menu para el Cuidado de los Animales" << endl << endl;
     cout << "\t 1.Elegir individualmente" << endl;
-    cout << "\t 2.Alimentar a todos" << endl;
-    cout << "\t 3.Bañar a todos" << endl;
-    cout << "\t 4.Regresar al inicio" << endl;
+    cout << "\t 2.Regresar al inicio" << endl;
     cout << endl;
 }
 
@@ -104,17 +104,10 @@ void menu_validar_opcion_2(int &opcion_2){
     }
 }
 
-void procesar_opcion_2(int opcion_2, Lista<Animal>* lista_animales)
+void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales)
 {
     switch(opcion_2){
         case ELEGIR_INDIVIDUALMENTE:
-            elegir_individualmente(lista_animales);
-            break;
-        case ALIMENTAR_TODOS:
-            alimentar_todos_animales(lista_animales);
-            break;
-        case BANIO_TODOS:
-            banio_todos(lista_animales);
             break;
         case REGRESAR_INICIO:
             break;
@@ -143,7 +136,7 @@ void menu_validar_opcion_individual(int &opcion)
     }
 }
 
-void procesar_opcion_individual(int &opcion, Lista<Animal>* lista_animales)
+void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales)
 {
     switch (opcion){
         case 1:

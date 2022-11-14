@@ -12,8 +12,8 @@ class Arbol
     private:
         Clave* lista;
         Nodo<Dato>** listapunt;
-        Dato n_claves; 
-        Dato nodos_minimos;
+        int n_claves; 
+        int nodos_minimos;
         Nodo<Dato>* entrada;
 
         void inserta(Clave clave, Nodo<Dato>* nodo, Nodo<Dato>* hijo1, Nodo<Dato>* hijo2);
@@ -32,7 +32,7 @@ class Arbol
 
     //Metodos
     public:
-        Arbol(Dato n_claves);
+        Arbol(int n_claves);
 
         ~Arbol();
 
@@ -47,9 +47,9 @@ class Arbol
 
 //Contructor
 template <typename Dato>
-Arbol<Dato>::Arbol(Dato n_claves) : n_claves(n_claves)
+Arbol<Dato>::Arbol(int n_claves) : n_claves(n_claves)
 {
-    lista = new Clave[n_claves+1];
+    lista = new Clave[n_claves + 1];
     listapunt = new Nodo<Dato>*[n_claves + 2];
     nodos_minimos = n_claves / 2; // ((n_claves+1)/2)-1;
     entrada = NULL;
@@ -91,10 +91,12 @@ void Arbol<Dato>::mostrar()
 template <typename Dato>
 void Arbol<Dato>::ver(Nodo<Dato>* nodo)
 {
+    int i;
+
     if(!nodo) 
         return;
     
-    for(i = 0; i < nodo->claves_usadas-1; i++) 
+    for(i = 0; i < (nodo->claves_usadas-1); i++) 
         cout << nodo->clave[i].nombre << "-";
 
     if(nodo->claves_usadas) 
@@ -386,7 +388,7 @@ template <typename Dato>
 void Arbol<Dato>::pasar_clave_izquierda(Nodo<Dato>* izquierda, Nodo<Dato>* padre, Nodo<Dato>* nodo, int posicion_clave_padre)
 {
     for(int i = nodo->claves_usadas; i > 0; i--){
-        nodo->clave[i] = nodo->clave[i-1];
+        nodo->clave[i] = nodo->clave[i - 1];
     }
     for(int i = nodo->claves_usadas+1; i > 0; i--){
         nodo->puntero[i] = nodo->puntero[i-1];
@@ -416,15 +418,16 @@ void Arbol<Dato>::fundir_nodo(Nodo<Dato>* izquierda, Nodo<Dato>* &padre, Nodo<Da
     izquierda->claves_usadas++;
 
     for(int i = 0; i < derecha->claves_usadas; i++){
-        izquierda->clave[izquierda->claves_usadas+i] = derecha->clave[i];
+        izquierda->clave[izquierda->claves_usadas + i] = derecha->clave[i];
     }
 
     for(int i = 0; i <= derecha->claves_usadas; i++){
-        izquierda->puntero[izquierda->claves_usadas+i] = derecha->puntero[i];
-        if(derecha->puntero[i]) derecha->puntero[i]->padre = izquierda;
+        izquierda->puntero[izquierda->claves_usadas + i] = derecha->puntero[i];
+        if(derecha->puntero[i]) 
+            derecha->puntero[i]->padre = izquierda;
     }
     izquierda->claves_usadas += derecha->claves_usadas;
-    
+
     if(padre == entrada && padre->claves_usadas == 0) { // Cambio de entrada
         entrada = izquierda;
         entrada->padre = NULL;

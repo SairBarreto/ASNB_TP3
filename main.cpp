@@ -1,15 +1,24 @@
 #include <iostream>
+#include <fstream>
 #include "Animal.h"
 #include "Menu.h"
+#include "Arbol_B.h"
 
 using namespace std;
 
+const int TAMANO = 1000;
+
+const string PATH_ANIMALES = "animales.csv";
+
 int main()
 {
-    //Lista<Animal>* lista_animales = new Lista<Animal>;
-    int opcion = 0;
+    Arbol<Animal>* arbol_animales = new Arbol<Animal>(3);
+    //int opcion = 0;
 
-    //leer_archivo(lista_animales);
+    //ifstream archivo(PATH_ANIMALES, ios::out);
+    
+
+    /*/leer_archivo(lista_animales);
 
    do{
         mostrar_menu();
@@ -17,8 +26,7 @@ int main()
         menu_validar_opcion(opcion);
         //procesar_opcion(opcion, lista_animales);
     }while(opcion != SALIR);
-    
-    //delete lista_animales;
+    */
 
     return 0;
 }
