@@ -38,14 +38,6 @@ class Animal
         void alimentar();
 
         //PRE: -    
-        //POS: Retorna el valor de higiene
-        int get_higiene();
-
-        //PRE: -    
-        //POS: Retorna el valor de hambre
-        int get_hambre();
-
-        //PRE: -    
         //POS: Retorna el nombre del animal
         string obtener_nombre();
 

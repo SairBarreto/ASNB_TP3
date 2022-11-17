@@ -5,42 +5,64 @@
 
 using namespace std;
 
-class Arbol {
-    public:
-        Arbol();              // Constructor
-        ~Arbol();                     // Destructor
-        long buscar(string clave);       // buscar un valor de clave, devuelve la posición en el array
-        bool insertar(Clave clave); // insertar una clave
-        void borrar(string clave);       // borrar la clave correspondiente a un valor
-        void mostrar();               // (Depuración) mostrar el árbol por pantalla
-
+template <typename Dato>
+class Arbol 
+{
     private:
-        Clave *lista;               // Auxiliar para insertar claves
-        pNodo *listapunt;            // Auxiliar para insertar claves
+        Clave* lista;               // Auxiliar para insertar claves
+        Nodo<Dato>** listapunt;            // Auxiliar para insertar claves
+
         // Funciones auxiliares internas de la clase:
-        void inserta(Clave clave, pNodo nodo, pNodo hijo1, pNodo hijo2);
-        void borrar_clave(pNodo nodo, string clave);
-        void borrar_nodo(pNodo nodo);
-        void pasar_clave_derecha(pNodo derecha, pNodo padre, pNodo nodo, int posicion_clave_padre);
-        void pasar_clave_izquierda(pNodo izquierda, pNodo padre, pNodo nodo, int posicion_clave_padre);
-        void fundir_nodo(pNodo izquierda, pNodo &padre, pNodo derecha, int posicion_clave_padre);
-        void ver(pNodo nodo);
+        void inserta(Clave clave, Nodo<Dato>* nodo, Nodo<Dato>* hijo1, Nodo<Dato>* hijo2);
+
+        void borrar_clave(Nodo<Dato>* nodo, string clave);
+
+        void borrar_nodo(Nodo<Dato>* nodo);
+
+        void pasar_clave_derecha(Nodo<Dato>* derecha, Nodo<Dato>* padre, Nodo<Dato>* nodo, int posicion_clave_padre);
+
+        void pasar_clave_izquierda(Nodo<Dato>* izquierda, Nodo<Dato>* padre, Nodo<Dato>* nodo, int posicion_clave_padre);
+
+        void fundir_nodo(Nodo<Dato>* izquierda, Nodo<Dato>* &padre, Nodo<Dato>* derecha, int posicion_clave_padre);
+
+        void ver(Nodo<Dato>* nodo);
         
         int nClaves;                  // Número de claves por nodo
         int nodosMinimos;             // Número de punteros mínimos para cada nodo que no sea hoja
-        pNodo Entrada;               // Puntero a nodo de entrada en el árbol
+        Nodo<Dato>* Entrada;               // Puntero a nodo de entrada en el árbol
+
+    public:
+        // Constructor
+        Arbol(); 
+
+        // Destructor        
+        ~Arbol();                    
+
+        // buscar un valor de clave, devuelve la posición en el array
+        long buscar(string clave);  
+
+        // insertar una clave
+        bool insertar(Clave clave); 
+
+        // borrar la clave correspondiente a un valor
+        void borrar(string clave);    
+
+        // (Depuración) mostrar el árbol por pantalla   
+        void mostrar();               
 };
 
-Arbol::Arbol()
+template <typename Dato>
+Arbol<Dato>::Arbol()
 {
     nClaves = 3; //Crea un arbol de 3 vias
     lista = new Clave[nClaves+1];
-    listapunt = new pNodo[nClaves+2];
+    listapunt = new Nodo<Dato>*[nClaves+2];
     nodosMinimos = nClaves/2; // ((nClaves+1)/2)-1;
     Entrada = NULL;
 }
 
-Arbol::~Arbol()
+template <typename Dato>
+Arbol<Dato>::~Arbol()
 {
     delete[] lista;
     delete[] listapunt;
@@ -48,7 +70,8 @@ Arbol::~Arbol()
     borrar_nodo(Entrada);
 }
 
-void Arbol::borrar_nodo(pNodo nodo)
+template <typename Dato>
+void Arbol<Dato>::borrar_nodo(Nodo<Dato>* nodo)
 {
     int i;
 
@@ -61,7 +84,8 @@ void Arbol::borrar_nodo(pNodo nodo)
     delete nodo;
 }
 
-void Arbol::mostrar()
+template <typename Dato>
+void Arbol<Dato>::mostrar()
 {
     cout << "arbol" << endl;
     ver(Entrada);
@@ -69,7 +93,8 @@ void Arbol::mostrar()
     system("pause");
 }
 
-void Arbol::ver(pNodo nodo)
+template <typename Dato>
+void Arbol<Dato>::ver(Nodo<Dato>* nodo)
 {
     int i;
 
@@ -77,11 +102,11 @@ void Arbol::ver(pNodo nodo)
         return;
 
     for(i = 0; i < nodo->clavesUsadas-1; i++){ 
-        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal.edad << "," << nodo->clave[i].animal.especie << "," << nodo->clave[i].animal.tamanio << "," << nodo->clave[i].animal.personalidad << ")" << "-";
+        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << ")" << " - ";
     }
     
     if(nodo->clavesUsadas){
-        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal.edad << "," << nodo->clave[i].animal.especie << "," << nodo->clave[i].animal.tamanio << "," << nodo->clave[i].animal.personalidad << ")" << " [";
+        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << ")" << " [";
     }
     
     if(nodo->padre){
@@ -96,9 +121,10 @@ void Arbol::ver(pNodo nodo)
         ver(nodo->puntero[i]);
 }
 
-long Arbol::buscar(string clave)
+template <typename Dato>
+long Arbol<Dato>::buscar(string clave)
 {
-    pNodo nodo = Entrada;
+    Nodo<Dato>* nodo = Entrada;
     int i;
 
     while(nodo) {
@@ -114,9 +140,11 @@ long Arbol::buscar(string clave)
     return -1L;
 }
 
-bool Arbol::insertar(Clave clave)
+template <typename Dato>
+bool Arbol<Dato>::insertar(Clave clave)
 {
-    pNodo nodo, padre;
+    Nodo<Dato>* nodo;
+    Nodo<Dato>* padre;
     int i;
 
     // Asegurarse de que la clave no este en el arbol
@@ -137,9 +165,11 @@ bool Arbol::insertar(Clave clave)
     return true;
 }
 
-void Arbol::inserta(Clave clave, pNodo nodo, pNodo hijo1, pNodo hijo2)
+template <typename Dato>
+void Arbol<Dato>::inserta(Clave clave, Nodo<Dato>* nodo, Nodo<Dato>* hijo1, Nodo<Dato>* hijo2)
 {
-    pNodo padre, nuevo;
+    Nodo<Dato>* padre;
+    Nodo<Dato>* nuevo;
     int i, j;
     bool salir = false;
 
@@ -147,7 +177,7 @@ void Arbol::inserta(Clave clave, pNodo nodo, pNodo hijo1, pNodo hijo2)
     do {
         if(!nodo)
         {
-            nodo = new Nodo(nClaves);
+            nodo = new Nodo<Dato>(nClaves);
             nodo->clavesUsadas = 0;
             nodo->padre = NULL;
             Entrada = nodo;
@@ -156,7 +186,7 @@ void Arbol::inserta(Clave clave, pNodo nodo, pNodo hijo1, pNodo hijo2)
         if(nodo->clavesUsadas == nClaves) // overflow
         {
             // Nodo derecho
-            nuevo = new Nodo(nClaves);
+            nuevo = new Nodo<Dato>(nClaves);
             // Construye lista ordenada:
             i = 0;
             while(nodo->clave[i].nombre < clave.nombre && i < nClaves){
@@ -234,9 +264,10 @@ void Arbol::inserta(Clave clave, pNodo nodo, pNodo hijo1, pNodo hijo2)
     } while(!salir);
 }
 
-void Arbol::borrar(string clave)
+template <typename Dato>
+void Arbol<Dato>::borrar(string clave)
 {
-    pNodo nodo;
+    Nodo<Dato>* nodo;
     bool encontrado = false;
     int i;
 
@@ -257,9 +288,13 @@ void Arbol::borrar(string clave)
         borrar_clave(nodo, clave);
 }
 
-void Arbol::borrar_clave(pNodo nodo, string clave)
+template <typename Dato>
+void Arbol<Dato>::borrar_clave(Nodo<Dato>* nodo, string clave)
 {
-    pNodo actual, derecha, izquierda, padre;
+    Nodo<Dato>* actual;
+    Nodo<Dato>* derecha;
+    Nodo<Dato>* izquierda;
+    Nodo<Dato>* padre;
     int posicion_clave_padre, pos, i;
 
     // buscar posicion dentro de lista de claves:
@@ -327,7 +362,8 @@ void Arbol::borrar_clave(pNodo nodo, string clave)
     } while(actual && actual != Entrada && actual->clavesUsadas < nodosMinimos);
 }
 
-void Arbol::pasar_clave_derecha(pNodo derecha, pNodo padre, pNodo nodo, int posicion_clave_padre)
+template <typename Dato>
+void Arbol<Dato>::pasar_clave_derecha(Nodo<Dato>* derecha, Nodo<Dato>* padre, Nodo<Dato>* nodo, int posicion_clave_padre)
 {
     int i;
 
@@ -347,7 +383,8 @@ void Arbol::pasar_clave_derecha(pNodo derecha, pNodo padre, pNodo nodo, int posi
     derecha->clavesUsadas--;
 }
 
-void Arbol::pasar_clave_izquierda(pNodo izquierda, pNodo padre, pNodo nodo, int posicion_clave_padre)
+template <typename Dato>
+void Arbol<Dato>::pasar_clave_izquierda(Nodo<Dato>* izquierda, Nodo<Dato>* padre, Nodo<Dato>* nodo, int posicion_clave_padre)
 {
     int i;
 
@@ -367,7 +404,8 @@ void Arbol::pasar_clave_izquierda(pNodo izquierda, pNodo padre, pNodo nodo, int 
     izquierda->clavesUsadas--;
 }
 
-void Arbol::fundir_nodo(pNodo izquierda, pNodo &padre, pNodo derecha, int posicion_clave_padre)
+template <typename Dato>
+void Arbol<Dato>::fundir_nodo(Nodo<Dato>* izquierda, Nodo<Dato>* &padre, Nodo<Dato>* derecha, int posicion_clave_padre)
 {
     int i;
 

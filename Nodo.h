@@ -2,11 +2,11 @@
 #define NODO_H_INCLUDED
 
 #include <iostream>
-//#include "Animal.h"
+#include "Animal.h"
 #include <string>
 
 using namespace std;
-
+/*
 struct animal 
 {
     string nombre;
@@ -15,40 +15,45 @@ struct animal
     string personalidad;
     string especie;
 };
-
+*/
 struct Clave 
 {
     string nombre;
-    animal animal;
+    Animal* animal;
     long registro; // número índice correspondiente a la clave "nombre"
 };
 
+
+template <typename Dato>
 class Nodo 
 {
-    private:
-        int clavesUsadas;   // Claves usadas en el nodo
-        Clave *clave;     // Array de claves del nodo
-        Nodo **puntero;    // Array de punteros a Nodo
-        Nodo *padre;       // Puntero a nodo padre
-        
-        friend class Arbol;
-
     public:
+        int clavesUsadas;   // Claves usadas en el nodo
+        Clave* clave;     // Array de claves del nodo
+        Nodo<Dato>** puntero;    // Array de punteros a Nodo
+        Nodo<Dato>* padre;       // Puntero a nodo padre
+        
+        //friend class Arbol;
+
+    
         Nodo(int nClaves); // Constructor
         ~Nodo();           // Destructor
 };
-
-typedef Nodo* pNodo;
-
-Nodo::Nodo(int nClaves)
+/* template con typedef no van
+template <typename Dato>
+typedef Nodo<Dato>* pNodo;
+*/
+template <typename Dato>
+Nodo<Dato>::Nodo(int nClaves)
 {
    clavesUsadas = 0;
    clave = new Clave[nClaves];
-   puntero = new pNodo[nClaves+1];
+   puntero = new Nodo<Dato>*[nClaves+1];
    padre = NULL;
 }
 
-Nodo::~Nodo()
+template <typename Dato>
+Nodo<Dato>::~Nodo()
 {
    delete[] clave;
    delete[] puntero;

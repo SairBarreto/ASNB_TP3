@@ -10,37 +10,11 @@ int main()
 {
     Clave clave;
 
-    Arbol arbol_B;
-    int i = 0;
+    Arbol<Animal>* arbol_B = new Arbol<Animal>;
 
-    do{
-        cout << "Ingrese un nombre del animal: ";
-        fflush(stdin);
-        getline(cin >> ws, clave.nombre);
-        cout << endl;
-            
-        clave.animal.nombre = clave.nombre;
-        cout << "Ingrese la edad: ";
-        cin >> clave.animal.edad;
-        cout << endl;
-        cout << "Ingrese su especie: ";
-        fflush(stdin);
-        getline(cin >> ws, clave.animal.especie);
-        cout << endl;
-        cout << "Ingrese su tamaño: ";
-        fflush(stdin);
-        getline(cin >> ws, clave.animal.tamanio);
-        cout << endl;
-        cout << "Ingrese su personalidad: ";
-        fflush(stdin);
-        getline(cin >> ws, clave.animal.personalidad);
-        cout << endl;
-        clave.registro = i;
-        i++;
-        
-    }while(!arbol_B.insertar(clave) || i < 4);
+    leer_archivo_y_agrega_al_arbol(arbol_B);
 
-    arbol_B.mostrar();
+    arbol_B->mostrar();
 
     cout << endl << endl;
 
@@ -48,11 +22,11 @@ int main()
     cout << "Ingrese un nombre para eliminar del arbol: ";
     getline(cin >> ws, nombre_buscado);
 
-    arbol_B.borrar(nombre_buscado);
+    arbol_B->borrar(nombre_buscado);
 
     cout << endl;
     
-    arbol_B.mostrar();
+    arbol_B->mostrar();
 
     system("pause");
     return 0;
