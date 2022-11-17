@@ -21,6 +21,7 @@ enum{
     REGRESAR_INICIO
 };
 
+/*
 //PRE: -    
 //POS: Muestra en texto las opciones del menu
 void mostrar_menu();
@@ -72,5 +73,5 @@ void menu_validar_opcion_individual(int &opcion);
 //PRE: Opcion valida
 //POS: Procesa la opcion y corre funciones correspondietes
 void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales);
-
+*/
 #endif

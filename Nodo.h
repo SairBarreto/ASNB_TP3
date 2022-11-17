@@ -2,51 +2,56 @@
 #define NODO_H_INCLUDED
 
 #include <iostream>
-#include "Animal.h"
+//#include "Animal.h"
 #include <string>
 
 using namespace std;
 
-struct Clave{
+struct animal 
+{
     string nombre;
-    long Animal;
+    int edad;
+    string tamanio;
+    string personalidad;
+    string especie;
 };
 
-template <typename Dato>
+struct Clave 
+{
+    string nombre;
+    animal animal;
+    long registro; // número índice correspondiente a la clave "nombre"
+};
+
 class Nodo 
 {
-    //Atributos
     private:
-        int claves_usadas;   // Claves usadas en el nodo
-        Clave* clave;           // Array de claves del nodo
-        Nodo<Dato>** puntero;    // Array de punteros a nodo
-        Nodo<Dato>* padre;       // Puntero a nodo padre
+        int clavesUsadas;   // Claves usadas en el nodo
+        Clave *clave;     // Array de claves del nodo
+        Nodo **puntero;    // Array de punteros a Nodo
+        Nodo *padre;       // Puntero a nodo padre
+        
+        friend class Arbol;
 
-        //friend class btree;
-
-    //Metodos
     public:
-        Nodo(int n_claves); // Constructor
+        Nodo(int nClaves); // Constructor
         ~Nodo();           // Destructor
 };
 
+typedef Nodo* pNodo;
 
-//Contructor
-template <typename Dato>
-Nodo<Dato>::Nodo(int n_claves)
+Nodo::Nodo(int nClaves)
 {
-   claves_usadas = 0;
-   clave = new Clave[n_claves];
-   puntero = new Nodo<Dato>[n_claves + 1];
+   clavesUsadas = 0;
+   clave = new Clave[nClaves];
+   puntero = new pNodo[nClaves+1];
    padre = NULL;
 }
 
-//Destructor
-template <typename Dato>    
-Nodo<Dato>::~Nodo()
+Nodo::~Nodo()
 {
    delete[] clave;
    delete[] puntero;
 }
 
-#endif // NODO_H_INCLUDED
+#endif

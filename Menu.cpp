@@ -4,6 +4,7 @@
 
 using namespace std;
 
+/*
 void mostrar_menu()
 {
     cout << endl;
@@ -147,3 +148,4 @@ void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales)
             break;
     }
 }
+*/
