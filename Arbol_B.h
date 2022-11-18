@@ -1,6 +1,7 @@
 #ifndef ARBOL_B_H_INCLUDED
 #define ARBOL_B_H_INCLUDED
 #include "Nodo.h"
+//#include "Funciones.h"
 #include <iostream>
 
 using namespace std;
@@ -87,9 +88,10 @@ void Arbol<Dato>::borrar_nodo(Nodo<Dato>* nodo)
 template <typename Dato>
 void Arbol<Dato>::mostrar()
 {
-    cout << "arbol" << endl;
+    cout << "-------------------------------------------" << endl;
+    cout << "Los animales en la Reserva son: " << endl << endl;
     ver(Entrada);
-    cout << "-----" << endl;
+    cout << "-------------------------------------------" << endl;
     system("pause");
 }
 
@@ -101,21 +103,11 @@ void Arbol<Dato>::ver(Nodo<Dato>* nodo)
     if(!nodo) 
         return;
 
-    for(i = 0; i < nodo->clavesUsadas-1; i++){ 
-        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << ")" << " - ";
+    for(i = 0; i < nodo->clavesUsadas; i++){ 
+        if(nodo->clave[i].nombre[0] != '\0'){
+            cout << "\t" << nodo->clave[i].nombre << "," << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << endl;
+        }
     }
-    
-    if(nodo->clavesUsadas){
-        cout << nodo->clave[i].nombre << "(" << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << ")" << " [";
-    }
-    
-    if(nodo->padre){
-        cout << (nodo->padre)->clave[0].nombre; 
-    }
-    else{
-        cout << "*";
-    }
-    cout << "]" << endl;
     
     for(i = 0; i <= nodo->clavesUsadas; i++) 
         ver(nodo->puntero[i]);

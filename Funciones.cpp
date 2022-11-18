@@ -135,6 +135,3 @@ especie_t string_a_especie_t(string especie)
     }
     return (especie_t) posicion;
 }
-
-using namespace std;
-

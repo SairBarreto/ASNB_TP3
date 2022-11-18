@@ -2,9 +2,11 @@
 #define MENU_H 
 
 #include <iostream>
-using namespace std;
+#include <string>
 #include "Arbol_B.h"
 #include "Animal.h"
+
+using namespace std;
 
 enum{
     LISTAR_ANIMALES = 1,
@@ -21,7 +23,13 @@ enum{
     REGRESAR_INICIO
 };
 
-/*
+enum{
+    BANIO = 1,
+    ALIMENTAR,
+    SALTEAR,
+    REGRESAR
+};
+
 //PRE: -    
 //POS: Muestra en texto las opciones del menu
 void mostrar_menu();
@@ -73,5 +81,5 @@ void menu_validar_opcion_individual(int &opcion);
 //PRE: Opcion valida
 //POS: Procesa la opcion y corre funciones correspondietes
 void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales);
-*/
+
 #endif
