@@ -1,24 +1,33 @@
 #include <iostream>
-//#include "Animal.h"
+#include "Funciones.h"
+#include "Animal.h"
 #include "Menu.h"
+#include "Arbol_B.h"
 
 using namespace std;
 
 int main()
 {
-    //Lista<Animal>* lista_animales = new Lista<Animal>;
-    int opcion = 0;
+    Clave clave;
 
-    //leer_archivo(lista_animales);
+    Arbol<Animal>* arbol_B = new Arbol<Animal>;
 
-   do{
-        mostrar_menu();
-        opcion = menu_pedir_opcion();
-        menu_validar_opcion(opcion);
-        //procesar_opcion(opcion, lista_animales);
-    }while(opcion != SALIR);
+    leer_archivo_y_agrega_al_arbol(arbol_B);
+
+    arbol_B->mostrar();
+
+    cout << endl << endl;
+
+    string nombre_buscado;
+    cout << "Ingrese un nombre para eliminar del arbol: ";
+    getline(cin >> ws, nombre_buscado);
+
+    arbol_B->borrar(nombre_buscado);
+
+    cout << endl;
     
-    //delete lista_animales;
+    arbol_B->mostrar();
 
+    system("pause");
     return 0;
 }

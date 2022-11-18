@@ -3,7 +3,8 @@
 
 #include <iostream>
 using namespace std;
-//#include "Animal.h"
+#include "Arbol_B.h"
+#include "Animal.h"
 
 enum{
     LISTAR_ANIMALES = 1,
@@ -20,6 +21,7 @@ enum{
     REGRESAR_INICIO
 };
 
+/*
 //PRE: -    
 //POS: Muestra en texto las opciones del menu
 void mostrar_menu();
@@ -38,14 +40,14 @@ void menu_validar_opcion(int &opcion);
 
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
-void procesar_opcion(int opcion, Lista<Animal>* lista_animales);
+void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales);
 
 //PRE: -    
 //POS: Muestra el segundo menu (el individual)
 void mostrar_menu_2();
 
 //PRE: -    
-//POS: Muestra los animales listados
+//POS: Muestra los animales Arboldos
 void mostrar_todos_los_animales();
 
 //PRE: Si opcion_2 es valida [0-4]
@@ -54,11 +56,11 @@ void menu_validar_opcion_2(int &opcion_2);
 
 //PRE: Analoga a procesar_opcion pero para el menu 2
 //POS: Analoga a procesar_opcion pero para el menu 2
-void procesar_opcion_2(int opcion_2, Lista<Animal>* lista_animales);
+void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales);
 
-//PRE: Lista ya cargada
+//PRE: Arbol ya cargada
 //POS: Si opcion es valida y = 4 regresa al inicio
-void opcion_4(Lista<Animal>* lista_animales);
+void opcion_4(Arbol<Animal>* Arbol_animales);
 
 //PRE: -
 //POS: Muestra menu individual con 4 opciones
@@ -70,6 +72,6 @@ void menu_validar_opcion_individual(int &opcion);
 
 //PRE: Opcion valida
 //POS: Procesa la opcion y corre funciones correspondietes
-void procesar_opcion_individual(int &opcion, Lista<Animal>* lista_animales);
-
+void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales);
+*/
 #endif
