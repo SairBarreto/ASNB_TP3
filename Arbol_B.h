@@ -1,7 +1,7 @@
 #ifndef ARBOL_B_H_INCLUDED
 #define ARBOL_B_H_INCLUDED
 #include "Nodo.h"
-//#include "Funciones.h"
+//#include "Funciones.h" esto me lo rompe
 #include <iostream>
 
 using namespace std;
@@ -99,11 +99,12 @@ template <typename Dato>
 void Arbol<Dato>::ver(Nodo<Dato>* nodo)
 {
     int i;
-
+    string inicial_especie;
     if(!nodo) 
         return;
 
     for(i = 0; i < nodo->clavesUsadas; i++){ 
+
         if(nodo->clave[i].nombre[0] != '\0'){
             cout << "\t" << nodo->clave[i].nombre << "," << nodo->clave[i].animal->obtener_edad() << "," << nodo->clave[i].animal->obtener_tamanio() << "," << nodo->clave[i].animal->obtener_especie() << "," << nodo->clave[i].animal->obtener_personalidad() << "," << nodo->clave[i].animal->obtener_hambre() << "," << nodo->clave[i].animal->obtener_higiene() << endl;
         }

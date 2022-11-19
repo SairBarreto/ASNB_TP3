@@ -82,6 +82,10 @@ void leer_archivo_y_agrega_al_arbol(Arbol<Animal>* Arbol_animales);
 
 especie_t string_a_especie_t(string especie);
 
+//PRE: Inicial de la especie
+//POS: Retorna especie completa
+string devolver_especie_palabra_completa(string inicial);
+
 /*
 //PRE: Arbol previamente completada    
 //POS: Recorre secuencialmente la Arbol Arbolndo los animales con sus atributos
@@ -161,10 +165,6 @@ void rescatar_animales(Arbol<Animal>* Arbol_animales);
 //PRE: Arbol completa 
 //POS: Cargar Arbol reescribiendo el archivo
 void guardar_y_salir(Arbol<Animal>* Arbol_animales);
-
-//PRE: Inicial de la especie
-//POS: Retorna especie completa
-string devolver_especie_palabra_completa(string inicial);
 
 //PRE: -
 //POS: Usuario carga especie del animal

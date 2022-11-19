@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Menu.h"
-//#include "Funciones.h" //Agregue esto para probar la primera opcion
+#include "Funciones.h" 
 
 
 void mostrar_menu()
