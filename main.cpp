@@ -50,7 +50,7 @@ void generar_tablero()
 
 }
 //PARTE GRAFICA - no terminada
-// marca con un # el camino
+// marca con un . el camino
 //tendria que recibir los nodos
 int marcar_camino(int vector_camino[], string tablero,int cantidad)
 {
@@ -59,17 +59,13 @@ int marcar_camino(int vector_camino[], string tablero,int cantidad)
 
     //string tablero = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-    string nuevo_simbolo = "#";
+    string nuevo_simbolo = ".";
 
 
 
     for(int i=0; i<cantidad;i++)
     {
-
-
-
         tablero.replace(vector_camino[i],1,nuevo_simbolo);
-
     }
 
     for(int i=0;i<64;i++)
@@ -81,13 +77,6 @@ int marcar_camino(int vector_camino[], string tablero,int cantidad)
 
         cout<<"[ "<<tablero[i]<<" ] ";
     }
-
-
-
-
-
-
-
 }
 
 
@@ -171,10 +160,7 @@ void buscar_camino_minimo(string origen, string destino)
 
     string camino_completo_prueba;
 
-
     int num_nodo=0;
-
-
 
     for(int i=1;i<65;i++)
     {
@@ -208,21 +194,13 @@ void buscar_camino_minimo(string origen, string destino)
 
        peso_sur = devolver_peso_sur(numero_nodo);
 
-       if(numero_nodo % 8 != 0 && numero_nodo<57)
-       {
-
-
-            grafo.agregarCamino(str_nodo,str_nodo_der,peso_der);
-            grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
+       if(numero_nodo % 8 != 0 && numero_nodo<57){
+        grafo.agregarCamino(str_nodo,str_nodo_der,peso_der);
+        grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
 
        }
-       else if(numero_nodo<57)
-       {
-
-
-              grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
-
-
+       else if(numero_nodo<57){
+            grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
         }
         else
         {
@@ -232,9 +210,6 @@ void buscar_camino_minimo(string origen, string destino)
 
 
     }
-
-
-
 
     grafo.mostrarGrafo();
 
