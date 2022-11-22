@@ -1,62 +1,57 @@
-#ifndef NODO_H_INCLUDED
-#define NODO_H_INCLUDED
-
-#include <iostream>
-#include "Animal.h"
+#ifndef GRAFOS_NODO_H
+#define GRAFOS_NODO_H
 #include <string>
 
 using namespace std;
-/*
-struct animal 
-{
-    string nombre;
-    int edad;
-    string tamanio;
-    string personalidad;
-    string especie;
-};
-*/
-struct Clave 
-{
-    string nombre;
-    Animal* animal;
-    long registro; // número índice correspondiente a la clave "nombre"
+
+template < typename Tipo >
+class Nodo {
+/*ATRIBUTOS*/
+private:
+    Tipo* elemento;
+    Nodo<Tipo>* siguiente;
+
+/*MÉTODOS*/
+public:
+    Nodo(string nombre);
+
+    //post: devuelve el nodo siguiente.
+    Nodo<Tipo>* obtenerSiguiente();
+
+    //post: devuelve el nombre del nodo
+    string obtenerNombre();
+
+    //post: le asigna como siguiente el nodo recibido
+    void asignarSiguiente(Nodo<Tipo>* siguiente);
+
+    ~Nodo();
 };
 
-
-template <typename Dato>
-class Nodo 
-{
-    public:
-        int clavesUsadas;   // Claves usadas en el nodo
-        Clave* clave;     // Array de claves del nodo
-        Nodo<Dato>** puntero;    // Array de punteros a Nodo
-        Nodo<Dato>* padre;       // Puntero a nodo padre
-        
-        //friend class Arbol;
-
-    
-        Nodo(int nClaves); // Constructor
-        ~Nodo();           // Destructor
-};
-/* template con typedef no van
-template <typename Dato>
-typedef Nodo<Dato>* pNodo;
-*/
-template <typename Dato>
-Nodo<Dato>::Nodo(int nClaves)
-{
-   clavesUsadas = 0;
-   clave = new Clave[nClaves];
-   puntero = new Nodo<Dato>*[nClaves+1];
-   padre = NULL;
+template<typename Tipo>
+Nodo<Tipo>::Nodo(string nombre) {
+    elemento = new Tipo(nombre);
+    siguiente = nullptr;
 }
 
-template <typename Dato>
-Nodo<Dato>::~Nodo()
-{
-   delete[] clave;
-   delete[] puntero;
+template<typename Tipo>
+Nodo<Tipo> *Nodo<Tipo>::obtenerSiguiente() {
+    return siguiente;
 }
 
-#endif
+template<typename Tipo>
+string Nodo<Tipo>::obtenerNombre() {
+    return elemento -> obtenerNombre();
+}
+
+template<typename Tipo>
+void Nodo<Tipo>::asignarSiguiente(Nodo<Tipo> *siguiente) {
+    this -> siguiente = siguiente;
+}
+
+template<typename Tipo>
+Nodo<Tipo>::~Nodo() {
+    delete elemento;
+}
+
+
+#endif //GRAFOS_NODO_H
