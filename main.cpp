@@ -1,24 +1,16 @@
+#include "Grafo.h"
 #include <iostream>
-//#include "Animal.h"
-#include "Menu.h"
+#include "funciones_graficar.h"
+#include "funciones_cargar_tablero.h"
+#include "funciones_rescatar.h"
+//#include "Automovil.h"
 
-using namespace std;
+int main() {
 
-int main()
-{
-    //Lista<Animal>* lista_animales = new Lista<Animal>;
-    int opcion = 0;
 
-    //leer_archivo(lista_animales);
+    string animales_perdidos = "PIROC";//String de prueba
 
-   do{
-        mostrar_menu();
-        opcion = menu_pedir_opcion();
-        menu_validar_opcion(opcion);
-        //procesar_opcion(opcion, lista_animales);
-    }while(opcion != SALIR);
-    
-    //delete lista_animales;
+    empezar_a_rescatar(animales_perdidos);
 
     return 0;
 }
