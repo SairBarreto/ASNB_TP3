@@ -1,5 +1,7 @@
 #include "Floyd.h"
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -35,7 +37,7 @@ int ** Floyd::crearMatrizCostos(int ** matrizAdyacencia){
 }
 
 void Floyd::mostrarMatrices(){
-    cout << "Matriz de costos:      ||           Matriz de caminos:" << endl;
+    //cout << "Matriz de costos:      ||           Matriz de caminos:" << endl;
     string filaCostos;
     string filaCaminos;
     for(int i = 0; i < cantidadVertices; i++){
@@ -45,7 +47,7 @@ void Floyd::mostrarMatrices(){
                 filaCaminos += "\n";
             } else if(j % 2 == 0){
                 if(matrizCostos[i][j/2] == INFINITO){
-                    filaCostos += "∞";
+                    filaCostos += "#";
                 } else {
                     filaCostos += to_string(matrizCostos[i][j/2]);
                 }
@@ -60,11 +62,11 @@ void Floyd::mostrarMatrices(){
                 filaCostos += "|";
             }
         }
-        cout << filaCostos << filaCaminos;
+        //cout << filaCostos << filaCaminos;
         filaCostos = "";
         filaCaminos = "";
     }
-    cout << endl;
+    //cout << endl;
 }
 
 void Floyd::calcularMatrices() {
@@ -91,8 +93,8 @@ void Floyd::calcularMatrices() {
             }
 
         }
-        cout << endl << "Iteracion numero: " << verticeIntermedio << endl;
-        mostrarMatrices();
+        //cout << endl << "Iteracion numero: " << verticeIntermedio << endl;
+        //mostrarMatrices();
 
     }
 
@@ -100,26 +102,30 @@ void Floyd::calcularMatrices() {
 
 void Floyd::caminoMinimo(int origen, int destino) {
 
-
-
-    if(matrizCaminos[origen][destino] == POSICION_NO_ENCONTRADA){
-        cout << "No hay un camino que conecte " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
-    }else{
-        cout << "El camino minimo que une " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
-        cout << " tiene un costo de: " << matrizCostos[origen][destino] << " y es el siguiente: ";
-        cout << vertices->obtenerNombre(origen + 1);
-        do{
-            origen = matrizCaminos[origen][destino];
-            cout << " -> " << vertices->obtenerNombre(origen + 1);
+    string nombre_archivo = "movimientos.txt";
 
 
 
+    ofstream archivo;
+
+                        archivo.open(nombre_archivo.c_str(),fstream::out);
+
+                        if(matrizCaminos[origen][destino] == POSICION_NO_ENCONTRADA){
+                           // cout << "No hay un camino que conecte " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
+                        }else{
+                                    archivo << vertices->obtenerNombre(origen + 1);//primer punto
+                                    archivo << endl;
+                            do{
+                                origen = matrizCaminos[origen][destino];
+                                    archivo << vertices->obtenerNombre(origen + 1);//punto sig
+
+                                    archivo <<endl;
+
+                            }while(origen != destino);
+                        }
 
 
-        }while(origen != destino);
-    }
-    cout << endl;
-
+    archivo.close();
 
 }
 

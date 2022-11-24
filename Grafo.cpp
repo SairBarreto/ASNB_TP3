@@ -106,23 +106,23 @@ void Grafo::mostrarVertices() {
 }
 
 void Grafo::mostrarMatrizAdyacencia() {
-    cout << "Matriz de adyacencia:" << endl;
+    //cout << "Matriz de adyacencia:" << endl;
     for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
         for(int j = 0; j < vertices -> obtenerCantidadDeElementos() * 2; j++) {
             if(j == vertices -> obtenerCantidadDeElementos() * 2 - 1){
-                cout << endl;
+                //cout << endl;
             } else if(j % 2 == 0){
                 if(matrizDeAdyacencia[i][j/2] == INFINITO){
-                    cout << "∞";
+                  //  cout << "∞";
                 } else {
-                    cout << matrizDeAdyacencia[i][j/2];
+                   // cout << matrizDeAdyacencia[i][j/2];
                 }
             } else{
-                cout << "|";
+                //cout << "|";
             }
         }
     }
-    cout << endl;
+    //cout << endl;
 }
 
 void Grafo::caminoMinimo(int origen, int destino) {
