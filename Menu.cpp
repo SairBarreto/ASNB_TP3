@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Menu.h"
-//#include "animal_handler.h" //Agregue esto para probar la primera opcion
+#include "Funciones.h" 
 
-using namespace std;
 
 void mostrar_menu()
 {
@@ -14,8 +13,7 @@ void mostrar_menu()
     cout << "\t 3.Buscar animal" << endl;
     cout << "\t 4.Cuidar animales" << endl;
     cout << "\t 5.Adoptar animal" << endl;
-    cout << "\t 6.Cargar combustible" << endl;
-    cout << "\t 7.Guardar y salir" << endl;
+    cout << "\t 6.Guardar y salir" << endl;
     cout << endl;
 }
 
@@ -50,7 +48,7 @@ void menu_validar_opcion(int &opcion)
     }
 }
 
-void procesar_opcion(int opcion, Lista<Animal>* lista_animales)
+void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales)
 {
     switch(opcion){
         case LISTAR_ANIMALES:
@@ -70,7 +68,7 @@ void procesar_opcion(int opcion, Lista<Animal>* lista_animales)
     }
 }
 
-void opcion_4(Lista<Animal>* lista_animales)
+void opcion_4(Arbol<Animal>* Arbol_animales)
 {
     int opcion_2;
 
@@ -78,7 +76,7 @@ void opcion_4(Lista<Animal>* lista_animales)
         mostrar_menu_2();
         opcion_2 = menu_pedir_opcion();
         menu_validar_opcion_2(opcion_2);
-        procesar_opcion_2(opcion_2, lista_animales);
+        procesar_opcion_2(opcion_2, Arbol_animales);
     }while(opcion_2 != REGRESAR_INICIO);
 }
 
@@ -105,11 +103,10 @@ void menu_validar_opcion_2(int &opcion_2){
     }
 }
 
-void procesar_opcion_2(int opcion_2, Lista<Animal>* lista_animales)
+void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales)
 {
     switch(opcion_2){
         case ELEGIR_INDIVIDUALMENTE:
-            elegir_individualmente(lista_animales);
             break;
         case REGRESAR_INICIO:
             break;
@@ -120,25 +117,26 @@ void mostrar_menu_individual()
 {
     cout << "1.Bañarlo" << endl;
     cout << "2.Alimentar" << endl;
-    cout << "3.Volver al menu" << endl;
+    cout << "3.Saltear" << endl;
+    cout << "4.Volver al inicio" << endl;
     cout << endl;
 }
 
 void menu_validar_opcion_individual(int &opcion)
 {
-    bool es_opcion_valida = opcion > 0 && opcion <= 3;
+    bool es_opcion_valida = opcion > BANIO && opcion <= REGRESAR;
     string buffer;
 
     while(!es_opcion_valida){
         cout << "La opción elegida no es una opcion válida, por favor ingrese otra opción: ";
         getline(cin >> ws,buffer);
         opcion = stoi(buffer);
-        es_opcion_valida = opcion > 0 && opcion <= 3;
+        es_opcion_valida = opcion > BANIO && opcion <= REGRESAR;
         cout << endl << "---------------------------------------------------------" << endl << endl;
     }
 }
 
-void procesar_opcion_individual(int &opcion, Lista<Animal>* lista_animales)
+void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales)
 {
     switch (opcion){
         case 1:
@@ -146,6 +144,8 @@ void procesar_opcion_individual(int &opcion, Lista<Animal>* lista_animales)
         case 2:
             break;
         case 3:
+            break;
+        case 4:
             break;
     }
 }
