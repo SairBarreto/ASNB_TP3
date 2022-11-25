@@ -1,5 +1,5 @@
-#ifndef NODO_H
-#define NODO_H
+#ifndef NODOB_H
+#define NODOB_H
 
 using namespace std;
 
@@ -20,22 +20,22 @@ enum {
 
 
 template <typename Dato>
-class Nodo {
+class NodoB {
     private:
         Dato* datos[MAX_VIAS-1]; // datos[0] -> izquierda, datos[1] -> derecha
-        Nodo<Dato>* hijos[MAX_VIAS]; // hijos[0] -> izquierda, hijos[1] -> medio, hijos[2] -> derecha
-        Nodo<Dato>* padre;
+        NodoB<Dato>* hijos[MAX_VIAS]; // hijos[0] -> izquierda, hijos[1] -> medio, hijos[2] -> derecha
+        NodoB<Dato>* padre;
         bool hoja;
         int cantidad_vias;
 
     public:
         //PRE:
         //POST:
-        Nodo(Dato* primer_key);
+        NodoB(Dato* primer_key);
 
         //PRE:
         //POST:
-        ~Nodo();
+        ~NodoB();
 
         //PRE:
         //POST:
@@ -47,7 +47,7 @@ class Nodo {
 
         //PRE:
         //POST:
-        Nodo<Dato>* devolver_hijo(int i);
+        NodoB<Dato>* devolver_hijo(int i);
 
         //PRE:
         //POST:
@@ -57,7 +57,7 @@ class Nodo {
 
 //Constructor
 template <typename Dato>
-Nodo<Dato>::Nodo(Dato* primer_key){
+NodoB<Dato>::NodoB(Dato* primer_key){
     this -> es_hoja = true;
     this -> cantidad_vias = 0;
 
@@ -68,7 +68,7 @@ Nodo<Dato>::Nodo(Dato* primer_key){
     this -> datos = aux_dato;
     this -> datos[KEY_IZQUIERDA] = primer_key;
 
-    Nodo<Dato>** aux_hijos = new Nodo<Dato>*[MAX_VIAS];
+    NodoB<Dato>** aux_hijos = new NodoB<Dato>*[MAX_VIAS];
     for(int i = 0; i < MAX_VIAS; i++) {
         aux_hijos[i] = nullptr;
     }
@@ -79,30 +79,30 @@ Nodo<Dato>::Nodo(Dato* primer_key){
 
 //Destructor
 template <typename Dato>
-Nodo<Dato>::~Nodo() {
+NodoB<Dato>::~NodoB() {
     delete[] this -> datos;
     delete[] this -> hijos; 
 }
 
 
 template <typename Dato>
-bool Nodo<Dato>::es_hoja() {
+bool NodoB<Dato>::es_hoja() {
     return this -> hoja;
 }
 
 
 template <typename Dato>
-Dato* Nodo<Dato>::devolver_dato(int i) {
+Dato* NodoB<Dato>::devolver_dato(int i) {
     return this -> dato[i];
 }
 
 template <typename Dato>
-Nodo<Dato>* Nodo<Dato>::devolver_hijo(int i) {
+NodoB<Dato>* NodoB<Dato>::devolver_hijo(int i) {
     return this -> hijos[i];
 }
 
 template <typename Dato>
-int Nodo<Dato>::devolver_cantidad_vias() {
+int NodoB<Dato>::devolver_cantidad_vias() {
     return this -> cantidad_vias;
 }
 

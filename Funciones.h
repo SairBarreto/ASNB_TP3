@@ -1,7 +1,7 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 #include <iostream>
-#include "Arbol_B.h"
+#include "arbol.h"
 #include "Animal.h"
 
 using namespace std;
@@ -78,7 +78,7 @@ const string PATH_ANIMALES = "animales.csv";
 
 //PRE: -    
 //POS: Lee archivo previamente cargador almacenando datos en Arbol
-void leer_archivo_y_agrega_al_arbol(Arbol<Animal>* Arbol_animales);
+void leer_archivo_y_agrega_al_arbol(ArbolB<Animal>* Arbol_animales);
 
 especie_t string_a_especie_t(string especie);
 

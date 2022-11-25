@@ -48,7 +48,7 @@ void menu_validar_opcion(int &opcion)
     }
 }
 
-void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales)
+void procesar_opcion(int opcion, ArbolB<Animal>* Arbol_animales)
 {
     switch(opcion){
         case LISTAR_ANIMALES:
@@ -68,7 +68,7 @@ void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales)
     }
 }
 
-void opcion_4(Arbol<Animal>* Arbol_animales)
+void opcion_4(ArbolB<Animal>* Arbol_animales)
 {
     int opcion_2;
 
@@ -103,7 +103,7 @@ void menu_validar_opcion_2(int &opcion_2){
     }
 }
 
-void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales)
+void procesar_opcion_2(int opcion_2, ArbolB<Animal>* Arbol_animales)
 {
     switch(opcion_2){
         case ELEGIR_INDIVIDUALMENTE:
@@ -136,7 +136,7 @@ void menu_validar_opcion_individual(int &opcion)
     }
 }
 
-void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales)
+void procesar_opcion_individual(int &opcion, ArbolB<Animal>* Arbol_animales)
 {
     switch (opcion){
         case 1:

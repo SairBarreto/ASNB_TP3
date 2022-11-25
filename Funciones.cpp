@@ -10,7 +10,7 @@
 #include "Roedor.h"
 #include "Menu.h"
 
-void leer_archivo_y_agrega_al_arbol(Arbol<Animal>* Arbol_animales)
+void leer_archivo_y_agrega_al_arbol(ArbolB<Animal>* Arbol_animales)
 {
 string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
     char delimitador = ','; //El delimitador tiene que ser de tipo char con string no funciona
@@ -24,8 +24,6 @@ string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
     }
 
     if(archivo.is_open()){
-        int i = 0;
-        Clave clave;
 
         do{
             getline(archivo,nombre, delimitador);
@@ -39,77 +37,49 @@ string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
                 case CABALLO:
                     {
                     Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = caballo;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(caballo);
                     break;
                     }
 
                 case CONEJO:
                     {
                     Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = conejo;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(conejo);
                     break;
                     }
 
                 case ERIZO:
                     {
                     Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = erizo;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(erizo);
                     break;
                     }
 
                 case GATO:
                     {
                     Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = gato;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(gato);
                     break;
                     }
 
                 case LAGARTIJA:
                     {
                     Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = lagartija;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(lagartija);
                     break;
                     }
 
                 case PERRO:
                     {
                     Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = perro;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(perro);
                     break;
                     }
 
                 case ROEDOR:
                     {
                     Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    clave.nombre = nombre;
-                    clave.animal = rata;
-                    clave.registro = i;
-                    Arbol_animales->insertar(clave);
-                    i++;
+                    Arbol_animales->insertar_nodo(rata);
                     break;
                     }
 
@@ -117,7 +87,7 @@ string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
                     break;
             
             }
-        }while(!archivo.eof() && i < TAMANO);
+        }while(!archivo.eof());
     }
     else{
         cout << "No se pudo abrir el archivo" << endl;

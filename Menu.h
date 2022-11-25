@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "Arbol_B.h"
+#include "arbol.h"
 #include "Animal.h"
 
 using namespace std;
@@ -48,7 +48,7 @@ void menu_validar_opcion(int &opcion);
 
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
-void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales);
+void procesar_opcion(int opcion, ArbolB<Animal>* Arbol_animales);
 
 //PRE: -    
 //POS: Muestra el segundo menu (el individual)
@@ -64,11 +64,11 @@ void menu_validar_opcion_2(int &opcion_2);
 
 //PRE: Analoga a procesar_opcion pero para el menu 2
 //POS: Analoga a procesar_opcion pero para el menu 2
-void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales);
+void procesar_opcion_2(int opcion_2, ArbolB<Animal>* Arbol_animales);
 
 //PRE: Arbol ya cargada
 //POS: Si opcion es valida y = 4 regresa al inicio
-void opcion_4(Arbol<Animal>* Arbol_animales);
+void opcion_4(ArbolB<Animal>* Arbol_animales);
 
 //PRE: -
 //POS: Muestra menu individual con 4 opciones
@@ -80,6 +80,6 @@ void menu_validar_opcion_individual(int &opcion);
 
 //PRE: Opcion valida
 //POS: Procesa la opcion y corre funciones correspondietes
-void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales);
+void procesar_opcion_individual(int &opcion, ArbolB<Animal>* Arbol_animales);
 
 #endif

@@ -1,28 +1,26 @@
 #ifndef ARBOL_H
 #define ARBOL_H
 
-#include "nodo.h"
+#include "nodoB.h"
 
 
 template <typename Dato>
 class ArbolB {
 
     private:
-        Nodo<Dato>* raiz;
-        //bool (*es_menor)(Dato,Dato);
-        //void (*imprimir_dato)(Dato);
+        NodoB<Dato>* raiz;
 
         //PRE: private?
         //POST:
-        bool _buscar_dato(Nodo<Dato>* nodo, Dato dato);
+        bool _buscar_dato(NodoB<Dato>* nodo, Dato dato);
 
         //PRE:
         //POST:
-        bool agregar_dato_a_nodo(Nodo<Dato>* nodo, Dato dato);
+        bool agregar_dato_a_nodo(NodoB<Dato>* nodo, Dato dato);
 
         //PRE:
         //POST:
-        void add(Nodo<Dato> *nodo);
+        void add(NodoB<Dato> *nodo);
     
     public:
         //POST:
@@ -35,14 +33,13 @@ class ArbolB {
 
         //PRE:
         //POST:
-        bool insertar_nodo(Dato dato);
+        bool insertar_nodo(Dato* dato);
         
 };
 
 template <typename Dato>
 ArbolB<Dato>::ArbolB(bool (*compare)(Dato,Dato), void (*imprimir)(Dato)) {
     this -> raiz = nullptr;
-    this -> es_menor = compare;
 }
 
 
@@ -57,7 +54,7 @@ bool ArbolB<Dato>::buscar_dato(Dato dato) {
 }
 
 template <typename Dato>
-bool ArbolB<Dato>::_buscar_dato(Nodo<Dato>* nodo, Dato dato) {
+bool ArbolB<Dato>::_buscar_dato(NodoB<Dato>* nodo, Dato dato) {
     bool el_dato_esta = false;
     if(nodo != nullptr) {
         if(nodo -> cantidad_vias == 2) { //una sola key
@@ -92,13 +89,13 @@ bool ArbolB<Dato>::_buscar_dato(Nodo<Dato>* nodo, Dato dato) {
 }
 
 template <typename Dato>
-bool ArbolB<Dato>::insertar_nodo(Dato dato) {
+bool ArbolB<Dato>::insertar_nodo(Dato* dato) {
 
     // Caso 0: El dato ya esta en el arbol
     if(!this -> buscar_dato(dato))
         return false;
 
-    Nodo<Dato>* nodo_nuevo = new Nodo<Dato>(dato);
+    NodoB<Dato>* nodo_nuevo = new NodoB<Dato>(dato);
 
     // Caso 1: El arbol esta vacio
     if(this -> raiz == NULL) {
@@ -120,7 +117,7 @@ bool ArbolB<Dato>::insertar_nodo(Dato dato) {
 
 
 
-
+/*
 template <typename Dato>
 bool ArbolB<Dato>::agregar_dato_a_nodo(Nodo<Dato>* nodo, Dato dato) {
 
@@ -129,7 +126,7 @@ bool ArbolB<Dato>::agregar_dato_a_nodo(Nodo<Dato>* nodo, Dato dato) {
 
     return true;
 }
-
+*/
 
 
 #endif //ARBOL_H
