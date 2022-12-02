@@ -1,6 +1,5 @@
-#include <iostream>
 #include <fstream>
-#include "Funciones.h"
+#include "animal_handler.h"
 #include "Caballo.h"
 #include "Conejo.h"
 #include "Erizo.h"
@@ -8,12 +7,10 @@
 #include "Lagartija.h"
 #include "Perro.h"
 #include "Roedor.h"
-#include "Menu.h"
 
-void leer_archivo_y_agrega_al_arbol(ArbolB<Animal>* Arbol_animales)
-{
-string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
-    char delimitador = ','; //El delimitador tiene que ser de tipo char con string no funciona
+void leer_archivo(ABB<Animal>* arbol_animales) {
+    string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
+    char delimitador = ','; 
     ifstream archivo(PATH_ANIMALES, ios::in);
 
     if(!archivo.is_open()){
@@ -23,81 +20,74 @@ string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
         archivo.open(PATH_ANIMALES, ios::in);
     }
 
-    if(archivo.is_open()){
-
-        do{
-            getline(archivo,nombre, delimitador);
+    if(archivo.is_open()) {
+        while(getline(archivo,nombre, delimitador)) {
             getline(archivo, edad_str, delimitador);
             getline(archivo, tamanio_str, delimitador);
             getline(archivo, especie_str, delimitador);
             getline(archivo, personalidad_str, '\n');
+
 
             switch(string_a_especie_t(especie_str)) {
 
                 case CABALLO:
                     {
                     Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(caballo);
+                    arbol_animales -> insertar(caballo, caballo -> obtener_nombre());
                     break;
                     }
 
                 case CONEJO:
                     {
                     Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(conejo);
+                    arbol_animales -> insertar(conejo, conejo -> obtener_nombre());
                     break;
                     }
 
                 case ERIZO:
                     {
                     Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(erizo);
+                    arbol_animales -> insertar(erizo, erizo -> obtener_nombre());
                     break;
                     }
 
                 case GATO:
                     {
                     Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(gato);
+                    arbol_animales -> insertar(gato, gato -> obtener_nombre());
                     break;
                     }
 
                 case LAGARTIJA:
                     {
                     Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(lagartija);
+                    arbol_animales -> insertar(lagartija, lagartija -> obtener_nombre());
                     break;
                     }
 
                 case PERRO:
                     {
                     Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(perro);
+                    arbol_animales -> insertar(perro, perro -> obtener_nombre());
                     break;
                     }
 
                 case ROEDOR:
                     {
                     Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                    Arbol_animales->insertar_nodo(rata);
+                    arbol_animales -> insertar(rata, rata -> obtener_nombre());
                     break;
                     }
-
+                
                 default:
                     break;
-            
             }
-        }while(!archivo.eof());
+        }
     }
-    else{
-        cout << "No se pudo abrir el archivo" << endl;
-    }
-
-    archivo.close();
 }
 
-especie_t string_a_especie_t(string especie)
-{
+
+especie_t string_a_especie_t(string especie) {
     int posicion;
     for(int i = 0; i < CANTIDAD_ESPECIES; i++){
         if(especie == ESPECIES_STR[i])
@@ -106,23 +96,15 @@ especie_t string_a_especie_t(string especie)
     return (especie_t) posicion;
 }
 
-string devolver_especie_palabra_completa(string inicial_ingresado)
-{
-    string inicial;
-    string palabra;
-    string especie_nombre_completo;
 
-    for(int i = 0; i < 7; i++){
-        palabra = ESPECIES_COMPLETAS[i];
-        inicial = palabra[0];
+void  imprimir_arbol(ABB<Animal>* arbol_animales) {
+    _imprimir_arbol(arbol_animales -> devolver_raiz());
+} 
 
-        if (inicial_ingresado == inicial && palabra != "Conejo" ){
-            especie_nombre_completo = palabra;
-        }
-        else if (inicial_ingresado == "O" && palabra =="Conejo"){
-            especie_nombre_completo = palabra;
-        }
+void _imprimir_arbol(ABBNodo<Animal>* raiz) {
+    if(raiz != nullptr) {
+        _imprimir_arbol(raiz -> devolver_nodo_izquierda());
+        cout << raiz -> devolver_key() << endl;
+        _imprimir_arbol(raiz -> devolver_nodo_derecha());
     }
-
-    return especie_nombre_completo;
 }
