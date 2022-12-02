@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <fstream>
 #include "Funciones.h"
@@ -156,3 +157,4 @@ string devolver_especie_palabra_completa(string inicial_ingresado)
 
     return especie_nombre_completo;
 }
+*/

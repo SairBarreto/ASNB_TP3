@@ -2,6 +2,7 @@
 #define ANIMAL_H
 
 #include <iostream>
+#include "Personalidad.h"
 using namespace std;
 //nombre,edad,tama�o,especie,personalidad
 class Animal
@@ -11,11 +12,11 @@ class Animal
         int edad;
         string tamanio;
         string especie;
-        string personalidad;
-
-    public:
+        Personalidad* personalidad;
         int hambre;
         int higiene;
+
+    public:
         
         //PRE: -    
         //POS: Carga y crea objeto Animal
@@ -31,11 +32,11 @@ class Animal
         
         //PRE: -    
         //POS: Higiene al 100
-        void baniar();
+        virtual void baniarse();
 
         //PRE: -    
         //POS: Hambre al 0
-        void alimentar();
+        virtual void alimentarse();
 
         //PRE: -    
         //POS: Retorna el nombre del animal
@@ -67,7 +68,7 @@ class Animal
 
         //PRE: -    
         //POS: Retorna personalidad del animal
-        string obtener_personalidad();
+        Personalidad* obtener_personalidad();
 };
 
 #endif // ANIMAL_H

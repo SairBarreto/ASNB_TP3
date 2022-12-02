@@ -9,17 +9,17 @@ Animal::Animal(string nombre, int edad, string tamanio, string especie,string pe
     this->edad = edad;
     this->tamanio = tamanio;
     this->especie = especie;
-    this->personalidad = personalidad;
+    this->personalidad = new Personalidad(personalidad);
     this->hambre = 0;
     this->higiene = 100;
 }
 
-void Animal::baniar()
+void Animal::baniarse()
 {
     higiene = 100;
 }
 
-void Animal::alimentar()
+void Animal::alimentarse()
 {
     hambre = 0;
 }
@@ -58,7 +58,7 @@ string Animal::obtener_especie() {
     return especie;
 }
 
-string Animal::obtener_personalidad() {
+Personalidad* Animal::obtener_personalidad() {
     return personalidad;
 }
 

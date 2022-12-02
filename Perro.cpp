@@ -8,7 +8,7 @@ Perro:: Perro(string _nombre, int _edad, string _tamanio, string _especie, strin
 void Perro::ensuciar()
 {
     int nuevo_higiene;
-    if (personalidad=="sociable")
+    if (personalidad->obtener_personalidad() == "sociable")
     {
         nuevo_higiene = higiene - 5;
         if(nuevo_higiene <= 0)
@@ -16,7 +16,7 @@ void Perro::ensuciar()
         else
             higiene = nuevo_higiene;
     }
-    else if (personalidad == "travieso")
+    else if (personalidad->obtener_personalidad() == "travieso")
     {
         nuevo_higiene = higiene - 20;
         if(nuevo_higiene <= 0)
@@ -33,7 +33,7 @@ void Perro::ensuciar()
 void Perro ::gastar_energia()
 {
     int nuevo_hambre;
-    if (personalidad == "dormilon")
+    if (personalidad->obtener_personalidad() == "dormilon")
     {
         nuevo_hambre = hambre + 5;
         if(nuevo_hambre >= 100)
@@ -41,7 +41,7 @@ void Perro ::gastar_energia()
         else
             hambre = nuevo_hambre;
     }
-    else if (personalidad == "jugueton")
+    else if (personalidad->obtener_personalidad() == "jugueton")
     {
         nuevo_hambre = hambre + 20;
         if(nuevo_hambre >= 100)
@@ -53,4 +53,16 @@ void Perro ::gastar_energia()
     {
         Animal::gastar_energia();
     }
+}
+
+void Perro::alimentarse()
+{
+    Animal::alimentarse();
+    cout << "Se dio de comer Huesos a " << Animal::obtener_nombre() << endl;
+}
+
+void Perro::baniarse()
+{
+    Animal::baniarse();
+    cout << "Se baño a " << Animal::obtener_nombre() << endl;
 }

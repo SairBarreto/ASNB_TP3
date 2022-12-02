@@ -1,3 +1,4 @@
+/*
 #ifndef ARBOL_B_H_INCLUDED
 #define ARBOL_B_H_INCLUDED
 #include "Nodo.h"
@@ -430,3 +431,4 @@ void Arbol<Dato>::fundir_nodo(Nodo<Dato>* izquierda, Nodo<Dato>* &padre, Nodo<Da
 }
 
 #endif
+*/

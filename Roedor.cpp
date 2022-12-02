@@ -8,7 +8,7 @@ Roedor::Roedor(string _nombre, int _edad, string _tamanio, string _especie, stri
 void Roedor::gastar_energia()
 {
     int nuevo_hambre;
-    if (personalidad == "dormilon")
+    if (personalidad->obtener_personalidad() == "dormilon")
     {
         nuevo_hambre = hambre + 5;
         if(nuevo_hambre >= 100)
@@ -16,7 +16,7 @@ void Roedor::gastar_energia()
         else
             hambre = nuevo_hambre;
     }
-    else if (personalidad == "jugueton")
+    else if (personalidad->obtener_personalidad() == "jugueton")
     {
         nuevo_hambre = hambre + 20;
         if(nuevo_hambre >= 100)
@@ -30,4 +30,15 @@ void Roedor::gastar_energia()
     }
 }
 
-void Roedor::ensuciar() {}
+void Roedor::ensuciar(){}
+
+void Roedor::alimentarse()
+{
+    Animal::alimentarse();
+    cout << "Se dio de comer Queso a " << Animal::obtener_nombre() << endl;
+}
+
+void Roedor::baniarse()
+{
+    cout << Animal::obtener_nombre() << " NO necesita un baño" << endl;
+}

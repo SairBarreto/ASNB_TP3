@@ -18,6 +18,9 @@ class Erizo : public Animal
         //POS: Aumenta su hambre dependiendo de su personalidad
         void gastar_energia();
         
+        void alimentarse();
+
+        void baniarse();
 };
 
 #endif // ERIZO_H

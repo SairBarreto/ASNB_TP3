@@ -17,6 +17,10 @@ class Caballo : public Animal
         //PRE: -    
         //POS: Aumenta hambre dependiendo de su personalidad
         void gastar_energia();
+
+        void alimentarse();
+
+        void baniarse();
 };
 
 #endif // CABALLO_H
