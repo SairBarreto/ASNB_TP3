@@ -19,7 +19,6 @@ const string ESPECIES_COMPLETAS[7] = {
     "Lagartija",
     "Perro",
     "Roedor"
-
 };
 
 const string INICIALES_ESPECIES_STR[7] = {
@@ -32,8 +31,7 @@ const string INICIALES_ESPECIES_STR[7] = {
     "R"
 };
 
-const string PERSONALIDADES[4] =
-{
+const string PERSONALIDADES[4] = {
     "dormilon",
     "jugueton",
     "sociable",
@@ -41,8 +39,7 @@ const string PERSONALIDADES[4] =
 
 };
 
-const string TAMANIOS_STR[5] =
-{
+const string TAMANIOS_STR[5] = {
     "diminuto",
     "pequenio",
     "mediano",

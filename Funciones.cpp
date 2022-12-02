@@ -10,8 +10,7 @@
 #include "Roedor.h"
 #include "Menu.h"
 
-void leer_archivo_y_agrega_al_arbol(Arbol<Animal>* Arbol_animales)
-{
+void leer_archivo_y_agrega_al_arbol(Arbol<Animal>* Arbol_animales){
 string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
     char delimitador = ','; //El delimitador tiene que ser de tipo char con string no funciona
     ifstream archivo(PATH_ANIMALES, ios::in);
