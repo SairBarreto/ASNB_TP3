@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include "Grafo.h"
 
+#include "animal_handler.h"
+#include "menu.h"
+
 using namespace std;
 
 
@@ -231,16 +234,22 @@ int main() {
 
 
 
-    //leer_archivo(lista_animales);
 
-   do{
+int main() {
+
+    ABB<Animal>* arbol_animales = new ABB<Animal>;
+    int opcion = 0;
+
+    leer_archivo(arbol_animales);
+
+    do{
         mostrar_menu();
         opcion = menu_pedir_opcion();
         menu_validar_opcion(opcion);
-        //procesar_opcion(opcion, lista_animales);
+        procesar_opcion(opcion, arbol_animales);
     }while(opcion != SALIR);
-    
-    //delete lista_animales;
+
+    delete arbol_animales;
 
     system("pause");
     return 0;
