@@ -109,4 +109,68 @@ void _imprimir_arbol(ABBNodo<Animal>* raiz) {
     }
 }
 
+void adoptar_animal(Arbol<Animal>* arbol_animales){
+    int metros_cuadrados = 0;
+    string nombre_buscado;
+    cout << "Ingrese cantidad de metros cuadrados disponibles: ";
+    cin >> metros_cuadrados;
 
+    mostrar_animales_en_adopcion(arbol_animales, metros_cuadrados);
+
+    cout << "¿Cual desea adoptar? Ingrese su nombre: ";
+    getline(cin >> ws, nombre_buscado);
+    
+    bool existe_nombre = false;
+    int i = 0;
+
+    while(i < arbol_animales->obtener_cantidad() && !existe_nombre){
+        if(nombre_buscado == arbol_animales->devolver_dato()->obtener_nombre() && puede_vivir_en_espacio(arbol_animales->devolver_dato(), metros_cuadrados)){
+            //  lista_animales->borrar_nodo_actual();  // en el tp dice que no es necesario borrarlo
+            cout << endl;
+            cout << "Felicidades usted adopto a " << nombre_buscado << endl;
+            cout << endl << "---------------------------------------------------------" << endl << endl;
+            existe_nombre = true;
+        }
+        i++;
+        // arbol_animales->pasar_nodo();  ¿uso arbol_animales->_eliminar?
+    }
+ 
+    if(existe_nombre == false){
+        cout << endl;
+        cout << nombre_buscado << " no se encuentra en la Reserva" << endl;
+        cout << endl << "---------------------------------------------------------" << endl << endl;
+    }
+
+    // lista_animales->iniciar_nodo_actual();
+}
+
+void mostrar_animales_en_adopcion(Arbol<Animal>* arbol_animales, int metros_cuadrados){
+
+    cout << endl;
+    for(int i = 0; i < nodo->clavesUsadas-1; i++){
+        if(puede_vivir_en_espacio(arbol_animales->devolver_dato(), metros_cuadrados)){
+            cout << "\t -" << arbol_animales->devolver_dato()->obtener_nombre() << endl;
+        }
+
+        // arbol_animales->pasar_nodo();  ¿uso arbol_animales->_eliminar?
+    }
+    cout << endl;
+    //lista_animales->iniciar_nodo_actual(); //vuelve al nodo inicial
+}
+
+bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
+    int minimo = string_a_tamanio(animal->obtener_tamanio());
+    if(metros_cuadrados >= minimo)
+        return true;
+    return false;
+}
+
+int string_a_tamanio(string tamanio) {
+    int espacio_minimo = 100;
+    for(int i = 0; i < CANTIDAD_TAMANIOS; i++){
+
+        if(tamanio == TAMANIOS[i].tamanio)
+            espacio_minimo = TAMANIOS[i].min;
+    }
+    return espacio_minimo;
+}
