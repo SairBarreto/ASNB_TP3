@@ -47,5 +47,16 @@ void  imprimir_arbol(ABB<Animal>* arbol_animales);
 //POST:
 void _imprimir_arbol(ABBNodo<Animal>* raiz);
 
+//PRE:
+//POST:
+void buscar_animales(ABB<Animal>* tree);
+
+//PRE:
+//POST:
+void animales_paso_del_tiempo(ABB<Animal>* arbol_animales);
+
+//PRE:
+//POST:
+void _animales_paso_del_tiempo(ABBNodo<Animal>* raiz);
 
 #endif //ANIMAL_HANDLER_H

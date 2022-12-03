@@ -43,18 +43,23 @@ void procesar_opcion(int opcion, ABB<Animal>* arbol_animales)
     switch(opcion){
         case LISTAR_ANIMALES:
             imprimir_arbol(arbol_animales);
+            animales_paso_del_tiempo(arbol_animales);
             break;
 
         case RESCATAR_ANIMAL:
+            animales_paso_del_tiempo(arbol_animales);
             break;
 
         case BUSCAR_ANIMAL:
+            buscar_animales(arbol_animales);
             break;
 
         case CUIDAR_ANIMAL:
+            animales_paso_del_tiempo(arbol_animales);
             break;
 
         case ADOPTAR_ANIMAL:
+            animales_paso_del_tiempo(arbol_animales);
             break;
 
         case CARGAR_COMBUSTIBLE:

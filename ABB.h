@@ -27,6 +27,10 @@ class ABB {
         //POST:
         ABBNodo<Dato>* _eliminar(string key, ABBNodo<Dato>* nodo);
 
+        //PRE:
+        //POST:
+        ABBNodo<Dato>* _buscar(string key, ABBNodo<Dato>* nodo);
+
 
     public:
 
@@ -44,7 +48,7 @@ class ABB {
 
         //PRE:
         //POST:
-        ABBNodo<Dato>* buscar(string key);
+        Dato* buscar(string key);
 
         //PRE:
         //POST:
@@ -178,6 +182,28 @@ ABBNodo<Dato>* ABB<Dato>::_eliminar(string key, ABBNodo<Dato>* nodo) {
 template <typename Dato>
 ABBNodo<Dato>* ABB<Dato>::devolver_raiz() {
     return this -> raiz;
+}
+
+
+template <typename Dato>
+Dato* ABB<Dato>::buscar(string key) {
+    ABBNodo<Dato>* nodo = _buscar(key, this -> raiz);
+    return nodo -> devolver_dato();
+}
+
+template <typename Dato>
+ABBNodo<Dato>* ABB<Dato>::_buscar(string key, ABBNodo<Dato>* nodo) {
+    if(nodo == nullptr || nodo -> devolver_key() == key) {
+        return nodo;
+    }
+
+    if(nodo -> devolver_key() < key){
+        return _buscar(key, nodo -> devolver_nodo_derecha());
+    }
+
+    else {
+        return _buscar(key, nodo -> devolver_nodo_izquierda());
+    }
 }
 
 

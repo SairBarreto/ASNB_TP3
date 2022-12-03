@@ -12,10 +12,10 @@ class Animal
         string tamanio;
         string especie;
         string personalidad;
-
-    public:
         int hambre;
         int higiene;
+
+    public:
         
         //PRE: -    
         //POS: Carga y crea objeto Animal
