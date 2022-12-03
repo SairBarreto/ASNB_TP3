@@ -11,3 +11,16 @@ string Personalidad::obtener_personalidad()
 {
     return personalidad;
 }
+
+float Personalidad::obtener_multiplicador()
+{
+    if(personalidad == "sociable" || personalidad == "dormilon"){
+        return multiplicador = 0.5;
+    }
+    else if(personalidad == "travieso" || personalidad == "jugueton"){
+        return multiplicador = 2;
+    }
+    else{
+        return multiplicador = 1;
+    }
+}

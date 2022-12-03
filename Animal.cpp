@@ -26,20 +26,20 @@ void Animal::alimentarse()
 
 void Animal::gastar_energia()
 {
-    int nuevo_hambre = hambre + 10;
+    float nuevo_hambre = (float)hambre + 10 * personalidad->obtener_multiplicador();
     if(nuevo_hambre >= 100)
         hambre = 100;
     else
-        hambre = nuevo_hambre;
+        hambre = (int)nuevo_hambre;
 }
 
 void Animal::ensuciar()
 {
-    int nuevo_higiene = higiene - 10;
+    float nuevo_higiene = (float)higiene - 10 * personalidad->obtener_multiplicador();
     if(nuevo_higiene <= 0)
         higiene = 0;
     else
-        higiene = nuevo_higiene;
+        higiene = (int)nuevo_higiene;
 }
 
 string Animal::obtener_nombre() {
