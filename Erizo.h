@@ -8,15 +8,8 @@ class Erizo : public Animal
 {
 
     public:
-        Erizo(string _nombre, int _edad, string _tamanio, string _especie, string _personalidad);
+        Erizo(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad);
         
-        //PRE: -    
-        //POS: Disminuye higiene dependiendo de su personalidad
-        void ensuciar();
-
-        //PRE: -    
-        //POS: Aumenta su hambre dependiendo de su personalidad
-        void gastar_energia();
         
 };
 

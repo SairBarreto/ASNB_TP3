@@ -8,6 +8,15 @@
 #include "Perro.h"
 #include "Roedor.h"
 
+#include "Dormilon.h"
+#include "Jugeton.h"
+#include "Sociable.h"
+#include "Travieso.h"
+
+
+
+
+
 void leer_archivo(ABB<Animal>* arbol_animales) {
     string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
     char delimitador = ','; 
@@ -27,54 +36,84 @@ void leer_archivo(ABB<Animal>* arbol_animales) {
             getline(archivo, especie_str, delimitador);
             getline(archivo, personalidad_str, '\n');
 
+            Personalidad* personalidad;
+
+            switch(string_a_personalidad_t(personalidad_str)) {
+
+                
+
+                case DORMILON:
+                    {
+                    personalidad = new Dormilon();
+                    break;
+                    }
+
+                case JUGETON:
+                    {
+                    personalidad = new Jugeton();
+                    break;
+                    }
+                case SOCIABLE:
+                    {
+                    personalidad = new Sociable();
+                    break;
+                    }
+                case TRAVIESO:
+                    {
+                    personalidad = new Travieso();
+                    break;
+                    }
+                default:
+                    break;
+            }
 
             switch(string_a_especie_t(especie_str)) {
 
                 case CABALLO:
                     {
-                    Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(caballo, caballo -> obtener_nombre());
                     break;
                     }
 
                 case CONEJO:
                     {
-                    Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(conejo, conejo -> obtener_nombre());
                     break;
                     }
 
                 case ERIZO:
                     {
-                    Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(erizo, erizo -> obtener_nombre());
                     break;
                     }
 
                 case GATO:
                     {
-                    Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(gato, gato -> obtener_nombre());
                     break;
                     }
 
                 case LAGARTIJA:
                     {
-                    Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(lagartija, lagartija -> obtener_nombre());
                     break;
                     }
 
                 case PERRO:
                     {
-                    Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(perro, perro -> obtener_nombre());
                     break;
                     }
 
                 case ROEDOR:
                     {
-                    Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
+                    Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
                     arbol_animales -> insertar(rata, rata -> obtener_nombre());
                     break;
                     }
@@ -109,7 +148,7 @@ void _imprimir_arbol(ABBNodo<Animal>* raiz) {
         cout << "\t" << animal -> obtener_nombre() << endl;
         cout << "\t-Edad: " << animal -> obtener_edad() << endl;
         cout << "\t-Tamaño: " << animal -> obtener_tamanio() << endl;
-        cout << "\t-Especie: " << "a" << endl;
+        cout << "\t-Especie: " << especie_inicial_a_string(animal -> obtener_especie()) << endl;
         cout << "\t-Personalidad: " << animal -> obtener_personalidad() << endl;
         cout << "\t-Higiene: " << animal -> obtener_higiene() << endl;
         cout << "\t-Hambre: " << animal -> obtener_hambre() << endl;
@@ -138,7 +177,7 @@ void buscar_animales(ABB<Animal>* arbol_animales)
         cout << "\t" << animal -> obtener_nombre() << endl;
         cout << "\t Edad: " << animal -> obtener_edad() << endl;
         cout << "\t Tamaño: " << animal -> obtener_tamanio() << endl;
-        cout << "\t Especie: " << "a" << endl;
+        cout << "\t Especie: " << especie_inicial_a_string(animal -> obtener_especie())  << endl;
         cout << "\t Personalidad: " << animal -> obtener_personalidad() << endl;
     }
 
@@ -156,4 +195,23 @@ void _animales_paso_del_tiempo(ABBNodo<Animal>* raiz) {
         raiz -> devolver_dato() -> gastar_energia();
         _animales_paso_del_tiempo(raiz -> devolver_nodo_derecha());
     }
+}
+
+
+personalidad_t string_a_personalidad_t(string personalidad) {
+    int posicion;
+    for(int i = 0; i < CANTIDAD_PERSONALIDAD; i++){
+        if(personalidad == PERSONALIDAD_STR[i])
+            posicion = i;
+    }
+    return (personalidad_t) posicion;
+}
+
+string especie_inicial_a_string(string inicial) {
+    int posicion;
+    for(int i = 0; i < CANTIDAD_ESPECIES; i++){
+        if(inicial == ESPECIES_STR[i])
+            posicion = i;
+    }
+    return  ESPECIES_COMPLETAS[posicion];
 }

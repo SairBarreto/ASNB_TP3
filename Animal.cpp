@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Animal::Animal(string nombre, int edad, string tamanio, string especie,string personalidad)
+Animal::Animal(string nombre, int edad, string tamanio, string especie, Personalidad* personalidad)
 {
     this->nombre = nombre;
     this->edad = edad;
@@ -26,20 +26,16 @@ void Animal::alimentar()
 
 void Animal::gastar_energia()
 {
-    int nuevo_hambre = hambre + 10;
-    if(nuevo_hambre >= 100)
+    hambre += 10 * personalidad -> obtener_multiplicador_hambre();
+    if(hambre >= 100)
         hambre = 100;
-    else
-        hambre = nuevo_hambre;
 }
 
 void Animal::ensuciar()
 {
-    int nuevo_higiene = higiene - 10;
-    if(nuevo_higiene <= 0)
+    higiene -= 10 * personalidad -> obtener_multiplicador_higiene();
+    if(higiene <= 0)
         higiene = 0;
-    else
-        higiene = nuevo_higiene;
 }
 
 string Animal::obtener_nombre() {
@@ -59,13 +55,13 @@ string Animal::obtener_especie() {
 }
 
 string Animal::obtener_personalidad() {
-    return personalidad;
+    return this -> personalidad -> obtener_personalidad();
 }
 
-int Animal::obtener_higiene() {
+float Animal::obtener_higiene() {
     return higiene;
 }
 
-int Animal::obtener_hambre() {
+float Animal::obtener_hambre() {
     return hambre;
 }

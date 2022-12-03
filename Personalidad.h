@@ -20,11 +20,11 @@ class Personalidad {
 
         //PRE:
         //POST:
-        float obtener_multiplicador_hambre();
+        virtual float obtener_multiplicador_hambre();
 
         //PRE:
         //POST:
-        float obtener_multiplicador_higiene();
+        virtual float obtener_multiplicador_higiene();
 
         //PRE:
         //POST:
