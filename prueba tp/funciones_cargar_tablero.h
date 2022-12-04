@@ -7,10 +7,18 @@
 using namespace std;
 
 
+/*
+PRE; recibe el numero de nodo;
+POST;segun el tipo de casilla le asigna un peso de camino a derecha
+*/
+int devolver_peso_der(int numero_nodo);
 
-//PRE; recibe el numero de nodo;
-//POST;segun el tipo de casilla le asigna un peso de camino a derecha o camino en direccion sur
-int devolver_peso_nodo(int numero_nodo);
+
+/*
+PRE; recibe el numero de nodo;
+POST;segun el tipo de casilla le asigna un peso de camino en dirrecion sur
+*/
+int devolver_peso_sur(int numero_nodo);
 
 
 //PRE:Utiliza funcion floyd de camino minimo

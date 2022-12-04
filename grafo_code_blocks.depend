@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1669232765 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caminominimo.cpp
+1670176103 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caminominimo.cpp
 	"CaminoMinimo.h"
 
-1669232765 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caminominimo.h
+1670171238 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caminominimo.h
 	<string>
 	"Lista.h"
 	"Vertice.h"
 	<iostream>
 
-1669232765 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\lista.h
+1670176329 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\lista.h
 	<string>
 	"Nodo.h"
 
@@ -24,41 +24,45 @@
 1669232765 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\dijkstra.h
 	"CaminoMinimo.h"
 
-1669320605 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\grafo.cpp
+1670176248 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\grafo.cpp
 	"Grafo.h"
 	"Dijkstra.h"
 	<iostream>
 
-1669232765 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\grafo.h
+1670176293 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\grafo.h
 	<string>
 	"Lista.h"
 	"Vertice.h"
 	"Floyd.h"
 
-1669232765 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\floyd.h
+1670176211 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\floyd.h
 	"CaminoMinimo.h"
 
-1669327482 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\main.cpp
+1670127492 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\main.cpp
 	"Grafo.h"
 	<iostream>
+	<conio.h>
+	<cstdlib>
 	"funciones_graficar.h"
 	"funciones_cargar_tablero.h"
 	"funciones_rescatar.h"
+	"colors.h"
 
-1669232765 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\vertice.cpp
+1670176349 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\vertice.cpp
 	"Vertice.h"
 
-1669320518 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\floyd.cpp
+1670176188 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\floyd.cpp
 	"Floyd.h"
 	<iostream>
 	<fstream>
 	<string>
 
-1669326782 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
+1670170656 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
 	<iostream>
+	<fstream>
 	<string>
 
-1669326782 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
+1670170656 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -67,7 +71,7 @@
 	"Grafo.h"
 	"funciones_graficar.h"
 
-1669324213 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.cpp
+1670107064 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.cpp
 	"funciones_cargar_tablero.h"
 	<iostream>
 	<string>
@@ -76,7 +80,7 @@
 	"Grafo.h"
 	"funciones_graficar.h"
 
-1669329428 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.h
+1670046651 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.h
 	<iostream>
 	<string>
 
@@ -85,12 +89,12 @@
 
 1669247510 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\include\automovil.h
 
-1669319654 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.cpp
+1670112670 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.cpp
 	"Automovil.h"
 
-1669247510 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.h
+1670112488 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.h
 
-1669327841 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
+1670176545 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
 	"funciones_rescatar.h"
 	"funciones_cargar_tablero.h"
 	"funciones_graficar.h"
@@ -98,6 +102,8 @@
 	"Grafo.h"
 	<string>
 
-1669329428 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.h
+1670107050 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.h
 	<iostream>
+
+1669748443 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\colors.h
 

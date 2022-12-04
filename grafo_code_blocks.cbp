@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Automovil.cpp" />
+		<Unit filename="Automovil.h" />
 		<Unit filename="CaminoMinimo.cpp" />
 		<Unit filename="CaminoMinimo.h" />
 		<Unit filename="Dijkstra.cpp" />
@@ -44,10 +46,13 @@
 		<Unit filename="Nodo.h" />
 		<Unit filename="Vertice.cpp" />
 		<Unit filename="Vertice.h" />
+		<Unit filename="colors.h" />
 		<Unit filename="funciones_cargar_tablero.cpp" />
 		<Unit filename="funciones_cargar_tablero.h" />
 		<Unit filename="funciones_graficar.cpp" />
 		<Unit filename="funciones_graficar.h" />
+		<Unit filename="funciones_rescatar.cpp" />
+		<Unit filename="funciones_rescatar.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

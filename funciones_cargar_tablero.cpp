@@ -1,5 +1,4 @@
 #include "funciones_cargar_tablero.h"
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -9,46 +8,12 @@
 
 using namespace std;
 
-int devolver_peso_der(int numero_nodo)
+
+int devolver_peso_nodo(int numero_nodo)
 {
-    string tablero[1] = {"acpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc"};
-    string tipo_casilla;
+    string tablero = "ccpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-    int peso =0;
 
-    for(int i=1;i<65;i++)
-    {
-        tipo_casilla = tablero[0][i];
-
-        if(tipo_casilla == "m" && i == numero_nodo)
-        {
-            peso = 5;
-        }
-        else if(tipo_casilla == "p" && i == numero_nodo)
-        {
-            peso = 40;
-        }
-        else if (tipo_casilla == "c" && i == numero_nodo)
-        {
-            peso = 1;
-        }
-        else if(tipo_casilla == "t" && i == numero_nodo)
-        {
-            peso = 2;
-        }
-
-    }
-
-    return peso;
-
-}
-
-//GRAFO
-//calcula el peso de lo que cuesta bajar en la casilla
-
-int devolver_peso_sur(int numero_nodo)
-{
-    string tablero[1] = {"acpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc"};
 
     string tipo_casilla;
 
@@ -56,21 +21,21 @@ int devolver_peso_sur(int numero_nodo)
 
     for(int i=1;i<65;i++)
     {
-        tipo_casilla = tablero[0][i];
+        tipo_casilla = tablero[i];
 
-        if(tipo_casilla == "m" && i == numero_nodo + 8)
+        if(tipo_casilla == "m" && i == numero_nodo )
         {
             peso = 5;
         }
-        else if(tipo_casilla == "p" && i == numero_nodo + 8)
+        else if(tipo_casilla == "p" && i == numero_nodo )
         {
             peso = 40;
         }
-        else if (tipo_casilla == "c" && i == numero_nodo + 8)
+        else if (tipo_casilla == "c" && i == numero_nodo )
         {
             peso = 1;
         }
-        else if(tipo_casilla == "t" && i == numero_nodo + 8)
+        else if(tipo_casilla == "t" && i == numero_nodo )
         {
             peso = 2;
         }
@@ -85,14 +50,22 @@ void buscar_camino_minimo(string origen, string destino)
 {
     Grafo grafo;
 
-    //string camino_completo_prueba;
-
-
     int num_nodo=0;
 
+    int numero_nodo = 0;
+
+    int peso_total_der = 0;
+
+    int peso_total_sur = 0;
+
+    int peso_der = 0;
+
+    int peso_sur = 0;
+
+    int peso_nodo = 0;
 
 
-    for(int i=1;i<65;i++)
+    for(int i=0;i<65;i++)
     {
         num_nodo = i;
 
@@ -100,59 +73,54 @@ void buscar_camino_minimo(string origen, string destino)
 
         grafo.agregarVertice(str_nodo);
 
-
-
     }
 
-    int numero_nodo = 0;
 
 
-
-    for(int i=1;i<64;i++)
+    for(int i=0;i<64;i++)
     {
         numero_nodo = i;
 
-        int peso_der = 0;
+        string str_nodo(to_string(numero_nodo));
+        string str_nodo_der(to_string(numero_nodo + 1));
+        string str_nodo_sur(to_string(numero_nodo + 8));
 
-        int peso_sur = 0;
+        peso_nodo = devolver_peso_nodo(numero_nodo);
 
-       string str_nodo(to_string(numero_nodo));
-       string str_nodo_der(to_string(numero_nodo + 1));
-       string str_nodo_sur(to_string(numero_nodo + 8));
+        peso_der = devolver_peso_nodo(numero_nodo + 1);
 
-       peso_der = devolver_peso_der(numero_nodo + 1);
+        peso_sur = devolver_peso_nodo(numero_nodo + 8);
 
-       peso_sur = devolver_peso_sur(numero_nodo);
+        if(numero_nodo % 8 != 0 && numero_nodo<57)
+        {
 
-       if(numero_nodo % 8 != 0 && numero_nodo<57)
-       {
+            peso_total_der = peso_nodo + peso_der;
 
+            peso_total_sur = peso_nodo + peso_sur;
 
-            grafo.agregarCamino(str_nodo,str_nodo_der,peso_der);
-            grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
+            grafo.agregarCamino(str_nodo,str_nodo_der,peso_total_der);
+            grafo.agregarCamino(str_nodo,str_nodo_sur, peso_total_sur);
 
-       }
-       else if(numero_nodo<57)
-       {
+        }
+        else if(numero_nodo<57)
+        {
 
+            peso_total_sur = peso_nodo + peso_sur;
 
-              grafo.agregarCamino(str_nodo,str_nodo_sur, peso_sur);
+            grafo.agregarCamino(str_nodo,str_nodo_sur, peso_total_sur);
 
 
         }
         else
         {
+            peso_total_der = peso_nodo + peso_der;
+
             grafo.agregarCamino(str_nodo,str_nodo_der,peso_der);
         }
 
 
 
     }
-
-
-
-
-
 
 
     grafo.usarFloyd();
@@ -163,17 +131,16 @@ void buscar_camino_minimo(string origen, string destino)
 
 int calcular_gasolina_necesaria(int camino[], int largo)
 {
+
     int gasolina_necesaria = 0;
 
     int  nro_casillero = 0;
 
     string tipo_de_casillero ;
 
-    for(int i = 0;i<largo;i++)
+    for(int i = 1;i<=largo-1;i++)
     {
-        nro_casillero = camino[i];
-
-
+        nro_casillero = camino[i] - 1;
 
         tipo_de_casillero = tablero_original[nro_casillero];
 

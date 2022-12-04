@@ -30,9 +30,9 @@ string generar_tablero_de_animales_perdidos(string animales_perdidos)
 {
 
 
-    string tablero = "ApPtttttctttppppccccctmmttttctmLmmmtctmRttttcOmmtppCctmmttttcccE";
+    string tablero = "Apttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-    /*int posicion_rand = 0;
+    int posicion_rand = 0;
 
 
 
@@ -51,7 +51,7 @@ string generar_tablero_de_animales_perdidos(string animales_perdidos)
 
     }
 
-    //graficar_tablero(tablero);*/
+    //graficar_tablero(tablero);
 
 
     return tablero;
@@ -59,31 +59,36 @@ string generar_tablero_de_animales_perdidos(string animales_perdidos)
 
 
 
-
+//PARTE GRAFICA - no terminada
+// marca con un # el camino
+//tendria que recibir los nodos
 void marcar_camino( string tablero,int cantidad,int vector_camino[])
 {
 
 
 
-    string nuevo_simbolo = ".";
+    //string tablero = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-    int direccion = 0;
+    string nuevo_simbolo = ".";
 
 
 
     for(int i=0; i<cantidad;i++)
     {
-        direccion = vector_camino[i] - 1;
 
-        tablero.replace(direccion,1,nuevo_simbolo);
+
+
+        tablero.replace(vector_camino[i]-1,1,nuevo_simbolo);
 
     }
 
-    imprimir_emojis(tablero);
+    graficar_tablero(tablero);
+
+
+
+
 
 }
-
-
 int obtener_camino(int vector_movimientos[])
 {
     string nombre_archivo = "movimientos.txt";
@@ -108,7 +113,6 @@ int obtener_camino(int vector_movimientos[])
     return contador;
 }
 
-
 int obtener_ubicacion(string inicial_animal, string tablero_nuevo)
 {
     string letra;
@@ -132,103 +136,47 @@ string modificar_tablero_aleatorio(string tablero_rand, int posicion_auto_nueva,
 {
     string casillero;
 
-    for(int i = 0;i < 64; i++ )
-    {
+    tablero_rand[0] = tablero_original[0];
 
+    for(int i = 1;i < 64; i++ )
+    {
         if(i == posicion_auto_nueva)
         {
-
-            tablero_rand.replace(i,1,"A");
-
-
+             tablero_rand.replace(i,1,"A");
 
         }
-        if(i == posicion_auto_vieja - 1)
+        if(i == posicion_auto_vieja)
         {
-
             casillero = tablero_original[i];
 
-
             tablero_rand.replace(i,1,casillero);
-
-
-
-
         }
-
-
 
     }
 
-
-
     return tablero_rand;
 }
-
-
-
 
 void imprimir_referencias()
 {
     cout<<"Referencias: "<<endl;
     cout<<endl;
-    cout<<EMOJIS[8]<<"= Montaña, costo gasolina = 5 pts"<<endl;
-    cout<<EMOJIS[9]<<"= Precipicio, costo gasolina = 40 pts"<<endl;
-    cout<<EMOJIS[10]<<"= Camino, costo gasolina = 1 pts"<<endl;
-    cout<<EMOJIS[11]<<"= Tierra, costo gasolina = 2 pts"<<endl;
+    cout<<"'m' = Montaña, costo gasolina = 5 pts"<<endl;
+    cout<<"'p' = Precipicio, costo gasolina = 40 pts"<<endl;
+    cout<<"'c' = Camino, costo gasolina = 1 pts"<<endl;
+    cout<<"'t' = Tierra, costo gasolina = 2 pts"<<endl;
     cout<<endl;
-    cout<<EMOJIS[7]<<"= auto"<<endl;
+    cout<<"'A' = auto"<<endl;
     cout<<endl;
-    cout<<EMOJIS[1]<<"= Caballo"<<endl;
-    cout<<EMOJIS[2]<<"= Gato"<<endl;
-    cout<<EMOJIS[5]<<"= Lagarto"<<endl;
-    cout<<EMOJIS[4]<<"= Conejo "<<endl;
-    cout<<EMOJIS[0]<<"= Perro"<<endl;
-    cout<<EMOJIS[3]<<"= Roedor "<<endl;
-    cout<<EMOJIS[6]<<"= Erizo "<<endl;
+    cout<<"'C' = Caballo"<<endl;
+    cout<<"'G' = Gato"<<endl;
+    cout<<"'I' = Iguana"<<endl;
+    cout<<"'O' = Conejo "<<endl;
+    cout<<"'P' = Perro"<<endl;
+    cout<<"'R' = Roedor "<<endl;
     cout<<endl;
 
 
-}
-
-string letra_a_emoji(string letra)
-{
-    int posicion = 0;
-
-    for(int i = 0; i < 12; i++)
-    {
-        if(letra == TIPO_CASILLERO[i])
-        {
-            posicion = i;
-        }
-
-    }
-
-    return EMOJIS[posicion];
-}
-
-
-void imprimir_emojis(string tablero_nuevo)
-{
-    string letra;
-
-    string emoji;
-
-     for(int i=0;i<64;i++)
-    {
-        letra = tablero_nuevo[i];
-
-        emoji = letra_a_emoji(letra);
-
-        if(i%8==0)
-        {
-            cout<<endl;
-        }
-
-        cout<<" [  "<<emoji<<"  ] ";
-
-
-    }
 }
 
 

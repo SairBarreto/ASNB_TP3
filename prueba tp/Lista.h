@@ -107,4 +107,3 @@ string Lista<Tipo>::obtenerNombre(int posicion) {
 }
 
 #endif //GRAFOS_LISTA_H
-

@@ -138,4 +138,3 @@ void Grafo::usarDijkstra() {
     delete algoritmoCaminoMinimo;
     algoritmoCaminoMinimo = new Dijkstra(vertices, matrizDeAdyacencia);
 }
-
