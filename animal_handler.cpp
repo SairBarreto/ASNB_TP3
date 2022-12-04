@@ -269,7 +269,7 @@ void adoptar_animal(ABB<Animal>* arbol_animales) {
     getline(cin >> ws, nombre_buscado);
     
     Animal* animal = arbol_animales -> buscar(nombre_buscado);
-    if(animal != nullptr) {
+    if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
         arbol_animales -> eliminar(nombre_buscado);
         cout << endl;
         cout << "Felicidades usted adopto a " << nombre_buscado << endl;
@@ -277,7 +277,7 @@ void adoptar_animal(ABB<Animal>* arbol_animales) {
     }
     else {
         cout << endl;
-        cout << nombre_buscado << " no se encuentra en la Reserva" << endl;
+        cout << nombre_buscado << " no se encuentra en la Reserva o no tiene el espacio suficiente." << endl;
         cout << endl << "---------------------------------------------------------" << endl << endl;
     }
 }
