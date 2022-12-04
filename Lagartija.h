@@ -13,6 +13,10 @@ class Lagartija : public Animal
         //PRE: -    
         //POS: Disminuye higiene dependiendo de su personalidad
         void ensuciar();
+
+        void alimentarse();
+        
+        void baniarse();
 };
 
 #endif // LAGARTIJA_H

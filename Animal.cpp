@@ -14,12 +14,12 @@ Animal::Animal(string nombre, int edad, string tamanio, string especie, Personal
     this->higiene = 100;
 }
 
-void Animal::baniar()
+void Animal::baniarse()
 {
     higiene = 100;
 }
 
-void Animal::alimentar()
+void Animal::alimentarse()
 {
     hambre = 0;
 }

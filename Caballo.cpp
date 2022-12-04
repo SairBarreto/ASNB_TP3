@@ -4,3 +4,15 @@ Caballo::Caballo(string _nombre, int _edad, string _tamanio, string _especie, Pe
 {
 
 }
+
+void Caballo::alimentarse()
+{
+    Animal::alimentarse();
+    cout << "Se dio de comer Manzanas a " << Animal::obtener_nombre() << endl;
+}
+
+void Caballo::baniarse()
+{
+    Animal::baniarse();
+    cout << "Se baño a " << Animal::obtener_nombre() << endl;
+}

@@ -5,5 +5,15 @@ Roedor::Roedor(string _nombre, int _edad, string _tamanio, string _especie, Pers
 
 }
 
-
 void Roedor::ensuciar() {}
+
+void Roedor::alimentarse()
+{
+    Animal::alimentarse();
+    cout << "Se dio de comer Queso a " << Animal::obtener_nombre() << endl;
+}
+
+void Roedor::baniarse()
+{
+    cout << Animal::obtener_nombre() << " NO necesita un baño" << endl;
+}

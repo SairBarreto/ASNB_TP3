@@ -15,7 +15,9 @@ class Roedor : public Animal
         //POS: Disminuye higiene dependiendo de su personalidad 
         void ensuciar();
 
-
+        void alimentarse();
+        
+        void baniarse();
 };
 
 #endif // ROEDOR_H

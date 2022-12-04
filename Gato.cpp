@@ -5,6 +5,15 @@ Gato::Gato(string _nombre, int _edad, string _tamanio, string _especie, Personal
 
 }
 
-
-
 void Gato::ensuciar() {}
+
+void Gato::alimentarse()
+{
+    Animal::alimentarse();
+    cout << "Se dio de comer Atun a " << Animal::obtener_nombre() << endl;
+}
+
+void Gato::baniarse()
+{
+    cout << Animal::obtener_nombre() << " NO necesita un baño" << endl;
+}

@@ -33,11 +33,11 @@ class Animal
         
         //PRE: -    
         //POS: Higiene al 100
-        void baniar();
+        virtual void baniarse();
 
         //PRE: -    
         //POS: Hambre al 0
-        void alimentar();
+        virtual void alimentarse();
 
         //PRE: -    
         //POS: Retorna el nombre del animal
