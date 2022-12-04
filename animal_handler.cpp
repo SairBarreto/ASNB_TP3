@@ -13,6 +13,7 @@
 #include "Sociable.h"
 #include "Travieso.h"
 
+#include "menu.h"
 
 
 
@@ -214,4 +215,103 @@ string especie_inicial_a_string(string inicial) {
             posicion = i;
     }
     return  ESPECIES_COMPLETAS[posicion];
+}
+
+
+void elegir_individualmente(ABB<Animal>* arbol_animales)
+{
+    string nombre_buscado;
+    int opcion;
+
+    imprimir_arbol(arbol_animales);
+
+    cout << "Ingrese el nombre del animal que desea buscar" << endl;
+    cout << endl;
+    getline(cin >> ws, nombre_buscado);
+
+    Animal* animal = arbol_animales -> buscar(nombre_buscado);
+
+    if(animal != nullptr) {
+        cout << "Que quiere hacer con " << animal -> obtener_nombre() << endl << endl;
+        mostrar_menu_individual();
+        opcion = menu_pedir_opcion();
+        menu_validar_opcion_individual(opcion);
+        procesar_opcion_individual(opcion, animal);
+    }
+
+    else {
+        cout << endl;
+        cout << "El nombre ingresado no se encuentra en la Reserva" << endl;
+        cout << endl << "---------------------------------------------------------" << endl << endl;
+    }
+
+}
+
+
+void banio_individual(Animal* animal) {
+    animal -> baniarse();
+}
+
+void alimentar_individual(Animal* animal) {
+    animal -> alimentarse();
+}
+
+
+void adoptar_animal(ABB<Animal>* arbol_animales) {
+    int metros_cuadrados = 0;
+    string nombre_buscado;
+    cout << "Ingrese cantidad de metros cuadrados disponibles: ";
+    cin >> metros_cuadrados;
+
+    mostrar_animales_en_adopcion(arbol_animales, metros_cuadrados);
+
+    cout << "¿Cual desea adoptar? Ingrese su nombre: ";
+    getline(cin >> ws, nombre_buscado);
+    
+    Animal* animal = arbol_animales -> buscar(nombre_buscado);
+    if(animal != nullptr) {
+        arbol_animales -> eliminar(nombre_buscado);
+        cout << endl;
+        cout << "Felicidades usted adopto a " << nombre_buscado << endl;
+        cout << endl << "---------------------------------------------------------" << endl << endl;
+    }
+    else {
+        cout << endl;
+        cout << nombre_buscado << " no se encuentra en la Reserva" << endl;
+        cout << endl << "---------------------------------------------------------" << endl << endl;
+    }
+}
+
+void mostrar_animales_en_adopcion(ABB<Animal>* arbol_animales, int metros_cuadrados) {
+    cout << endl;
+    _mostrar_animales_en_adopcion(arbol_animales -> devolver_raiz(), metros_cuadrados);
+    cout << endl;
+}
+
+void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) {
+   
+    if(nodo != nullptr) {
+         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_izquierda(), metros_cuadrados);
+        if( puede_vivir_en_espacio( nodo -> devolver_dato(), metros_cuadrados) ) {
+            cout << "\t -" << nodo -> devolver_dato() -> obtener_nombre() << endl;
+        }
+         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_derecha(), metros_cuadrados);
+    }
+   
+}
+
+bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
+    int minimo = string_a_tamanio(animal->obtener_tamanio());
+    if(metros_cuadrados >= minimo)
+        return true;
+    return false;
+}
+
+int string_a_tamanio(string tamanio) {
+    int espacio_minimo = 100;
+    for(int i = 0; i < CANTIDAD_TAMANIOS; i++){
+        if(tamanio == TAMANIOS[i].tamanio)
+            espacio_minimo = TAMANIOS[i].min;
+    }
+    return espacio_minimo;
 }

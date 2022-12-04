@@ -14,7 +14,10 @@ enum{
     SALIR,
 };
 
-
+enum{
+    ELEGIR_INDIVIDUALMENTE = 1,
+    REGRESAR_INICIO
+};
 
 
 //PRE: -    
@@ -32,6 +35,31 @@ void menu_validar_opcion(int &opcion);
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
 void procesar_opcion(int opcion, ABB<Animal>* arbol_animales);
+
+//PRE:
+//POST:
+void opcion_cuidar_animal(ABB<Animal>* arbol_animales);
+
+//PRE:
+//POST:
+void mostrar_menu_cuidar_animal();
+
+//PRE:
+//POST:
+void menu_validar_opcion_cuidar_animal(int &opcion_2);
+
+
+//PRE:
+//POST:
+void procesar_opcion_cuidar_animal(int opcion_2, ABB<Animal>* arbol_animales);
+
+//PRE:
+//POST:
+void mostrar_menu_individual();
+
+void menu_validar_opcion_individual(int &opcion);
+
+void procesar_opcion_individual(int &opcion, Animal* animal);
 
 
 #endif //MENU_H
