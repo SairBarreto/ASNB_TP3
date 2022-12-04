@@ -9,40 +9,35 @@
 using namespace std;
 
 
+
+
 int devolver_peso_nodo(int numero_nodo)
 {
     string tablero = "ccpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-
-
     string tipo_casilla;
 
-    int peso = 0;
+    int posicion = 0;
 
-    for(int i=1;i<65;i++)
+
+    for(int i = 1;i<65;i++)
     {
         tipo_casilla = tablero[i];
 
-        if(tipo_casilla == "m" && i == numero_nodo )
+        if(i == numero_nodo)
         {
-            peso = 5;
-        }
-        else if(tipo_casilla == "p" && i == numero_nodo )
-        {
-            peso = 40;
-        }
-        else if (tipo_casilla == "c" && i == numero_nodo )
-        {
-            peso = 1;
-        }
-        else if(tipo_casilla == "t" && i == numero_nodo )
-        {
-            peso = 2;
+            for(int j = 0; j < 4; j++)
+            {
+                if (tipo_casilla == CASILLERO[j])
+                {
+                    posicion = j;
+                }
+            }
         }
 
     }
+    return PESOS[posicion];
 
-    return peso;
 }
 
 
@@ -128,11 +123,13 @@ void buscar_camino_minimo(string origen, string destino)
     grafo.caminoMinimo(origen,destino);
 }
 
-
 int calcular_gasolina_necesaria(int camino[], int largo)
 {
+    int posicicion = 0;
 
     int gasolina_necesaria = 0;
+
+    int gasolina_necesaria_total = 0;
 
     int  nro_casillero = 0;
 
@@ -144,25 +141,23 @@ int calcular_gasolina_necesaria(int camino[], int largo)
 
         tipo_de_casillero = tablero_original[nro_casillero];
 
+        for(int j = 0;j<4;j++)
+        {
+            if(tipo_de_casillero == CASILLERO[j])
+            {
+                posicicion = j;
+            }
 
-        if (tipo_de_casillero == "m")
-        {
-            gasolina_necesaria += 5;
         }
-        else if(tipo_de_casillero == "p")
-        {
-            gasolina_necesaria += 40;
-        }
-        else if(tipo_de_casillero == "c")
-        {
-            gasolina_necesaria += 1 ;
-        }
-        else if(tipo_de_casillero == "t")
-        {
-            gasolina_necesaria += 2;
-        }
+
+        gasolina_necesaria = PESOS[posicicion];
+
+        gasolina_necesaria_total = gasolina_necesaria_total + gasolina_necesaria;
     }
 
-    return gasolina_necesaria;
+    return gasolina_necesaria_total;
 }
+
+
+
 

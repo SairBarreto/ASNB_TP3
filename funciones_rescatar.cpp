@@ -125,18 +125,6 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 bool estado_animal(string animales_perdido, string animales_rescatados)

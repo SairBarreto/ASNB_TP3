@@ -178,6 +178,7 @@ void imprimir_referencias()
     cout<<EMOJIS[11]<<"= Tierra, costo gasolina = 2 pts"<<endl;
     cout<<endl;
     cout<<EMOJIS[7]<<"= auto"<<endl;
+    cout<<EMOJIS[13]<<"= en camino"<<endl;
     cout<<endl;
     cout<<EMOJIS[1]<<"= Caballo"<<endl;
     cout<<EMOJIS[2]<<"= Gato"<<endl;

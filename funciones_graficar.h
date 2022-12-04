@@ -7,7 +7,9 @@
 
 const string tablero_original = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
 
-const string EMOJIS[12] = {
+
+
+ const string EMOJIS[13] = {
         "\U0001F436",//PERRO
         "\U0001F434",//caballo
         "\U0001F431",//gato
@@ -16,14 +18,16 @@ const string EMOJIS[12] = {
         "\U0001F98E",//lagarto
         "\U0001F994",//erizo
         "\U0001F697",//auto
-        "\U0001F9E1",//montaña
-        "\U0001F49B",//precipicio
-        "\U0001F49A",//camino
-        "\U0001F499"//tierra
+        "\U0001F7EB",//montaña
+        "\U0001F7E5",//precipicio
+        "\U0001F7E8",//camino
+        "\U0001F7E9",//tierra
+        "\U0001F9E1"//corazon rojo
 
  };
 
- const string TIPO_CASILLERO[12] =
+
+ const string TIPO_CASILLERO[13] =
  {
    "P",//perro
    "C",//caballo
@@ -36,7 +40,8 @@ const string EMOJIS[12] = {
    "m",//montaña
    "p",//precipicio
    "c",//camino
-   "t"
+   "t",//tierra
+   "."//yendo en camino
  };
 
 

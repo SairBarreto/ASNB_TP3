@@ -6,6 +6,24 @@
 
 using namespace std;
 
+const int PESOS[4] ={
+    5,
+    40,
+    1,
+    2
+
+};
+
+const string CASILLERO[4] ={
+
+    "m",
+    "p",
+    "c",
+    "t"
+
+};
+
+
 
 
 //PRE; recibe el numero de nodo;

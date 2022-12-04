@@ -57,12 +57,12 @@
 	<fstream>
 	<string>
 
-1670170656 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
+1670187039 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
 	<iostream>
 	<fstream>
 	<string>
 
-1670170656 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
+1670187039 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -71,7 +71,7 @@
 	"Grafo.h"
 	"funciones_graficar.h"
 
-1670107064 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.cpp
+1670187039 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.cpp
 	"funciones_cargar_tablero.h"
 	<iostream>
 	<string>
@@ -80,7 +80,7 @@
 	"Grafo.h"
 	"funciones_graficar.h"
 
-1670046651 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.h
+1670187039 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.h
 	<iostream>
 	<string>
 
@@ -94,7 +94,7 @@
 
 1670112488 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.h
 
-1670176545 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
+1670187315 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
 	"funciones_rescatar.h"
 	"funciones_cargar_tablero.h"
 	"funciones_graficar.h"
