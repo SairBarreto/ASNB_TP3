@@ -335,3 +335,20 @@ int string_a_tamanio(string tamanio) {
     }
     return espacio_minimo;
 }
+
+void en_juego(ABB<Animal>* arbol_animales){
+
+        if(arbol_animales -> obtener_higiene <= 0 || arbol_animales -> obtener_hambre >= 100){
+            restar_vida();
+            mostrar_vida();
+            borrar(arbol_animales -> obtener_nombre);
+        }
+    
+        if(!esta_vivo()){
+            fin_de_juego();
+        }
+}
+
+void fin_de_juego(){
+
+}

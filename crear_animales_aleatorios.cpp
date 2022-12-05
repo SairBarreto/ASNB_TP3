@@ -52,7 +52,25 @@ int generar_edad_rand(){
 
 }
 
-void crear_animales_aleatorios(Lista<Animal>* lista_animales_a_rescatar){
+void terminar_de_rescatar(ABB<Animal>* arbol_animales, string animales_rescatados){
+    string nombre_ingresado;
+    Animal* animal;
+    
+    for(i = 0; i < animales_rescatados.size(); i++){ 
+        cout << "Ingrese el nombre del " << string_a_especie_t(animales_rescatados[i]) << "que desea rescatar" << endl;
+        getline(cin >> ws, nombre_ingresado);
+
+        animal -> nombre = nombre_ingresado;
+        animal -> especie = generar_especie_rand();
+        animal -> edad = generar_edad_rand();
+        animal -> tamanio = generar_tamanio_rand();
+        animal -> personalidad = generar_personalidades_rand();
+
+        arbol_animales -> insertar(animal, nombre_ingresado);
+    }
+}
+
+void crear_animales_aleatorios(){
     string especie_str;
     string nombre;
     int edad_str;
@@ -73,7 +91,7 @@ void crear_animales_aleatorios(Lista<Animal>* lista_animales_a_rescatar){
 
         string animales_perdidos[i] = especie_str;
 
-            switch(especie_str){
+          /*  switch(especie_str){
 
                     case 'C':
                         {
@@ -126,5 +144,7 @@ void crear_animales_aleatorios(Lista<Animal>* lista_animales_a_rescatar){
                     default:
                         break;
             }
-    }
+        */    
+     }
 }
+

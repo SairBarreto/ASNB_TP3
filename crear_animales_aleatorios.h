@@ -55,4 +55,6 @@ string generar_especie_rand();
 
 int generar_edad_rand();
 
+void crear_animales_aleatorios();
+
 #endif // CREAR_ANIMALES_ALEATORIOS_H_INCLUDED

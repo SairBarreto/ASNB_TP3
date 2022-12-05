@@ -243,6 +243,7 @@ int main() {
     leer_archivo(arbol_animales);
 
     do{
+        en_juego(arbol_animales):
         mostrar_menu();
         opcion = menu_pedir_opcion();
         menu_validar_opcion(opcion);
