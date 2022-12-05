@@ -19,7 +19,7 @@ void QuickSort::quickSort(vector<int>& vector, int bajo, int alto){
 
 int QuickSort::particion(vector<int>& vector, int bajo, int alto)
 {
-    int pivot = vector[alto];
+    int pivot = vector[alto] -> animal -> obtener_edad();
 
     // Indice del elemento mas chico que indica la posicion del pivote por el momento
     int i = (bajo - 1); 
@@ -27,7 +27,7 @@ int QuickSort::particion(vector<int>& vector, int bajo, int alto)
     for (int j = bajo; j <= alto - 1; j++)
     {
         // Si el elemento actual es mas chico que el pivote
-        if (vector[j] < pivot)
+        if (vector[j] -> animal -> obtener_edad() < pivot)
         {
             // Entonces intercambio el elemento actual por el que esta a la derecha
             // de la posicion actual del pivote

@@ -144,19 +144,33 @@ void adoptar_animal(Arbol<Animal>* arbol_animales){
     // lista_animales->iniciar_nodo_actual();
 }
 
-void mostrar_animales_en_adopcion(Arbol<Animal>* arbol_animales, int metros_cuadrados){
-
+void mostrar_animales_en_adopcion(ABB<Animal>* arbol_animales, int metros_cuadrados) {
     cout << endl;
-    for(int i = 0; i < nodo->clavesUsadas-1; i++){
-        if(puede_vivir_en_espacio(arbol_animales->devolver_dato(), metros_cuadrados)){
-            cout << "\t -" << arbol_animales->devolver_dato()->obtener_nombre() << endl;
-        }
-
-        // arbol_animales->pasar_nodo();  ¿uso arbol_animales->_eliminar?
-    }
+    _mostrar_animales_en_adopcion(arbol_animales -> devolver_raiz(), metros_cuadrados);
     cout << endl;
-    //lista_animales->iniciar_nodo_actual(); //vuelve al nodo inicial
+    
 }
+
+void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) {
+   
+    if(nodo != nullptr) {
+         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_izquierda(), metros_cuadrados);
+        if( puede_vivir_en_espacio( nodo -> devolver_dato(), metros_cuadrados) ) {
+          // falta definir la funcion
+        }
+         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_derecha(), metros_cuadrados);
+    }
+   
+}
+
+void ordenar_vector(Animal* animales_adopcion[]){
+    QuickSort quicksort;
+
+    quicksort.sort(animales_adopcion);
+    
+    cout << "ordenado" << endl;
+}
+
 
 bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
     int minimo = string_a_tamanio(animal->obtener_tamanio());
