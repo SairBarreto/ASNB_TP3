@@ -1,16 +1,27 @@
-#include "Grafo.h"
 #include <iostream>
-#include "funciones_graficar.h"
-#include "funciones_cargar_tablero.h"
-#include "funciones_rescatar.h"
-//#include "Automovil.h"
+
+#include "animal_handler.h"
+#include "menu.h"
+
+using namespace std;
+
+
 
 int main() {
 
+    ABB<Animal>* arbol_animales = new ABB<Animal>;
+    int opcion = 0;
 
-    string animales_perdidos = "PIROC";//String de prueba
+    leer_archivo(arbol_animales);
 
-    empezar_a_rescatar(animales_perdidos);
+    do{
+        mostrar_menu();
+        opcion = menu_pedir_opcion();
+        menu_validar_opcion(opcion);
+        procesar_opcion(opcion, arbol_animales);
+    }while(opcion != SALIR);
+
+    delete arbol_animales;
 
     return 0;
 }

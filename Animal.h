@@ -1,6 +1,9 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+#include "Personalidad.h"
+#include "Tamanio.h"
+
 #include <iostream>
 using namespace std;
 //nombre,edad,tama�o,especie,personalidad
@@ -9,17 +12,17 @@ class Animal
     protected:
         string nombre;
         int edad;
-        string tamanio;
+        Tamanio* tamanio;
         string especie;
-        string personalidad;
+        Personalidad* personalidad;
+        float hambre;
+        float higiene;
 
     public:
-        int hambre;
-        int higiene;
         
         //PRE: -    
         //POS: Carga y crea objeto Animal
-        Animal(string nombre, int edad, string tamanio, string especie,string personalidad);
+        Animal(string nombre, int edad, Tamanio* tamanio, string especie,Personalidad* personalidad);
 
         //PRE: -
         //POS: Disminuye en -10 la higiene, si ya esta menor de 0 la deja en 0
@@ -31,11 +34,11 @@ class Animal
         
         //PRE: -    
         //POS: Higiene al 100
-        void baniar();
+        virtual void baniarse();
 
         //PRE: -    
         //POS: Hambre al 0
-        void alimentar();
+        virtual void alimentarse();
 
         //PRE: -    
         //POS: Retorna el nombre del animal
@@ -43,15 +46,18 @@ class Animal
 
         //PRE: -    
         //POS: Retorna la higiene del animal
-        int obtener_higiene();  
+        float obtener_higiene();  
 
         //PRE: -    
         //POS: Retorna el hambre del animal
-        int obtener_hambre(); 
+        float obtener_hambre(); 
 
         //PRE: -    
         //POS: Destructor
-        virtual ~Animal(){};
+        virtual ~Animal(){
+            delete personalidad;
+            delete tamanio;
+        };
 
         //PRE: -    
         //POS: Retorna tamanio de animal
@@ -68,6 +74,10 @@ class Animal
         //PRE: -    
         //POS: Retorna personalidad del animal
         string obtener_personalidad();
+
+        //PRE:
+        //POST:
+        Tamanio* obtener_tipo_tamanio();
 };
 
 #endif // ANIMAL_H
