@@ -11,18 +11,10 @@ class Perro : public Animal
 {
 
     public:
-        Perro(string _nombre, int _edad, string _tamanio, string _especie, string _personalidad);
+        Perro(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad);
         
-        //PRE: -    
-        //POS: Disminuye higiene dependiendo de su personalidad
-        void ensuciar();
-
-        //PRE: -    
-        //POS: Aumenta hambre dependiendo de su personalidad
-        void gastar_energia();
-
         void alimentarse();
-
+        
         void baniarse();
 };
 

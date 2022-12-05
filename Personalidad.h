@@ -1,22 +1,37 @@
 #ifndef PERSONALIDAD_H
 #define PERSONALIDAD_H
 
-#include <string>
+#include <iostream>
 
 using namespace std;
 
-class Personalidad{
+const float BASIC_MULTIPLICADOR = 1;
+
+class Personalidad {
     protected:
-        string personalidad;
-        float multiplicador;
+        string personalidad;  
+
     public:
-        Personalidad(string personalidad);
+        
+        //PRE:
+        //POST:
+        Personalidad();
 
-        ~Personalidad();
 
+        //PRE:
+        //POST:
+        virtual float obtener_multiplicador_hambre();
+
+        //PRE:
+        //POST:
+        virtual float obtener_multiplicador_higiene();
+
+        //PRE:
+        //POST:
         string obtener_personalidad();
-
-        float obtener_multiplicador();
 };
 
-#endif
+
+
+
+#endif //PERSONALIDAD_H

@@ -1,12 +1,8 @@
 #ifndef MENU_H
-#define MENU_H 
+#define MENU_H
 
-#include <iostream>
-#include <string>
-//#include "Arbol_B.h"
-#include "Animal.h"
+#include "animal_handler.h"
 
-using namespace std;
 
 enum{
     LISTAR_ANIMALES = 1,
@@ -15,7 +11,7 @@ enum{
     CUIDAR_ANIMAL,
     ADOPTAR_ANIMAL,
     CARGAR_COMBUSTIBLE,
-    SALIR
+    SALIR,
 };
 
 enum{
@@ -23,12 +19,6 @@ enum{
     REGRESAR_INICIO
 };
 
-enum{
-    BANIO = 1,
-    ALIMENTAR,
-    SALTEAR,
-    REGRESAR
-};
 
 //PRE: -    
 //POS: Muestra en texto las opciones del menu
@@ -39,47 +29,37 @@ void mostrar_menu();
 int menu_pedir_opcion();
 
 //PRE: -    
-//POS: Solicita el ingreso del nombre del animal a rescatar
-string elegir_nombre();
-
-//PRE: -    
 //POS: Valida la opcion ingresada
 void menu_validar_opcion(int &opcion);
 
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
-//void procesar_opcion(int opcion, Arbol<Animal>* Arbol_animales);
+void procesar_opcion(int opcion, ABB<Animal>* arbol_animales);
 
-//PRE: -    
-//POS: Muestra el segundo menu (el individual)
-void mostrar_menu_2();
+//PRE:
+//POST:
+void opcion_cuidar_animal(ABB<Animal>* arbol_animales);
 
-//PRE: -    
-//POS: Muestra los animales Arboldos
-void mostrar_todos_los_animales();
+//PRE:
+//POST:
+void mostrar_menu_cuidar_animal();
 
-//PRE: Si opcion_2 es valida [0-4]
-//POS: Valida la opcion 
-void menu_validar_opcion_2(int &opcion_2);
+//PRE:
+//POST:
+void menu_validar_opcion_cuidar_animal(int &opcion_2);
 
-//PRE: Analoga a procesar_opcion pero para el menu 2
-//POS: Analoga a procesar_opcion pero para el menu 2
-//void procesar_opcion_2(int opcion_2, Arbol<Animal>* Arbol_animales);
 
-//PRE: Arbol ya cargada
-//POS: Si opcion es valida y = 4 regresa al inicio
-//void opcion_4(Arbol<Animal>* Arbol_animales);
+//PRE:
+//POST:
+void procesar_opcion_cuidar_animal(int opcion_2, ABB<Animal>* arbol_animales);
 
-//PRE: -
-//POS: Muestra menu individual con 4 opciones
+//PRE:
+//POST:
 void mostrar_menu_individual();
 
-//PRE: Si opcion [1-3]
-//POS: Valida y verificar opcion
 void menu_validar_opcion_individual(int &opcion);
 
-//PRE: Opcion valida
-//POS: Procesa la opcion y corre funciones correspondietes
-//void procesar_opcion_individual(int &opcion, Arbol<Animal>* Arbol_animales);
+void procesar_opcion_individual(int &opcion, Animal* animal);
 
-#endif
+
+#endif //MENU_H

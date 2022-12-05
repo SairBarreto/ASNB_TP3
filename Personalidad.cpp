@@ -1,26 +1,18 @@
 #include "Personalidad.h"
 
-Personalidad::Personalidad(string personalidad)
-{
-    this->personalidad = personalidad;
+
+Personalidad::Personalidad() {
+    this -> personalidad = "basico";
 }
 
-Personalidad::~Personalidad(){}
-
-string Personalidad::obtener_personalidad()
-{
-    return personalidad;
+float Personalidad::obtener_multiplicador_hambre() {
+    return BASIC_MULTIPLICADOR;
 }
 
-float Personalidad::obtener_multiplicador()
-{
-    if(personalidad == "sociable" || personalidad == "dormilon"){
-        return multiplicador = 0.5;
-    }
-    else if(personalidad == "travieso" || personalidad == "jugueton"){
-        return multiplicador = 2;
-    }
-    else{
-        return multiplicador = 1;
-    }
+float Personalidad::obtener_multiplicador_higiene() {
+    return BASIC_MULTIPLICADOR;
+}
+
+string Personalidad::obtener_personalidad() {
+    return this -> personalidad;
 }

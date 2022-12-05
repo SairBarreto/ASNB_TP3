@@ -3,13 +3,13 @@
 using namespace std;
 
 
-Animal::Animal(string nombre, int edad, string tamanio, string especie,string personalidad)
+Animal::Animal(string nombre, int edad, string tamanio, string especie, Personalidad* personalidad)
 {
     this->nombre = nombre;
     this->edad = edad;
     this->tamanio = tamanio;
     this->especie = especie;
-    this->personalidad = new Personalidad(personalidad);
+    this->personalidad = personalidad;
     this->hambre = 0;
     this->higiene = 100;
 }
@@ -26,20 +26,16 @@ void Animal::alimentarse()
 
 void Animal::gastar_energia()
 {
-    float nuevo_hambre = (float)hambre + 10 * personalidad->obtener_multiplicador();
-    if(nuevo_hambre >= 100)
+    hambre += 10 * personalidad -> obtener_multiplicador_hambre();
+    if(hambre >= 100)
         hambre = 100;
-    else
-        hambre = (int)nuevo_hambre;
 }
 
 void Animal::ensuciar()
 {
-    float nuevo_higiene = (float)higiene - 10 * personalidad->obtener_multiplicador();
-    if(nuevo_higiene <= 0)
+    higiene -= 10 * personalidad -> obtener_multiplicador_higiene();
+    if(higiene <= 0)
         higiene = 0;
-    else
-        higiene = (int)nuevo_higiene;
 }
 
 string Animal::obtener_nombre() {
@@ -58,14 +54,14 @@ string Animal::obtener_especie() {
     return especie;
 }
 
-Personalidad* Animal::obtener_personalidad() {
-    return personalidad;
+string Animal::obtener_personalidad() {
+    return this -> personalidad -> obtener_personalidad();
 }
 
-int Animal::obtener_higiene() {
+float Animal::obtener_higiene() {
     return higiene;
 }
 
-int Animal::obtener_hambre() {
+float Animal::obtener_hambre() {
     return hambre;
 }
