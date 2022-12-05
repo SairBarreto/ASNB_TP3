@@ -2,7 +2,8 @@
 #define FUNCIONES_GRAFICAR_H_INCLUDED
 
 #include <iostream>
-#include <fstream>
+#include <stdlib.h>
+#include <time.h>
 #include <string>
 
 const string tablero_original = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
@@ -44,10 +45,26 @@ const string tablero_original = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctm
    "."//yendo en camino
  };
 
+const string ESPECIES[7] =
+{
+    "P",//perro 0
+    "C",//caballo 1
+    "G",//gato 2
+    "R",//roedor 3
+    "O",//conejo 4
+    "L",//lagarto 5
+    "E"//erizo 6
+};
+
+
 
 
 using namespace std;
 
+
+bool comprobar_repeticion(int n, int num[],int ciclo);
+
+string generar_animales_perdidos();
 
 //PRE: recibe una letra del tablero
 //POST: devuelve el emoji correspondiente a esa letra

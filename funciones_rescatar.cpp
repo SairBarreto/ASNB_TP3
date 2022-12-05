@@ -4,14 +4,18 @@
 #include "Automovil.h"
 #include "Grafo.h"
 
-
+#include <ctype.h>
 #include <string>
 
 
 
-void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
+string empezar_a_rescatar(string animales_perdidos)
 {
     int salir = 1;
+
+    int cantidad_de_animales_rescatados = 0;
+
+    string animales_rescatados;
 
     cout<<"Rescata a los animales!!"<<endl;
 
@@ -21,7 +25,7 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
 
         cout<<"Tablero original"<<endl;
 
-
+        //graficar_tablero(tablero_original);
         imprimir_emojis(tablero_original);
 
         cout<<endl;
@@ -48,7 +52,9 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
         tablero_random = generar_tablero_de_animales_perdidos(animales_perdidos);
 
 
-    while(salir==1){
+    while(salir==1 && cantidad_de_animales_rescatados<5){
+
+        //graficar_tablero(tablero_random);
 
         imprimir_emojis(tablero_random);
 
@@ -61,7 +67,6 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
         casilla_animal = to_string(num_casilla_animal);
 
         casilla_auto = to_string(num_casilla_auto);
-
 
         int cantidad_de_movimientos = 0;
 
@@ -106,9 +111,15 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
 
                 casilla_auto = casilla_animal;
 
+                //graficar_tablero(tablero_random);
+
                 imprimir_emojis(tablero_random);
 
                 animales_rescatados = animales_rescatados + animal_a_rescatar;
+
+                cantidad_de_animales_rescatados ++;
+
+
 
 
 
@@ -119,13 +130,29 @@ void empezar_a_rescatar(string animales_perdidos, string animales_rescatados)
             }
 
 
+        if(cantidad_de_animales_rescatados<5)
+        {
 
-        cout<<"\n Ingrese : 1. para rescatar otro animal, 2. para salir";
-        cin>>salir;
+            cout<<"\n Ingrese : 1. para rescatar otro animal, 2. para salir";
+            cin>>salir;
+
+        }
     }
 
+    return animales_rescatados;
 
 }
+
+int calcular_largo(string palabra)
+{
+    int contador = 0;
+    while(palabra[contador] !='\0')
+    {
+        contador++;
+    }
+    return contador;
+}
+
 
 bool estado_animal(string animales_perdido, string animales_rescatados)
 {
@@ -133,7 +160,7 @@ bool estado_animal(string animales_perdido, string animales_rescatados)
 
     string animal_rescatado;
 
-    int largo_rescatados = animales_rescatados.length();
+    int largo_rescatados = calcular_largo(animales_rescatados);
 
     for(int i = 0;i<largo_rescatados;i++)
     {
@@ -162,7 +189,7 @@ string elegir_animal_a_rescatar(string animales_perdidos,string animales_rescata
 
     int opcion = 0;
 
-    int largo = animales_perdidos.length();
+    int largo = calcular_largo(animales_perdidos);
 
     if(largo != 0){
 

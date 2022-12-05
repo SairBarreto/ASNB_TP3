@@ -15,11 +15,25 @@ using namespace std;
 int main() {
 
 
-    string animales_perdidos = "PEROCL";//String de prueba para rescatar animales
+    string animales_perdidos;//String de prueba para rescatar animales
 
-    string animales_rescatados = "z";
+    string animales_rescatados;
 
-    empezar_a_rescatar(animales_perdidos,animales_rescatados);
+    //(animales_perdidos,animales_rescatados);
+
+    animales_perdidos = generar_animales_perdidos();
+
+
+
+    animales_rescatados = empezar_a_rescatar(animales_perdidos);
+
+
+    //cout<<"RESCATADOS"<<animales_rescatados;
+
+
+
+
+
 
 
 

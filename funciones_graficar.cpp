@@ -5,6 +5,8 @@
 #include <fstream>
 #include "Grafo.h"
 #include "funciones_graficar.h"
+#include "funciones_rescatar.h"
+#include <time.h>
 
 using namespace std;
 
@@ -26,32 +28,85 @@ void graficar_tablero(string nuevo_tablero)
 //PARTE GRAFICA
 //tendria que recibir una string con las iniciales de los animales random
 //imprime tablero con los animales en la posicion que le toco
-string generar_tablero_de_animales_perdidos(string animales_perdidos)
+
+string generar_animales_perdidos()
 {
+    srand(time(NULL));
 
 
-    string tablero = "ApPtttttctttppppccccctmmttttctmLmmmtctmRttttcOmmtppCctmmttttcccE";
+    int indice = 0;
 
-    /*int posicion_rand = 0;
-
-
+    string animales_perdidos;
 
     string animal;
 
-    for(int i=0; i<5;i++)
+    srand(time(NULL));
+
+    int n, num[7];
+
+    for(int i=0; i<5; i++)
     {
-        posicion_rand = 2 + rand() % 62;
+        do
+            n =  rand() % 7;
 
+        while(comprobar_repeticion(n, num,7));
 
+        num[i] = n;
 
-        animal =  animales_perdidos[i] ;
+        indice = num[i];
 
+        animal = ESPECIES[indice];
 
-        tablero.replace(posicion_rand,1,animal);
+        animales_perdidos = animales_perdidos + animal;
 
     }
 
-    //graficar_tablero(tablero);*/
+
+    return animales_perdidos;
+
+}
+
+bool comprobar_repeticion(int n, int num[],int ciclo)
+{
+    bool se_repite = false;
+
+     for(int i=0; i<ciclo; i++)
+
+        if(n == num[i])
+
+            se_repite = true;
+
+
+    return se_repite ;
+}
+
+
+string generar_tablero_de_animales_perdidos(string animales_perdidos)
+{
+
+    string tablero = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctmmtpppctmmttttcccc";
+
+    int posicion_rand = 0;
+
+    string animal;
+
+    tablero.replace(0,1,"A");
+
+    srand(time(NULL));
+    int n, num[5];
+    for(int i=0; i<5; i++)
+    {
+        animal = animales_perdidos[i];
+        do
+            n =  1 + rand() % (64-1);
+        while(comprobar_repeticion(n, num,5));
+        num[i] = n;
+
+        posicion_rand = num[i];
+        tablero.replace(posicion_rand,1,animal);
+    }
+
+    //graficar_tablero(tablero);
 
 
     return tablero;
@@ -80,7 +135,7 @@ void marcar_camino( string tablero,int cantidad,int vector_camino[])
     }
 
     imprimir_emojis(tablero);
-
+    //graficar_tablero(tablero);
 }
 
 

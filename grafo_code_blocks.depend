@@ -38,7 +38,7 @@
 1670176211 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\floyd.h
 	"CaminoMinimo.h"
 
-1670127492 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\main.cpp
+1670266628 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\main.cpp
 	"Grafo.h"
 	<iostream>
 	<conio.h>
@@ -57,12 +57,13 @@
 	<fstream>
 	<string>
 
-1670187039 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
+1670265619 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.h
 	<iostream>
-	<fstream>
+	<stdlib.h>
+	<time.h>
 	<string>
 
-1670187039 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
+1670268474 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_graficar.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -70,6 +71,8 @@
 	<fstream>
 	"Grafo.h"
 	"funciones_graficar.h"
+	"funciones_rescatar.h"
+	<time.h>
 
 1670187039 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_cargar_tablero.cpp
 	"funciones_cargar_tablero.h"
@@ -94,16 +97,57 @@
 
 1670112488 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\automovil.h
 
-1670187315 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
+1670268082 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.cpp
 	"funciones_rescatar.h"
 	"funciones_cargar_tablero.h"
 	"funciones_graficar.h"
 	"Automovil.h"
 	"Grafo.h"
+	<ctype.h>
 	<string>
 
-1670107050 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.h
+1670264724 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\funciones_rescatar.h
 	<iostream>
 
 1669748443 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\colors.h
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\animal.cpp
+	"Animal.h"
+	<iostream>
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\animal.h
+	<iostream>
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caballo.cpp
+	"Caballo.h"
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\caballo.h
+	"Animal.h"
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\conejo.cpp
+	"Conejo.h"
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\conejo.h
+	"Animal.h"
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\erizo.cpp
+	"Erizo.h"
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\erizo.h
+	"Animal.h"
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\gato.cpp
+	"Gato.h"
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\gato.h
+	"Animal.h"
+	<iostream>
+
+1670201160 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\lagartija.cpp
+	"Lagartija.h"
+
+1670201160 c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\lagartija.h
+	"Animal.h"
+
+1669684014 source:c:\users\antonella\desktop\grafos ejercicio\solucionesgrafosyarboles\grafo solucion\grafo_code_blocks\prueba_colores.cpp
 
