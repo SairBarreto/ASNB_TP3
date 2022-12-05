@@ -52,7 +52,7 @@ int generar_edad_rand(){
 
 }
 
-void crear_animales_aleatorios(Lista<Animal>* lista_animales){
+void crear_animales_aleatorios(Lista<Animal>* lista_animales_a_rescatar){
     string especie_str;
     string nombre;
     int edad_str;
@@ -78,49 +78,49 @@ void crear_animales_aleatorios(Lista<Animal>* lista_animales){
                     case 'C':
                         {
                         Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(caballo);
+                        lista_animales_a_rescatar->agregar_nodo(caballo);
                         break;
                         }
 
                     case 'O':
                         {
                         Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(conejo);
+                        lista_animales_a_rescatar->agregar_nodo(conejo);
                         break;
                         }
 
                     case 'E':
                         {
                         Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(erizo);
+                        lista_animales_a_rescatar->agregar_nodo(erizo);
                         break;
                         }
 
                     case 'G':
                         {
                         Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(gato);
+                        lista_animales_a_rescatar->agregar_nodo(gato);
                         break;
                         }
 
                     case 'L':
                         {
                         Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(lagartija);
+                        lista_animales_a_rescatar->agregar_nodo(lagartija);
                         break;
                         }
 
                     case 'P':
                         {
                         Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(perro);
+                        lista_animales_a_rescatar->agregar_nodo(perro);
                         break;
                         }
 
                     case 'R':
                         {
                         Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad_str);
-                        lista_animales->agregar_nodo(rata);
+                        lista_animales_a_rescatar->agregar_nodo(rata);
                         }
 
                     default:
