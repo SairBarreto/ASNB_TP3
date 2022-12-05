@@ -7,12 +7,11 @@ const float SOCIABLE_MULTIPLICADOR = 0.5;
 
 class Sociable : public Personalidad {
     public:
-        //PRE:
-        //POST:
+        //PRE: Existencia de la personalidad
+        //POST: Retorna su MULTIPLICADOR
         float obtener_multiplicador_higiene();
 
-        //PRE:
-        //POST:
+        //CONSTRUCTOR
         Sociable();
 
 };
