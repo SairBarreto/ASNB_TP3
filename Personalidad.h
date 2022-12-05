@@ -29,6 +29,10 @@ class Personalidad {
         //PRE:
         //POST:
         string obtener_personalidad();
+
+        //PRE:
+        //POST:
+        virtual ~Personalidad() {};
 };
 
 

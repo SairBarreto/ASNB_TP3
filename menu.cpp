@@ -69,7 +69,7 @@ void procesar_opcion(int opcion, ABB<Animal>* arbol_animales)
             break;
 
         case SALIR:
-            break;
+            {}
     }
 }
 
@@ -114,7 +114,7 @@ void procesar_opcion_cuidar_animal(int opcion_2, ABB<Animal>* arbol_animales)
             elegir_individualmente(arbol_animales);
             break;
         case REGRESAR_INICIO:
-            break;
+            {}
     }
 }
 
@@ -150,6 +150,6 @@ void procesar_opcion_individual(int &opcion, Animal* animal)
             alimentar_individual(animal);
             break;
         case 3:
-            break;
+            {}
     }
 }

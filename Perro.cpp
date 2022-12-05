@@ -1,6 +1,6 @@
 #include "Perro.h"
 
-Perro:: Perro(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad) : Animal(_nombre,_edad,_tamanio,_especie,_personalidad)
+Perro:: Perro(string _nombre, int _edad, Tamanio* _tamanio, string _especie, Personalidad* _personalidad) : Animal(_nombre,_edad,_tamanio,_especie,_personalidad)
 {
 
 }

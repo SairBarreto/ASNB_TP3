@@ -8,7 +8,7 @@ class Caballo : public Animal
 {
 
     public:
-        Caballo(string _nombre, int _edad, string _tamanio, string _especie, Personalidad*_personalidad);
+        Caballo(string _nombre, int _edad, Tamanio* _tamanio, string _especie, Personalidad*_personalidad);
 
         void alimentarse();
         

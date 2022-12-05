@@ -4,8 +4,14 @@
 #include "ABB.h"
 #include "Animal.h"
 
-const int CANTIDAD_TAMANIOS = 6;
-
+enum tamanio_t {
+    DIMINUTO = 0,
+    PEQUENIO,
+    MEDIANO,
+    GRANDE,
+    GIGANTE,
+    CANTIDAD_TAMANIOS
+};
 
 enum personalidad_t {
     DORMILON = 0,
@@ -63,19 +69,6 @@ const string TAMANIOS_STR[5] =
     "mediano",
     "grande",
     "gigante"
-};
-
-struct tamanio_t {
-    string tamanio;
-    int min;
-};
-
-const tamanio_t TAMANIOS[5] = {
-    {"diminuto",0},
-    {"pequenio",2},
-    {"mediano",10},
-    {"grande",20},
-    {"gigante",50}
 };
 
 
@@ -140,5 +133,7 @@ void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados);
 bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados);
 
 int string_a_tamanio(string tamanio);
+
+tamanio_t string_a_tamanio_t(string tamanio);
 
 #endif //ANIMAL_HANDLER_H

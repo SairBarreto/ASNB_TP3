@@ -11,7 +11,7 @@ class Gato : public Animal
 {
 
     public:
-        Gato(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad);
+        Gato(string _nombre, int _edad, Tamanio* _tamanio, string _especie, Personalidad* _personalidad);
         
         //PRE: -    
         //POS: Disminuye higiene dependiendo de su personalidad

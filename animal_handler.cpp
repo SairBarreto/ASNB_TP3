@@ -1,5 +1,6 @@
 #include <fstream>
 #include "animal_handler.h"
+
 #include "Caballo.h"
 #include "Conejo.h"
 #include "Erizo.h"
@@ -12,6 +13,12 @@
 #include "Jugeton.h"
 #include "Sociable.h"
 #include "Travieso.h"
+
+#include "Diminuto.h"
+#include "Pequenio.h"
+#include "Mediano.h"
+#include "Grande.h"
+#include "Gigante.h"
 
 #include "menu.h"
 
@@ -37,11 +44,33 @@ void leer_archivo(ABB<Animal>* arbol_animales) {
             getline(archivo, especie_str, delimitador);
             getline(archivo, personalidad_str, '\n');
 
+            Tamanio* tamanio;
+
+            switch(string_a_tamanio_t(tamanio_str)) {
+
+                case DIMINUTO:
+                    tamanio = new Diminuto();
+                    break;
+                case PEQUENIO:
+                    tamanio = new Pequenio();
+                    break;
+                case MEDIANO:
+                    tamanio = new Mediano();
+                    break;
+                case GRANDE:
+                    tamanio = new Grande();
+                    break;
+                case GIGANTE:
+                    tamanio = new Gigante();
+                    break;
+                default:
+                    {}
+            }
+
+
             Personalidad* personalidad;
 
             switch(string_a_personalidad_t(personalidad_str)) {
-
-                
 
                 case DORMILON:
                     {
@@ -65,62 +94,62 @@ void leer_archivo(ABB<Animal>* arbol_animales) {
                     break;
                     }
                 default:
-                    break;
+                    {}
             }
 
             switch(string_a_especie_t(especie_str)) {
 
                 case CABALLO:
                     {
-                    Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Caballo* caballo = new Caballo(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(caballo, caballo -> obtener_nombre());
                     break;
                     }
 
                 case CONEJO:
                     {
-                    Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Conejo* conejo = new Conejo(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(conejo, conejo -> obtener_nombre());
                     break;
                     }
 
                 case ERIZO:
                     {
-                    Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Erizo* erizo = new Erizo(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(erizo, erizo -> obtener_nombre());
                     break;
                     }
 
                 case GATO:
                     {
-                    Gato* gato = new Gato(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Gato* gato = new Gato(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(gato, gato -> obtener_nombre());
                     break;
                     }
 
                 case LAGARTIJA:
                     {
-                    Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Lagartija* lagartija = new Lagartija(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(lagartija, lagartija -> obtener_nombre());
                     break;
                     }
 
                 case PERRO:
                     {
-                    Perro* perro = new Perro(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Perro* perro = new Perro(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(perro, perro -> obtener_nombre());
                     break;
                     }
 
                 case ROEDOR:
                     {
-                    Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio_str, especie_str, personalidad);
+                    Roedor* rata = new Roedor(nombre, stoi(edad_str), tamanio, especie_str, personalidad);
                     arbol_animales -> insertar(rata, rata -> obtener_nombre());
                     break;
                     }
                 
                 default:
-                    break;
+                    {}
             }
         }
     }
@@ -167,7 +196,7 @@ void buscar_animales(ABB<Animal>* arbol_animales)
     cout << "Ingrese el nombre del animal que desea buscar" << endl;
     cout << endl;
     getline(cin >> ws, nombre_ingresado);
-    //nombre_ingresado = elegir_nombre();
+
 
     Animal* animal = arbol_animales -> buscar(nombre_ingresado);
     if(animal == nullptr) {
@@ -196,6 +225,16 @@ void _animales_paso_del_tiempo(ABBNodo<Animal>* raiz) {
         raiz -> devolver_dato() -> gastar_energia();
         _animales_paso_del_tiempo(raiz -> devolver_nodo_derecha());
     }
+}
+
+
+tamanio_t string_a_tamanio_t(string tamanio) {
+    int posicion;
+    for(int i = 0; i < CANTIDAD_TAMANIOS; i++){
+        if(tamanio == TAMANIOS_STR[i])
+            posicion = i;
+    }
+    return (tamanio_t) posicion;
 }
 
 
@@ -270,7 +309,7 @@ void adoptar_animal(ABB<Animal>* arbol_animales) {
     
     Animal* animal = arbol_animales -> buscar(nombre_buscado);
     if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
-        arbol_animales -> eliminar(nombre_buscado);
+        arbol_animales -> eliminar(animal -> obtener_nombre());
         cout << endl;
         cout << "Felicidades usted adopto a " << nombre_buscado << endl;
         cout << endl << "---------------------------------------------------------" << endl << endl;
@@ -301,17 +340,5 @@ void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) 
 }
 
 bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
-    int minimo = string_a_tamanio(animal->obtener_tamanio());
-    if(metros_cuadrados >= minimo)
-        return true;
-    return false;
-}
-
-int string_a_tamanio(string tamanio) {
-    int espacio_minimo = 100;
-    for(int i = 0; i < CANTIDAD_TAMANIOS; i++){
-        if(tamanio == TAMANIOS[i].tamanio)
-            espacio_minimo = TAMANIOS[i].min;
-    }
-    return espacio_minimo;
+    return animal -> obtener_tipo_tamanio() -> hay_espacio_suficiente(metros_cuadrados);
 }

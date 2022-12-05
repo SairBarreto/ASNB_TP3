@@ -8,7 +8,7 @@ class Lagartija : public Animal
 {
 
     public:
-        Lagartija(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad);
+        Lagartija(string _nombre, int _edad, Tamanio* _tamanio, string _especie, Personalidad* _personalidad);
 
         //PRE: -    
         //POS: Disminuye higiene dependiendo de su personalidad

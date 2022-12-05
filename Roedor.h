@@ -8,7 +8,7 @@ class Roedor : public Animal
 {
 
     public:
-        Roedor(string _nombre, int _edad, string _tamanio, string _especie, Personalidad* _personalidad);
+        Roedor(string _nombre, int _edad, Tamanio* _tamanio, string _especie, Personalidad* _personalidad);
 
         
         //PRE: -    

@@ -128,21 +128,25 @@ ABBNodo<Dato>* ABB<Dato>::destruir_arbol(ABBNodo<Dato>* nodo) {
 
 template <typename Dato>
 ABBNodo<Dato>* ABB<Dato>::nodo_minimo(ABBNodo<Dato>* nodo) {
-    ABBNodo<Dato>* actual = nodo;
+    ABBNodo<Dato>* actual = nodo -> devolver_nodo_izquierda();
+    ABBNodo<Dato>* anterior = nodo;
     while(actual && actual -> devolver_nodo_izquierda() != nullptr) {
+        anterior = nodo -> devolver_nodo_izquierda();
         actual = actual -> devolver_nodo_izquierda();
     }
-    return actual;
+    anterior -> asignar_nodo_izquierda(nullptr);
+    return actual;  
 }
 
 
 template <typename Dato>
 void ABB<Dato>::eliminar(string key) {
-    _eliminar(key, this -> raiz);
+    this -> raiz = _eliminar(key, this -> raiz);
 }
 
 template <typename Dato>
 ABBNodo<Dato>* ABB<Dato>::_eliminar(string key, ABBNodo<Dato>* nodo) {
+
     if(nodo == nullptr){
         return nodo;
     }
@@ -151,30 +155,30 @@ ABBNodo<Dato>* ABB<Dato>::_eliminar(string key, ABBNodo<Dato>* nodo) {
         nodo -> asignar_nodo_izquierda(_eliminar(key, nodo -> devolver_nodo_izquierda()));
     }
 
-    else if(nodo -> devolver_key() < key) {
+    else if(key > nodo -> devolver_key()) {
         nodo -> asignar_nodo_derecha(_eliminar(key, nodo -> devolver_nodo_derecha()));
     }
 
-    else {
-        if(nodo -> devolver_nodo_derecha() == nullptr && nodo-> devolver_nodo_derecha() == nullptr){
-            return nullptr;
-        }
-        else if(nodo -> devolver_nodo_derecha() == nullptr) {
-            ABBNodo<Dato>* temp = nodo -> devolver_nodo_izquierda();
-            delete nodo;
-            return temp;
-        }
-        else if(nodo -> devolver_nodo_izquierda() == nullptr) {
-            ABBNodo<Dato>* temp = nodo -> devolver_nodo_derecha();
-            delete nodo;
-            return temp;
-        }
-
+    else if(nodo -> devolver_nodo_derecha() && nodo -> devolver_nodo_izquierda()) {
+        cout << "entre aca" << endl;
         ABBNodo<Dato>* temp = nodo_minimo(nodo -> devolver_nodo_derecha());
         nodo -> asignar_dato(temp -> devolver_dato(), temp -> devolver_key());
-        nodo -> asignar_nodo_derecha(_eliminar( temp -> devolver_key(), nodo -> devolver_nodo_derecha()));
+        nodo -> asignar_nodo_derecha(_eliminar(key, nodo -> devolver_nodo_derecha()));
+        delete temp;
+        temp = nullptr;
     }
 
+    else {
+        cout << "por aca funciona" << endl;
+        ABBNodo<Dato>* temp = nodo;
+        if(nodo -> devolver_nodo_izquierda() == nullptr) {
+            nodo = nodo -> devolver_nodo_derecha();
+        }
+        else if(nodo -> devolver_nodo_derecha() == nullptr) {
+            nodo = nodo -> devolver_nodo_izquierda();
+        }
+        delete temp;
+    }
     return nodo;
 }
 
@@ -188,6 +192,9 @@ ABBNodo<Dato>* ABB<Dato>::devolver_raiz() {
 template <typename Dato>
 Dato* ABB<Dato>::buscar(string key) {
     ABBNodo<Dato>* nodo = _buscar(key, this -> raiz);
+    if(nodo == nullptr) {
+        return nullptr;
+    }
     return nodo -> devolver_dato();
 }
 

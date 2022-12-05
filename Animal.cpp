@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Animal::Animal(string nombre, int edad, string tamanio, string especie, Personalidad* personalidad)
+Animal::Animal(string nombre, int edad, Tamanio* tamanio, string especie, Personalidad* personalidad)
 {
     this->nombre = nombre;
     this->edad = edad;
@@ -43,7 +43,7 @@ string Animal::obtener_nombre() {
 }
 
 string Animal::obtener_tamanio() {
-    return tamanio;
+    return tamanio -> obtener_tamanio();
 }
 
 int Animal::obtener_edad() {
@@ -64,4 +64,8 @@ float Animal::obtener_higiene() {
 
 float Animal::obtener_hambre() {
     return hambre;
+}
+
+Tamanio* Animal::obtener_tipo_tamanio() {
+    return this -> tamanio;
 }
