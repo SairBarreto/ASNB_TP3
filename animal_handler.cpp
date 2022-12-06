@@ -455,14 +455,15 @@ void adoptar_animal(ABB<Animal>* arbol_animales) {
     getline(cin >> ws, nombre_buscado);
 
     while(contador < temporal && !salir){
-        if(animal[i]->obtener_nombre() == nombre_buscado){
+        if(animal[contador]->obtener_nombre() == nombre_buscado){
             Animal* animal = arbol_animales -> buscar(nombre_buscado);
-            if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
-                arbol_animales -> eliminar(animal -> obtener_nombre());
-                cout << endl;
-                cout << "Felicidades usted adopto a " << nombre_buscado << endl;
-                cout << endl << "---------------------------------------------------------" << endl << endl;
-            }
+
+            arbol_animales -> eliminar(animal -> obtener_nombre());
+            cout << endl;
+            cout << "Felicidades usted adopto a " << nombre_buscado << endl;
+            cout << endl << "---------------------------------------------------------" << endl << endl;
+            
+            salir = true;
         }
         contador++;
     }
