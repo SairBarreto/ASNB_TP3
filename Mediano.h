@@ -7,11 +7,12 @@ const int MEDIANO_MINIMO = 10;
 
 class Mediano : public Tamanio {
     public:
-        ////CONSTRUCTOR
+        //PRE:
+        //POST:
         Mediano();
 
-        //PRE: --
-        //POST: Retorna TRUE o FALSE
+        //PRE:
+        //POST:
         bool hay_espacio_suficiente(int metros_cuadrados);
 };
 

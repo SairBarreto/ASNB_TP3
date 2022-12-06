@@ -7,11 +7,12 @@ const int GIGANTE_MINIMO = 50;
 
 class Gigante : public Tamanio {
     public:
-        ////CONSTRUCTOR
+        //PRE:
+        //POST:
         Gigante();
 
-        //PRE: --
-        //POST: Retorna TRUE o FALSE
+        //PRE:
+        //POST:
         bool hay_espacio_suficiente(int metros_cuadrados);
 };
 

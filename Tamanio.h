@@ -12,18 +12,20 @@ class Tamanio {
     
     public:
 
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         Tamanio();
 
-        //PRE: Existencia del tamanio
-        //POST: Retorna el Tamanio
+        //PRE:
+        //POST:
         string obtener_tamanio();
 
-        //PRE: --
-        //POST: Retorna TRUE o FALSE
+        //PRE:
+        //POST:
         virtual bool hay_espacio_suficiente(int metros_cuadrados);
 
-        //DESTRUCTOR
+        //PRE:
+        //POST:
         virtual ~Tamanio() {};
 };
 

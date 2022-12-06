@@ -1,7 +1,7 @@
 #include "Jugeton.h"
 
 Jugeton::Jugeton():Personalidad(){
-    this -> personalidad = "Jugeton";
+    this -> personalidad = "jugeton";
 }
 
 float Jugeton::obtener_multiplicador_hambre() {

@@ -13,23 +13,25 @@ class Personalidad {
 
     public:
         
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         Personalidad();
 
 
-        //PRE: Existencia de personalidad
-        //POST: Retorna un Float segun la personalidad
+        //PRE:
+        //POST:
         virtual float obtener_multiplicador_hambre();
 
-        //PRE: Existencia de personalidad
-        //POST: Retorna un Float segun la personalidad
+        //PRE:
+        //POST:
         virtual float obtener_multiplicador_higiene();
 
-        //PRE: Existencia de personalidad
-        //POST: Retorna la personalidad
+        //PRE:
+        //POST:
         string obtener_personalidad();
 
-        //DESTRUCTOR
+        //PRE:
+        //POST:
         virtual ~Personalidad() {};
 };
 

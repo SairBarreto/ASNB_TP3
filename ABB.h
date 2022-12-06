@@ -10,50 +10,52 @@ class ABB {
         ABBNodo<Dato>* raiz;
         ABBNodo<Dato>* cursor;
         
-        //PRE: --
-        //POST: Inserta el ABBNodo en el Arbol
+        //PRE:
+        //POST:
         ABBNodo<Dato>* _insertar(Dato* dato, string key, ABBNodo<Dato>* nodo);
 
-        //PRE: --
-        //POST: Recorre el Arbol y destruye cada ABBNodo que no este vacio
+        //PRE:
+        //POST:
         ABBNodo<Dato>* destruir_arbol(ABBNodo<Dato>* nodo);
 
 
-        //PRE: Por lo menos que haya un ABBNodo en el arbol
-        //POST: Busca el ABBNodo minimo
+        //PRE:
+        //POST:
         ABBNodo<Dato>* nodo_minimo(ABBNodo<Dato>* nodo);
 
-        //PRE: Por lo menos que haya un ABBNodo en el arbol
-        //POST: Reccorre el Arbol en busca del ABBNodo asociado al key para eliminarlo
+        //PRE:
+        //POST:
         ABBNodo<Dato>* _eliminar(string key, ABBNodo<Dato>* nodo);
 
-        //PRE: Por lo menos que haya un ABBNodo en el arbol
-        //POST: Recorre el Arbol y Retorna el ABBNodo asociado al key ingresado
+        //PRE:
+        //POST:
         ABBNodo<Dato>* _buscar(string key, ABBNodo<Dato>* nodo);
 
 
     public:
 
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         ABB();
 
-        //DESTRUCTOR
+        //PRE:
+        //POST:
         ~ABB();
 
-        //PRE: --
-        //POST: Agrega un ABBNodo al arbol con su correspondiente key y dato
+        //PRE:
+        //POST:
         void insertar(Dato* dato, string key);
 
-        //PRE: Por lo menos que haya un ABBNodo en el arbol
-        //POST: Recorre el Arbol y devuele el Dato si existe el key
+        //PRE:
+        //POST:
         Dato* buscar(string key);
 
-        //PRE: Por lo menos que haya un ABBNodo en el arbol
-        //POST: Recorre el Arbol y si existe el key elimina ese ABBNodo donde pertenece
+        //PRE:
+        //POST:
         void eliminar(string key);
 
-        //PRE: Existencia de la raiz
-        //POST: Retorna la raiz
+        //PRE:
+        //POST:
         ABBNodo<Dato>* devolver_raiz();
 
 };

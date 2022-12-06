@@ -7,7 +7,8 @@ const int DIMINUTO_MINIMO = 0;
 
 class Diminuto : public Tamanio {
     public:
-        ////CONSTRUCTOR
+        //PRE:
+        //POST:
         Diminuto();
 };
 

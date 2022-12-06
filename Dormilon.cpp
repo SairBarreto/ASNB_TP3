@@ -1,7 +1,7 @@
 #include "Dormilon.h"
 
 Dormilon::Dormilon():Personalidad(){
-    this -> personalidad = "Dormilon";
+    this -> personalidad = "dormilon";
 }
 
 float Dormilon::obtener_multiplicador_hambre() {

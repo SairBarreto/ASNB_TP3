@@ -7,11 +7,12 @@ const int PEQUENIO_MINIMO = 2;
 
 class Pequenio : public Tamanio {
     public:
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         Pequenio();
 
-        //PRE: --
-        //POST: Retorna TRUE o FALSE
+        //PRE:
+        //POST:
         bool hay_espacio_suficiente(int metros_cuadrados);
 
 };

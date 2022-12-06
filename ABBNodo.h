@@ -14,39 +14,41 @@ class ABBNodo {
         string key;
 
     public:
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         ABBNodo(Dato* dato, string key);
 
 
-        //DESTRUCTOR
+        //PRE:
+        //POST:
         ~ABBNodo();
 
-        //PRE: -- 
-        //POST: Retorna el dato contenido en el ABBNodo
+        //PRE:
+        //POST:
         Dato* devolver_dato();
 
-        //PRE: --
-        //POST: Retorna el nodo izquierdo
+        //PRE:
+        //POST:
         ABBNodo<Dato>* devolver_nodo_izquierda();
 
-        //PRE: --
-        //POST: Retorna el nodo derecho
+        //PRE:
+        //POST:
         ABBNodo<Dato>* devolver_nodo_derecha();
 
-        //PRE: Existencia del Nodo
-        //POST: Cambia el ABBNodo izquierdo por uno ingresado por el usuario
+        //PRE:
+        //POST:
         void asignar_nodo_derecha(ABBNodo<Dato>* nodo);
 
-        //PRE: Existencia del Nodo
-        //POST: Cambia el ABBNodo derecho por uno ingresado por el usuario
+        //PRE:
+        //POST:
         void asignar_nodo_izquierda(ABBNodo<Dato>* nodo);
 
-        //PRE: Existencia del Nodo
-        //POST: Cambia el dato del AABNodo y su key
+        //PRE:
+        //POST:
         void asignar_dato(Dato* dato, string key);
 
-        //PRE: --
-        //POST: Retorna el key
+        //PRE:
+        //POST:
         string devolver_key();
 };
 

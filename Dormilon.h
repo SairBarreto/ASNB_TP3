@@ -7,11 +7,12 @@ const float DORMILON_MULTIPLICADOR = 0.5;
 
 class Dormilon : public Personalidad {
     public:
-        //PRE: Existencia de la personalidad
-        //POST: Retorna su MULTIPLICADOR
+        //PRE:
+        //POST:
         float obtener_multiplicador_hambre();
 
-        ////CONSTRUCTOR
+        //PRE:
+        //POST:
         Dormilon();
 
 };

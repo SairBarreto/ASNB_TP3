@@ -7,11 +7,12 @@ const float TRAVIESO_MULTIPLICADOR = 2.0;
 
 class Travieso : public Personalidad {
     public:
-        //PRE: Existencia de la personalidad
-        //POST: Retorna su MULTIPLICADOR
+        //PRE:
+        //POST:
         float obtener_multiplicador_higiene();
 
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         Travieso();
 
 };

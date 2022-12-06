@@ -1,7 +1,7 @@
 #include "Travieso.h"
 
 Travieso::Travieso():Personalidad(){
-    this -> personalidad = "Travieso";
+    this -> personalidad = "travieso";
 }
 
 float Travieso::obtener_multiplicador_higiene() {

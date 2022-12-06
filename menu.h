@@ -2,6 +2,10 @@
 #define MENU_H
 
 #include "animal_handler.h"
+#include "funciones_graficar.h"
+#include "funciones_cargar_tablero.h"
+#include "funciones_rescatar.h"
+#include "Vida.h"
 
 
 enum{
@@ -20,48 +24,50 @@ enum{
 };
 
 
-//PRE: -    
+//PRE: -
 //POS: Muestra en texto las opciones del menu
 void mostrar_menu();
 
-//PRE: -    
+//PRE: -
 //POS: Solicita el ingreso de opcion de menu
 int menu_pedir_opcion();
 
-//PRE: -    
+//PRE: -
 //POS: Valida la opcion ingresada
 void menu_validar_opcion(int &opcion);
 
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
-void procesar_opcion(int opcion, ABB<Animal>* arbol_animales);
+void procesar_opcion(int opcion, ABB<Animal>* arbol_animales,Automovil autito);
 
-//PRE: Existencia del Arbol
-//POST: 
+//PRE:
+//POST:
 void opcion_cuidar_animal(ABB<Animal>* arbol_animales);
 
-//PRE: --
-//POST: Muestra en texto las opciones del menu para el cuidado de animales
+//PRE:
+//POST:
 void mostrar_menu_cuidar_animal();
 
-//PRE: -    
-//POS: Valida la opcion ingresada
+//PRE:
+//POST:
 void menu_validar_opcion_cuidar_animal(int &opcion_2);
 
-//PRE: Si opcion es valida
-//POS: Procesa opcion y determina la accion correspondiente
+
+//PRE:
+//POST:
 void procesar_opcion_cuidar_animal(int opcion_2, ABB<Animal>* arbol_animales);
 
-//PRE: --
-//POST: Muestra en texto las opciones del menu para el cuidado individual del animal
+//PRE:
+//POST:
 void mostrar_menu_individual();
 
-//PRE: -    
-//POS: Valida la opcion ingresada
 void menu_validar_opcion_individual(int &opcion);
 
-//PRE: Si opcion es valida
-//POS: Procesa opcion y determina la accion correspondiente
 void procesar_opcion_individual(int &opcion, Animal* animal);
+
+void rescatar_animales_al_arbol(ABB<Animal>* arbol_animales,Automovil autito);
+
+void sigue_vivo(Vida* vida, int* opcion);
+
 
 #endif //MENU_H

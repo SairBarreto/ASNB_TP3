@@ -7,11 +7,12 @@ const int GRANDE_MINIMO = 20;
 
 class Grande : public Tamanio {
     public:
-        //CONSTRUCTOR
+        //PRE:
+        //POST:
         Grande();
 
-        //PRE: --
-        //POST: Retorna TRUE o FALSE
+        //PRE:
+        //POST:
         bool hay_espacio_suficiente(int metros_cuadrados);
 };
 
