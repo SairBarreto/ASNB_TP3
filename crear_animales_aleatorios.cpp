@@ -69,7 +69,7 @@ void terminar_de_rescatar(ABB<Animal>* arbol_animales, string animales_rescatado
         arbol_animales -> insertar(animal, nombre_ingresado);
     }
 }
-
+/*
 void crear_animales_aleatorios(){
     string especie_str;
     string nombre;
@@ -91,7 +91,7 @@ void crear_animales_aleatorios(){
 
         string animales_perdidos[i] = especie_str;
 
-          /*  switch(especie_str){
+            switch(especie_str){
 
                     case 'C':
                         {
@@ -144,7 +144,8 @@ void crear_animales_aleatorios(){
                     default:
                         break;
             }
-        */    
+           
      }
-}
+} 
+ */ 
 
