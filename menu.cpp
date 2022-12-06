@@ -154,18 +154,22 @@ void procesar_opcion_individual(int &opcion, Animal* animal)
     }
 }
 
-void en_juego(ABB<Animal>* arbol_animales){
+void en_juego(ABBNodo<Animal>* nodo){
 
-    while()
-        if(arbol_animales -> obtener_higiene <= 0 || arbol_animales -> obtener_hambre >= 100){
+    if(nodo != nullptr){
+        en_juego(nodo -> devolver_nodo_izquierda());
+        if(nodo -> devolver_dato() -> obtener_higiene() <= 0 || nodo -> devolver_dato() -> obtener_hambre() >= 100){
             restar_vida();
             mostrar_vida();
-            borrar(arbol_animales -> obtener_nombre);
+            borrar(nodo -> devolver_dato() -> obtener_nombre());
         }
     
         if(!esta_vivo()){
             fin_de_juego();
         }
+
+        en_juego(nodo -> devolver_nodo_derecha());
+    }
 }
 
 void fin_de_juego(){

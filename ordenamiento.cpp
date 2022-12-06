@@ -1,13 +1,13 @@
-#include "include/quickSort.h"
-#include <iostream>
+#include "ordenamiento.h"
 
 using namespace std;
 
-void QuickSort::sort(vector<int>& vector) {
-    quickSort(vector, 0, (int)vector.size() - 1);
+void QuickSort::sort(Animal* vector[], int max) {
+    quickSort(vector, 0, max - 1);
 }
 
-void QuickSort::quickSort(vector<int>& vector, int bajo, int alto){
+void QuickSort::quickSort(Animal* vector[], int bajo, int alto){
+    
     if (bajo < alto){
         // pi: Indice de particion (cuando el pivote esta en su lugar)
         int pi = particion(vector, bajo, alto);
@@ -17,9 +17,9 @@ void QuickSort::quickSort(vector<int>& vector, int bajo, int alto){
     }
 }
 
-int QuickSort::particion(vector<int>& vector, int bajo, int alto)
+int QuickSort::particion(Animal* vector[], int bajo, int alto)
 {
-    int pivot = vector[alto] -> animal -> obtener_edad();
+    int pivot = vector[alto]->obtener_edad();
 
     // Indice del elemento mas chico que indica la posicion del pivote por el momento
     int i = (bajo - 1); 
@@ -27,7 +27,7 @@ int QuickSort::particion(vector<int>& vector, int bajo, int alto)
     for (int j = bajo; j <= alto - 1; j++)
     {
         // Si el elemento actual es mas chico que el pivote
-        if (vector[j] -> animal -> obtener_edad() < pivot)
+        if (vector[j]->obtener_edad() > pivot)
         {
             // Entonces intercambio el elemento actual por el que esta a la derecha
             // de la posicion actual del pivote
@@ -40,14 +40,8 @@ int QuickSort::particion(vector<int>& vector, int bajo, int alto)
     return (i + 1);
 }
 
-void QuickSort::swapElements(int* a, int* b) {
-    int aux = *a;
+void QuickSort::swapElements(Animal* a[], Animal* b[]) {
+    Animal* aux = *a;
     *a = *b;
     *b = aux;
 }
-
-//void QuickSort::printAlgorithmInfo() const {
-  //  cout << "QuickSort" << endl;
-  //  cout << "Complexity best case: O(n * log(n))" <<endl;
-  //  cout << "Complexity worst case: O(n^2)" << endl;
-//}
