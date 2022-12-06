@@ -38,41 +38,51 @@ void menu_validar_opcion(int &opcion)
 }
 
 
-void procesar_opcion(int opcion, ABB<Animal>* arbol_animales)
+void procesar_opcion(int opcion, ABB<Animal>* arbol_animales, Automovil autito)
 {
     switch(opcion){
         case LISTAR_ANIMALES:
             imprimir_arbol(arbol_animales);
             animales_paso_del_tiempo(arbol_animales);
+            //cargar_auto_paso_de_tiempo(autito);
             break;
 
         case RESCATAR_ANIMAL:
-            rescatar_animales_al_arbol(arbol_animales);
+            rescatar_animales_al_arbol(arbol_animales,autito);
             animales_paso_del_tiempo(arbol_animales);
+            //cargar_auto_paso_de_tiempo(autito);
             break;
 
         case BUSCAR_ANIMAL:
             buscar_animales(arbol_animales);
             animales_paso_del_tiempo(arbol_animales);
+            //cargar_auto_paso_de_tiempo(autito);
             break;
 
         case CUIDAR_ANIMAL:
             opcion_cuidar_animal(arbol_animales);
             animales_paso_del_tiempo(arbol_animales);
+            //cargar_auto_paso_de_tiempo(autito);
             break;
 
         case ADOPTAR_ANIMAL:
             adoptar_animal(arbol_animales);
             animales_paso_del_tiempo(arbol_animales);
+            //cargar_auto_paso_de_tiempo(autito);
             break;
 
         case CARGAR_COMBUSTIBLE:
+            mostrar_gasolina(autito);
+            cargar_auto(autito);
+
             break;
 
         case SALIR:
             {}
     }
 }
+
+
 
 void opcion_cuidar_animal(ABB<Animal>* arbol_animales) {
     int opcion_2;
@@ -155,10 +165,12 @@ void procesar_opcion_individual(int &opcion, Animal* animal)
     }
 }
 
-void rescatar_animales_al_arbol(ABB<Animal>* arbol_animales) {
-    string animales_perdidos;
+void rescatar_animales_al_arbol(ABB<Animal>* arbol_animales,Automovil autito) {
+    /*string animales_perdidos;
     string animales_rescatados;
 
     animales_perdidos = generar_animales_perdidos();
-    animales_rescatados = empezar_a_rescatar(animales_perdidos);
+    animales_rescatados = empezar_a_rescatar(animales_perdidos);*/
+
+    terminar_de_rescatar(arbol_animales,autito);
 }

@@ -42,7 +42,9 @@ string generar_animales_perdidos()
 
     srand((unsigned int)time(NULL));
 
-    int n, num[7];
+    int n = 0;
+
+    int num[7];
 
     for(int i=0; i<5; i++)
     {
@@ -92,7 +94,8 @@ string generar_tablero_de_animales_perdidos(string animales_perdidos)
     tablero.replace(0,1,"A");
 
     srand((unsigned int)time(NULL));
-    int n, num[5];
+    int n = 0;
+    int num[5];
     for(int i=0; i<5; i++)
     {
         animal = animales_perdidos[i];

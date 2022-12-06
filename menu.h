@@ -23,21 +23,21 @@ enum{
 };
 
 
-//PRE: -    
+//PRE: -
 //POS: Muestra en texto las opciones del menu
 void mostrar_menu();
 
-//PRE: -    
+//PRE: -
 //POS: Solicita el ingreso de opcion de menu
 int menu_pedir_opcion();
 
-//PRE: -    
+//PRE: -
 //POS: Valida la opcion ingresada
 void menu_validar_opcion(int &opcion);
 
 //PRE: Si opcion es valida
 //POS: Procesa opcion y determina la accion correspondiente
-void procesar_opcion(int opcion, ABB<Animal>* arbol_animales);
+void procesar_opcion(int opcion, ABB<Animal>* arbol_animales,Automovil autito);
 
 //PRE:
 //POST:
@@ -64,7 +64,7 @@ void menu_validar_opcion_individual(int &opcion);
 
 void procesar_opcion_individual(int &opcion, Animal* animal);
 
-void rescatar_animales_al_arbol(ABB<Animal>* arbol_animales);
+void rescatar_animales_al_arbol(ABB<Animal>* arbol_animales,Automovil autito);
 
 
 #endif //MENU_H

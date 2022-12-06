@@ -3,6 +3,7 @@
 
 #include "ABB.h"
 #include "Animal.h"
+#include "Automovil.h"
 
 enum tamanio_t {
     DIMINUTO = 0,
@@ -138,4 +139,9 @@ tamanio_t string_a_tamanio_t(string tamanio);
 
 void agregar_animal_a_arbol(string nombre, string edad_str, string tamanio_str, string especie_str, string personalidad_str, ABB<Animal>* arbol_animales);
 
+void mostrar_gasolina(Automovil autito);
+
+void cargar_auto_paso_de_tiempo(Automovil autito);
+
+void cargar_auto(Automovil autito);
 #endif //ANIMAL_HANDLER_H

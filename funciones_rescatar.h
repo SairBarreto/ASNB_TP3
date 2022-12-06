@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string.h>
 #include <cstdlib>
+#include "ABB.h"
+#include "Animal.h"
+#include "Automovil.h"
 
 
 using namespace std;
@@ -14,7 +17,11 @@ using namespace std;
 PRE: Recibe un string con las inciales de los animales en un string;
 POST:Imprime tablero y camino minimo realizado
 */
-string empezar_a_rescatar(string animales_perdidos);
+string empezar_a_rescatar(string animales_perdidos,Automovil autito);
+
+
+
+void terminar_de_rescatar(ABB<Animal>* arbol_animales,Automovil autito);
 
 
 
@@ -33,8 +40,6 @@ bool estado_animal(string animales_perdido, string animales_rescatados);//despue
 void rescatar_animal();
 
 
-//PARTE NICO
-/*
 
 
 
@@ -42,15 +47,7 @@ const int EDAD_MIN = 0;
 
 const int EDAD_MAX = 100;
 
-const string ESPECIES_COMPLETAS[7] = {
-    "Caballo",
-    "Conejo",
-    "Erizo",
-    "Gato",
-    "Lagartija",
-    "Perro",
-    "Roedor"
-};
+
 
 const string INICIALES_ESPECIES_STR[7] = {
     "C",
@@ -70,13 +67,6 @@ const string PERSONALIDADES[4] = {
 
 };
 
-const string TAMANIOS_STR[5] = {
-    "diminuto",
-    "pequenio",
-    "mediano",
-    "grande",
-    "gigante"
-};
 
 string generar_tamanio_rand();
 
@@ -88,9 +78,8 @@ int generar_edad_rand();
 
 void crear_animales_aleatorios();
 
-void rescatar(ABB<Animal>* arbol_animales, string animales_perdidos)//FUNCION NUEVA SI FUNCIONA LO NICO
+//void rescatar(ABB<Animal>* arbol_animales, string animales_perdidos)//FUNCION NUEVA SI FUNCIONA LO NICO
 
-*/
 
 
 

@@ -25,6 +25,8 @@ class Automovil
         //POST: Descuenta la cantidad de gasolina ingresada
         void descontar_gasolina_viaje(int);
 
+        void cargar_gasolina(int);
+
 
     private:
 

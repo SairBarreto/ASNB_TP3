@@ -45,6 +45,17 @@ void Automovil::descontar_gasolina_viaje(int gasolina_requerida)
     gasolina = gasolina - gasolina_requerida;
 }
 
+void Automovil::cargar_gasolina(int gasolina_cargada)
+{
+    if((gasolina + gasolina_cargada)<TOPE_GASOLINA)
+    {
+        gasolina = gasolina + gasolina_cargada;
+    }
+    else if((gasolina + gasolina_cargada)>TOPE_GASOLINA)
+    {
+        gasolina  = TOPE_GASOLINA;
+    }
+}
 
 
 

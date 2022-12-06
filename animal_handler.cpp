@@ -20,14 +20,43 @@
 #include "Grande.h"
 #include "Gigante.h"
 
+#include "Automovil.h"
+
 #include "menu.h"
 
 
+void mostrar_gasolina(Automovil autito)
+{
+    cout<<endl;
 
+    cout<<"El nivel de gasolina actual es de: "<<autito.get_gasolina()<<endl;
+
+    cout<<endl;
+
+}
+
+void cargar_auto_paso_de_tiempo(Automovil autito)
+{
+    autito.aumentar_nivel_de_gasolina();
+}
+
+void cargar_auto(Automovil autito)
+{
+    int nueva_carga = 0;
+
+    cout<<"El tope de gasolina es de 100, si la gasolina cargada sobrepasa el tope, quedara en 100 de todas maneras \n"<<endl;
+
+    cout<<"Ingrese la cantidad de gasolina que desea cargar: ";
+    cin>>nueva_carga;
+
+    autito.cargar_gasolina(nueva_carga);
+
+    mostrar_gasolina(autito);
+}
 
 void leer_archivo(ABB<Animal>* arbol_animales) {
     string nombre, edad_str, tamanio_str, especie_str, personalidad_str;
-    char delimitador = ','; 
+    char delimitador = ',';
     ifstream archivo(PATH_ANIMALES, ios::in);
 
     if(!archivo.is_open()){
@@ -147,7 +176,7 @@ void leer_archivo(ABB<Animal>* arbol_animales) {
                     arbol_animales -> insertar(rata, rata -> obtener_nombre());
                     break;
                     }
-                
+
                 default:
                     {}
             }
@@ -258,7 +287,7 @@ void agregar_animal_a_arbol(string nombre, string edad_str, string tamanio_str, 
             arbol_animales -> insertar(rata, rata -> obtener_nombre());
             break;
             }
-                
+
         default:
             {}
     }
@@ -277,7 +306,7 @@ especie_t string_a_especie_t(string especie) {
 
 void  imprimir_arbol(ABB<Animal>* arbol_animales) {
     _imprimir_arbol(arbol_animales -> devolver_raiz());
-} 
+}
 
 void _imprimir_arbol(ABBNodo<Animal>* raiz) {
     if(raiz != nullptr) {
@@ -415,7 +444,7 @@ void adoptar_animal(ABB<Animal>* arbol_animales) {
 
     cout << "¿Cual desea adoptar? Ingrese su nombre: ";
     getline(cin >> ws, nombre_buscado);
-    
+
     Animal* animal = arbol_animales -> buscar(nombre_buscado);
     if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
         arbol_animales -> eliminar(animal -> obtener_nombre());
@@ -437,7 +466,7 @@ void mostrar_animales_en_adopcion(ABB<Animal>* arbol_animales, int metros_cuadra
 }
 
 void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) {
-   
+
     if(nodo != nullptr) {
          _mostrar_animales_en_adopcion(nodo -> devolver_nodo_izquierda(), metros_cuadrados);
         if( puede_vivir_en_espacio( nodo -> devolver_dato(), metros_cuadrados) ) {
@@ -445,8 +474,9 @@ void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) 
         }
          _mostrar_animales_en_adopcion(nodo -> devolver_nodo_derecha(), metros_cuadrados);
     }
-   
+
 }
+
 
 bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
     return animal -> obtener_tipo_tamanio() -> hay_espacio_suficiente(metros_cuadrados);

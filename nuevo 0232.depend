@@ -1,0 +1,272 @@
+# depslib dependency file v1.0
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\animal.cpp
+	"Animal.h"
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\animal.h
+	"Personalidad.h"
+	"Tamanio.h"
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\personalidad.h
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\tamanio.h
+	<iostream>
+
+1670336753 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\animal_handler.cpp
+	<fstream>
+	"animal_handler.h"
+	"Caballo.h"
+	"Conejo.h"
+	"Erizo.h"
+	"Gato.h"
+	"Lagartija.h"
+	"Perro.h"
+	"Roedor.h"
+	"Dormilon.h"
+	"Jugeton.h"
+	"Sociable.h"
+	"Travieso.h"
+	"Diminuto.h"
+	"Pequenio.h"
+	"Mediano.h"
+	"Grande.h"
+	"Gigante.h"
+	"Automovil.h"
+	"menu.h"
+
+1670336432 c:\users\antonella\desktop\cosas 0231\nuevo 0232\animal_handler.h
+	"ABB.h"
+	"Animal.h"
+	"Automovil.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\abb.h
+	"ABBNodo.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\abbnodo.h
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\caballo.h
+	"Animal.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\conejo.h
+	"Animal.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\erizo.h
+	"Animal.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\gato.h
+	"Animal.h"
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\lagartija.h
+	"Animal.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\perro.h
+	"Animal.h"
+	<iostream>
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\roedor.h
+	"Animal.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\dormilon.h
+	"Personalidad.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\jugeton.h
+	"Personalidad.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\sociable.h
+	"Personalidad.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\travieso.h
+	"Personalidad.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\diminuto.h
+	"Tamanio.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\pequenio.h
+	"Tamanio.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\mediano.h
+	"Tamanio.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\grande.h
+	"Tamanio.h"
+
+1670304605 c:\users\antonella\desktop\cosas 0231\nuevo 0232\gigante.h
+	"Tamanio.h"
+
+1670336565 c:\users\antonella\desktop\cosas 0231\nuevo 0232\menu.h
+	"animal_handler.h"
+	"funciones_graficar.h"
+	"funciones_cargar_tablero.h"
+	"funciones_rescatar.h"
+
+1670331644 c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_graficar.h
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<string>
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_cargar_tablero.h
+	<iostream>
+	<string>
+
+1670336472 c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_rescatar.h
+	<iostream>
+	<iostream>
+	<string.h>
+	<cstdlib>
+	"ABB.h"
+	"Animal.h"
+	"Automovil.h"
+
+1670336947 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\automovil.cpp
+	"Automovil.h"
+
+1670335029 c:\users\antonella\desktop\cosas 0231\nuevo 0232\automovil.h
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\caballo.cpp
+	"Caballo.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\caminominimo.cpp
+	"CaminoMinimo.h"
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\caminominimo.h
+	<string>
+	"Lista.h"
+	"Vertice.h"
+	<iostream>
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\lista.h
+	<string>
+	"Nodo.h"
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\nodo.h
+	<string>
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\vertice.h
+	<string>
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\conejo.cpp
+	"Conejo.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\dijkstra.cpp
+	"Dijkstra.h"
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\dijkstra.h
+	"CaminoMinimo.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\diminuto.cpp
+	"Diminuto.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\dormilon.cpp
+	"Dormilon.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\erizo.cpp
+	"Erizo.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\floyd.cpp
+	"Floyd.h"
+	<iostream>
+	<fstream>
+	<string>
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\floyd.h
+	"CaminoMinimo.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_cargar_tablero.cpp
+	"funciones_cargar_tablero.h"
+	<iostream>
+	<string>
+	<cstdlib>
+	<stdlib.h>
+	"Grafo.h"
+	"funciones_graficar.h"
+
+1670296554 c:\users\antonella\desktop\cosas 0231\nuevo 0232\grafo.h
+	<string>
+	"Lista.h"
+	"Vertice.h"
+	"Floyd.h"
+
+1670335482 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_graficar.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<stdlib.h>
+	<fstream>
+	"Grafo.h"
+	"funciones_graficar.h"
+	"funciones_rescatar.h"
+	<time.h>
+
+1670336432 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\funciones_rescatar.cpp
+	"funciones_rescatar.h"
+	"funciones_cargar_tablero.h"
+	"funciones_graficar.h"
+	"Automovil.h"
+	"Grafo.h"
+	"animal_handler.h"
+	"ABB.h"
+	"Animal.h"
+	<string>
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\gato.cpp
+	"Gato.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\gigante.cpp
+	"Gigante.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\grafo.cpp
+	"Grafo.h"
+	"Dijkstra.h"
+	<iostream>
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\grande.cpp
+	"Grande.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\jugeton.cpp
+	"Jugeton.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\lagartija.cpp
+	"Lagartija.h"
+
+1670335482 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\main.cpp
+	<iostream>
+	"funciones_rescatar.h"
+	"animal_handler.h"
+	"menu.h"
+	"Automovil.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\mediano.cpp
+	"Mediano.h"
+
+1670336708 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\menu.cpp
+	"menu.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\pequenio.cpp
+	"Pequenio.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\perro.cpp
+	"Perro.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\personalidad.cpp
+	"Personalidad.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\roedor.cpp
+	"Roedor.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\sociable.cpp
+	"Sociable.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\tamanio.cpp
+	"Tamanio.h"
+
+1670304605 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\travieso.cpp
+	"Travieso.h"
+
+1670296554 source:c:\users\antonella\desktop\cosas 0231\nuevo 0232\vertice.cpp
+	"Vertice.h"
+
