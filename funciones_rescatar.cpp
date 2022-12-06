@@ -4,7 +4,7 @@
 #include "Automovil.h"
 #include "Grafo.h"
 
-#include <ctype.h>
+//#include <ctype.h>
 #include <string>
 
 
@@ -13,43 +13,45 @@ string empezar_a_rescatar(string animales_perdidos)
 {
     int salir = 1;
 
+    string buffer;
+
     int cantidad_de_animales_rescatados = 0;
 
     string animales_rescatados;
 
     cout<<"Rescata a los animales!!"<<endl;
 
-        cout<<endl;
+    cout<<endl;
 
-        imprimir_referencias();
+    imprimir_referencias();
 
-        cout<<"Tablero original"<<endl;
+    cout<<"Tablero original"<<endl;
 
         //graficar_tablero(tablero_original);
-        imprimir_emojis(tablero_original);
+    imprimir_emojis(tablero_original);
 
-        cout<<endl;
+    cout<<endl;
 
-        Automovil autito;
+    Automovil autito;
 
-        int num_casilla_animal = 0;
+    int num_casilla_animal = 0;
 
-        int num_casilla_auto = 0;
+    int num_casilla_auto = 0;
 
-        int gasolina_necesaria = 0;
+    int gasolina_necesaria = 0;
 
-        string casilla_animal;
+    string casilla_animal;
 
-        string casilla_auto;
+    string casilla_auto;
 
-        string animal_a_rescatar;
+    string animal_a_rescatar;
 
-        string tablero_random;
+    string tablero_random;
 
-        cout<<"Animales perdidos"<<endl;
+    cout<<"Animales perdidos"<<endl;
 
 
-        tablero_random = generar_tablero_de_animales_perdidos(animales_perdidos);
+    tablero_random = generar_tablero_de_animales_perdidos(animales_perdidos);
 
 
     while(salir==1 && cantidad_de_animales_rescatados<5){
@@ -88,11 +90,10 @@ string empezar_a_rescatar(string animales_perdidos)
 
         cout<<endl;
 
-        cin.ignore();
+        //cin.ignore();
 
         cout<<"Desea realizar el viaje? [s/n]";
-        getline(cin,respuesta);
-
+        getline(cin >> ws,respuesta);
 
 
         if (autito.se_puede_viajar(gasolina_necesaria) && respuesta =="s")
@@ -111,17 +112,11 @@ string empezar_a_rescatar(string animales_perdidos)
 
                 casilla_auto = casilla_animal;
 
-                //graficar_tablero(tablero_random);
-
                 imprimir_emojis(tablero_random);
 
                 animales_rescatados = animales_rescatados + animal_a_rescatar;
 
                 cantidad_de_animales_rescatados ++;
-
-
-
-
 
             }
             else
@@ -134,7 +129,8 @@ string empezar_a_rescatar(string animales_perdidos)
         {
 
             cout<<"\n Ingrese : 1. para rescatar otro animal, 2. para salir";
-            cin>>salir;
+            getline(cin >> ws, buffer);
+            salir = stoi(buffer);
 
         }
     }
@@ -187,6 +183,8 @@ string elegir_animal_a_rescatar(string animales_perdidos,string animales_rescata
 
     string letra;
 
+    string buffer;
+
     int opcion = 0;
 
     int largo = calcular_largo(animales_perdidos);
@@ -201,9 +199,11 @@ string elegir_animal_a_rescatar(string animales_perdidos,string animales_rescata
                 cout<<i<<". "<<animales_perdidos[i]<<endl;
         }
         cout<<"Ingrese la opcion elegida: ";
-        cin>>opcion;
-
-
+        cin >> opcion;
+        if(!isdigit(opcion)) {
+            cout << "Opcion invalida, se elige el 0." << endl;
+            opcion = 0;
+        }
     }
 
     inicial = animales_perdidos[opcion];
@@ -239,8 +239,6 @@ string generar_personalidades_rand(){
     personalidad_str = PERSONALIDADES[random];
 
     return personalidad_str;
-
-
 }
 
 string generar_especie_rand(){
@@ -282,8 +280,6 @@ void terminar_de_rescatar(ABB<Animal>* arbol_animales, string animales_rescatado
     }
 }
 //FUNCION NUEVA SI FUNCIONA LO DE NICO
-
-/*
 
 
 

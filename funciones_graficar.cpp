@@ -31,7 +31,7 @@ void graficar_tablero(string nuevo_tablero)
 
 string generar_animales_perdidos()
 {
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
 
 
     int indice = 0;
@@ -40,14 +40,14 @@ string generar_animales_perdidos()
 
     string animal;
 
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
 
     int n, num[7];
 
     for(int i=0; i<5; i++)
     {
         do
-            n =  rand() % 7;
+            n =  rand() % 7 ;
 
         while(comprobar_repeticion(n, num,7));
 
@@ -63,14 +63,13 @@ string generar_animales_perdidos()
 
 
     return animales_perdidos;
-
 }
 
 bool comprobar_repeticion(int n, int num[],int ciclo)
 {
     bool se_repite = false;
 
-     for(int i=0; i<ciclo; i++)
+    for(int i=0; i<ciclo; i++)
 
         if(n == num[i])
 
@@ -92,7 +91,7 @@ string generar_tablero_de_animales_perdidos(string animales_perdidos)
 
     tablero.replace(0,1,"A");
 
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
     int n, num[5];
     for(int i=0; i<5; i++)
     {
@@ -130,12 +129,11 @@ void marcar_camino( string tablero,int cantidad,int vector_camino[])
     {
         direccion = vector_camino[i] - 1;
 
-        tablero.replace(direccion,1,nuevo_simbolo);
+        tablero.replace(direccion,1,"A");
 
     }
 
     imprimir_emojis(tablero);
-    //graficar_tablero(tablero);
 }
 
 
@@ -225,24 +223,24 @@ string modificar_tablero_aleatorio(string tablero_rand, int posicion_auto_nueva,
 
 void imprimir_referencias()
 {
-    cout<<"Referencias: "<<endl;
-    cout<<endl;
-    cout<<EMOJIS[8]<<"= Monta�a, costo gasolina = 5 pts"<<endl;
-    cout<<EMOJIS[9]<<"= Precipicio, costo gasolina = 40 pts"<<endl;
-    cout<<EMOJIS[10]<<"= Camino, costo gasolina = 1 pts"<<endl;
-    cout<<EMOJIS[11]<<"= Tierra, costo gasolina = 2 pts"<<endl;
-    cout<<endl;
-    cout<<EMOJIS[7]<<"= auto"<<endl;
-    cout<<EMOJIS[13]<<"= en camino"<<endl;
-    cout<<endl;
-    cout<<EMOJIS[1]<<"= Caballo"<<endl;
-    cout<<EMOJIS[2]<<"= Gato"<<endl;
-    cout<<EMOJIS[5]<<"= Lagarto"<<endl;
-    cout<<EMOJIS[4]<<"= Conejo "<<endl;
-    cout<<EMOJIS[0]<<"= Perro"<<endl;
-    cout<<EMOJIS[3]<<"= Roedor "<<endl;
-    cout<<EMOJIS[6]<<"= Erizo "<<endl;
-    cout<<endl;
+    cout << "Referencias: "<<endl;
+    cout << endl;
+    cout << "⬛" <<" = Monta�a, costo gasolina = 5 pts" << endl;
+    cout << "🟫" << " = Precipicio, costo gasolina = 40 pts" << endl;
+    cout << "🟩" << " = Camino, costo gasolina = 1 pts" << endl;
+    cout << "⬜" << " = Tierra, costo gasolina = 2 pts" << endl;
+    cout << endl;
+    cout << "🚚" << " = auto" << endl;
+    cout << "💨" << " = en camino" << endl;
+    cout << endl;
+    cout << "🐎" << " = Caballo" << endl;
+    cout << "🐱" << " = Gato" << endl;
+    cout << "🦎" << " = Lagarto" << endl;
+    cout << "🐰" <<" = Conejo " << endl;
+    cout << "🐶" << " = Perro" << endl;
+    cout << "🐭" << " = Roedor" << endl;
+    cout << "🦔" << " = Erizo" << endl;
+    cout << endl;
 
 
 }
@@ -281,7 +279,7 @@ void imprimir_emojis(string tablero_nuevo)
             cout<<endl;
         }
 
-        cout<<" [  "<<emoji<<"  ] ";
+        cout << emoji ;
 
 
     }

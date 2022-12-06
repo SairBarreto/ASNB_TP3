@@ -11,19 +11,19 @@ const string tablero_original = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctm
 
 
  const string EMOJIS[13] = {
-        "\U0001F436",//PERRO
-        "\U0001F434",//caballo
-        "\U0001F431",//gato
-        "\U0001F400",//rata
-        "\U0001F407",//conejo
-        "\U0001F98E",//lagarto
-        "\U0001F994",//erizo
-        "\U0001F697",//auto
-        "\U0001F7EB",//monta�a
-        "\U0001F7E5",//precipicio
-        "\U0001F7E8",//camino
-        "\U0001F7E9",//tierra
-        "\U0001F9E1"//corazon rojo
+        "🐶",//PERRO
+        "🐎",//caballo
+        "🐱",//gato
+        "🐭",//rata
+        "🐰",//conejo
+        "🦎",//lagarto
+        "🦔",//erizo
+        "🚚",//auto
+        "🟫",//monta�a
+        "⬛",//precipicio
+        "⬜",//camino
+        "🟩",//tierra
+        "❤️"//corazon rojo
 
  };
 
@@ -38,7 +38,7 @@ const string tablero_original = "cpttttttctttppppccccctmmttttctmmmmmtctmmttttctm
    "L",//lagarto
    "E",//erizo
    "A",//auto
-   "m",//monta�a
+   "m",//monta�a
    "p",//precipicio
    "c",//camino
    "t",//tierra
