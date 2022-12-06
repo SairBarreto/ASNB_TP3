@@ -1,5 +1,6 @@
 #include <fstream>
 #include "animal_handler.h"
+#include "ordenamiento.h"
 
 #include "Caballo.h"
 #include "Conejo.h"
@@ -434,25 +435,38 @@ void alimentar_individual(Animal* animal) {
 }
 
 
+Animal* animal[1000];
+int i = 0;
+int temporal;
+
 void adoptar_animal(ABB<Animal>* arbol_animales) {
     int metros_cuadrados = 0;
-    string nombre_buscado;
     cout << "Ingrese cantidad de metros cuadrados disponibles: ";
     cin >> metros_cuadrados;
 
     mostrar_animales_en_adopcion(arbol_animales, metros_cuadrados);
 
+    bool salir = false;
+    int contador = 0;
+    string nombre_buscado;
+    cout << endl;
     cout << "¿Cual desea adoptar? Ingrese su nombre: ";
+    cin.ignore();
     getline(cin >> ws, nombre_buscado);
 
-    Animal* animal = arbol_animales -> buscar(nombre_buscado);
-    if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
-        arbol_animales -> eliminar(animal -> obtener_nombre());
-        cout << endl;
-        cout << "Felicidades usted adopto a " << nombre_buscado << endl;
-        cout << endl << "---------------------------------------------------------" << endl << endl;
+    while(contador < temporal && !salir){
+        if(animal[i]->obtener_nombre() == nombre_buscado){
+            Animal* animal = arbol_animales -> buscar(nombre_buscado);
+            if(animal != nullptr && puede_vivir_en_espacio(animal, metros_cuadrados)) {
+                arbol_animales -> eliminar(animal -> obtener_nombre());
+                cout << endl;
+                cout << "Felicidades usted adopto a " << nombre_buscado << endl;
+                cout << endl << "---------------------------------------------------------" << endl << endl;
+            }
+        }
+        contador++;
     }
-    else {
+    if(salir == false){
         cout << endl;
         cout << nombre_buscado << " no se encuentra en la Reserva o no tiene el espacio suficiente." << endl;
         cout << endl << "---------------------------------------------------------" << endl << endl;
@@ -463,26 +477,37 @@ void mostrar_animales_en_adopcion(ABB<Animal>* arbol_animales, int metros_cuadra
     cout << endl;
     _mostrar_animales_en_adopcion(arbol_animales -> devolver_raiz(), metros_cuadrados);
     cout << endl;
+
+    QuickSort ordenar;
+
+    ordenar.sort(animal, i);
+
+   for(int j = 0; j < i; j++){
+        cout << "\tEdad: " << animal[j]->obtener_edad() << endl;
+        cout << "\tNombre: " << animal[j]->obtener_nombre() << endl;
+        cout << endl;
+    }
+    temporal = i;
+    i = 0; //Reinicio el contador xq esta declarado como una variable global
 }
 
 void _mostrar_animales_en_adopcion(ABBNodo<Animal>* nodo, int metros_cuadrados) {
 
     if(nodo != nullptr) {
-         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_izquierda(), metros_cuadrados);
+        _mostrar_animales_en_adopcion(nodo -> devolver_nodo_izquierda(), metros_cuadrados);
         if( puede_vivir_en_espacio( nodo -> devolver_dato(), metros_cuadrados) ) {
-            cout << "\t -" << nodo -> devolver_dato() -> obtener_nombre() << endl;
+            //cout << "i: " << i <<endl;
+            animal[i] = nodo->devolver_dato();
+            
+            i++;
         }
-         _mostrar_animales_en_adopcion(nodo -> devolver_nodo_derecha(), metros_cuadrados);
+        _mostrar_animales_en_adopcion(nodo -> devolver_nodo_derecha(), metros_cuadrados);
     }
-
 }
-
 
 bool puede_vivir_en_espacio(Animal* animal, int metros_cuadrados) {
     return animal -> obtener_tipo_tamanio() -> hay_espacio_suficiente(metros_cuadrados);
 }
-
-
 
 
 void en_juego(ABB<Animal>* arbol_animales, Vida* vida) {
